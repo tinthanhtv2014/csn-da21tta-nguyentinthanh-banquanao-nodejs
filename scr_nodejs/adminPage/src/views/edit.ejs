@@ -31,27 +31,25 @@
           </tr>
         </thead>
         <tbody>
-          <% for(let i=0; i < dataProduct.length; i++) { %>
+          <% for(let i=0; i < dataproduct.length; i++) { %>
           <tr>
-            <td><%= dataProduct[i].id %></td>
-            <td><%= dataProduct[i].tensp %></td>
-            <td><%= dataProduct[i].loaisp %></td>
-            <td><%= dataProduct[i].soluong %></td>
+            <td><%= dataproduct[i].id %></td>
+            <td><%= dataproduct[i].tensp %></td>
+            <td><%= dataproduct[i].loaisp %></td>
+            <td><%= dataproduct[i].soluong %></td>
 
-            <td><%= dataProduct[i].giatien %></td>
+            <td><%= dataproduct[i].giatien %></td>
 
-            <td style="display: flex">
-              <form action="/editproduct/<%=dataProduct[i].id%>" method="get">
+            <td>
+              <form action="/editproduct/<%=dataproduct[i].id%>" method="get">
                 <button type="submit">edit</button>
               </form>
-
               <form action="/delete-product" method="post">
                 <input
                   type="text"
                   hidden
-                  value="<%=dataProduct[i].id%>"
+                  value="<%=dataproduct[i].id%>"
                   name="productId"
-                  ư
                 /><button type="submit">delete</button>
               </form>
             </td>
@@ -61,33 +59,40 @@
       </table>
     </div>
     <div class="create-user-container">
-      <form action="/create-new-product" method="post">
+      <form action="/update-product" method="post">
         <fieldset>
-          <legend><b>Thêm sản phẩm vào database</b></legend>
+          <legend><b>Cập nhật sản phẩm vào database</b></legend>
 
           <div>
-            <label for="">ID sản phẩm : </label>
-            <input type="text" name="id" />
+            <input type="text" name="id" hidden value="<%=dataProduct.id %>" />
           </div>
           <div>
             <label for="">Tên sản phẩm : </label>
-            <input type="text" name="tensp" />
+            <input type="text" name="tensp" value="<%=dataProduct.tensp %>" />
           </div>
           <div>
             <label for="">Thể loại : </label>
-            <input type="text" name="loaisp" />
+            <input type="text" name="loaisp" value="<%=dataProduct.loaisp %>" />
           </div>
           <div>
             <label for="">Số lượng thêm : </label>
-            <input type="text" name="soluong" />
+            <input
+              type="text"
+              name="soluong"
+              value="<%=dataProduct.soluong %>"
+            />
           </div>
           <div>
             <label for="">Giá tiền : </label>
-            <input type="text" name="giatien" />
+            <input
+              type="text"
+              name="giatien"
+              value="<%=dataProduct.giatien %>"
+            />
           </div>
 
           <div>
-            <button type="submit">Submit</button>
+            <button type="submit">Save</button>
           </div>
         </fieldset>
       </form>
