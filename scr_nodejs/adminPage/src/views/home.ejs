@@ -37,7 +37,14 @@
             <td><%= dataProduct[i].soluong %></td>
 
             <td><%= dataProduct[i].giatien %></td>
-            <td><%= dataProduct[i].mota %></td>
+            <td>
+              <img
+                src="/images/<%= dataProduct[i].mota %>"
+                alt=""
+                width="100px"
+                height="100px"
+              />
+            </td>
             <td style="display: flex">
               <form action="/editproduct/<%=dataProduct[i].id%>" method="get">
                 <button type="submit">edit</button>
@@ -59,7 +66,11 @@
       </table>
     </div>
     <div class="create-user-container">
-      <form action="/create-new-product" method="post">
+      <form
+        action="/create-new-product"
+        method="post"
+        enctype="multipart/form-data"
+      >
         <fieldset>
           <legend><b>Thêm sản phẩm vào database</b></legend>
 
@@ -85,10 +96,20 @@
           </div>
 
           <div>
+            <label for="">Avatar: </label>
+            <input type="file" name="profile_pic" />
+          </div>
+
+          <div>
             <button type="submit">Submit</button>
           </div>
         </fieldset>
       </form>
+      <form
+        method="POST"
+        action="/upload-profile-pic"
+        enctype="multipart/form-data"
+      ></form>
     </div>
   </body>
 </html>
