@@ -24,13 +24,10 @@ const createProduct = async (req, res) => {
       message: "missing ",
     });
   }
-  await connection.execute("insert into product values (?,?,?,?,?)", [
-    id,
-    tensp,
-    loaisp,
-    soluong,
-    giatien,
-  ]);
+  await connection.execute(
+    "insert into product(id,tensp,loaisp,soluong,giatien) values (?,?,?,?,?)",
+    [id, tensp, loaisp, soluong, giatien]
+  );
   return res.status(200).json({
     message: "ok",
   });
@@ -75,6 +72,5 @@ module.exports = {
   getAllProduct,
   createProduct,
   deleteProduct,
-
   updateProduct,
 };

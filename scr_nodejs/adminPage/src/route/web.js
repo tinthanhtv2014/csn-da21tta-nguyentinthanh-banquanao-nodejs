@@ -7,6 +7,7 @@ const {
   deleteProduct,
   getEditPage,
   updateProduct,
+  getUserPage,
 } = require("../controller/homeController");
 
 router.get("/", getHomePage);
@@ -16,5 +17,7 @@ router.post("/create-new-product", createNewProduct);
 router.post("/delete-product", deleteProduct);
 router.get("/editproduct/:id", getEditPage);
 router.post("/update-product", updateProduct);
+
+router.get("/user-order", getUserPage);
 
 module.exports = router;

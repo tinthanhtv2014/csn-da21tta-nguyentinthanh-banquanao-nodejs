@@ -10,8 +10,6 @@
     <div class="topnav">
       <a class="active" href="/">Home</a>
       <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
     </div>
 
     <div class="w3-container">
@@ -26,7 +24,7 @@
             <th>Số lượng</th>
 
             <th>Giá tiền</th>
-
+            <th>Minh họa</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -39,6 +37,7 @@
             <td><%= dataproduct[i].soluong %></td>
 
             <td><%= dataproduct[i].giatien %></td>
+            <td><%= dataproduct[i].mota %></td>
 
             <td>
               <form action="/editproduct/<%=dataproduct[i].id%>" method="get">

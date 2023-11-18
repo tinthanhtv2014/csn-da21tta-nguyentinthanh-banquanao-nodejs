@@ -8,8 +8,8 @@
   </head>
   <body>
     <div class="topnav">
-      <a class="active" href="#home">Home</a>
-      <a href="/user-order">Users-Order</a>
+      <a href="/">Home</a>
+      <a href="#" class="active">Users-Order</a>
     </div>
 
     <div class="w3-container">
@@ -19,46 +19,26 @@
         <thead>
           <tr class="w3-light-grey">
             <th>id</th>
-            <th>Tên sản phẩm</th>
-            <th>Loại sản phẩm</th>
-            <th>Số lượng</th>
-
-            <th>Giá tiền</th>
-            <th>Minh họa</th>
-            <th>Actions</th>
+            <th>Họ tên khách hàng</th>
+            <th>Số điện thoại</th>
+            <th>Địa chỉ</th>
+            <th>Ngày sinh</th>
           </tr>
         </thead>
         <tbody>
-          <% for(let i=0; i < dataProduct.length; i++) { %>
+          <% for(let i=0; i < dataUsers.length; i++) { %>
           <tr>
-            <td><%= dataProduct[i].id %></td>
-            <td><%= dataProduct[i].tensp %></td>
-            <td><%= dataProduct[i].loaisp %></td>
-            <td><%= dataProduct[i].soluong %></td>
-
-            <td><%= dataProduct[i].giatien %></td>
-            <td><%= dataProduct[i].mota %></td>
-            <td style="display: flex">
-              <form action="/editproduct/<%=dataProduct[i].id%>" method="get">
-                <button type="submit">edit</button>
-              </form>
-
-              <form action="/delete-product" method="post">
-                <input
-                  type="text"
-                  hidden
-                  value="<%=dataProduct[i].id%>"
-                  name="productId"
-                  ư
-                /><button type="submit">delete</button>
-              </form>
-            </td>
+            <td><%= dataUsers[i].idkh %></td>
+            <td><%= dataUsers[i].hotenkh %></td>
+            <td><%= dataUsers[i].sdt %></td>
+            <td><%= dataUsers[i].diachi %></td>
+            <td><%= dataUsers[i].ngaysinh %></td>
           </tr>
           <% } %>
         </tbody>
       </table>
     </div>
-    <div class="create-user-container">
+    <!-- <div class="create-user-container">
       <form action="/create-new-product" method="post">
         <fieldset>
           <legend><b>Thêm sản phẩm vào database</b></legend>
@@ -89,6 +69,6 @@
           </div>
         </fieldset>
       </form>
-    </div>
+    </div> -->
   </body>
 </html>

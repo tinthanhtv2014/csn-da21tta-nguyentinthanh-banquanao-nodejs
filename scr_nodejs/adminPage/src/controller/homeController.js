@@ -17,19 +17,23 @@ const getDetailPage = async (req, res) => {
   return res.send(JSON.stringify(user));
 };
 
+const getUserPage = async (req, res) => {
+  const [results, fields] = await connection.execute("SELECT * FROM `users` ");
+
+  return res.render("user.ejs", { dataUsers: results });
+};
+
 const createNewProduct = async (req, res) => {
   let id = req.body.id;
   let tensp = req.body.tensp;
   let loaisp = req.body.loaisp;
   let soluong = req.body.soluong;
   let giatien = req.body.giatien;
-  await connection.execute("insert into product values (?,?,?,?,?)", [
-    id,
-    tensp,
-    loaisp,
-    soluong,
-    giatien,
-  ]);
+
+  await connection.execute(
+    "insert into product(id,tensp,loaisp,soluong,giatien) values (?,?,?,?,?)",
+    [id, tensp, loaisp, soluong, giatien]
+  );
   return res.redirect("/");
 };
 
@@ -72,4 +76,5 @@ module.exports = {
   deleteProduct,
   getEditPage,
   updateProduct,
+  getUserPage,
 };
