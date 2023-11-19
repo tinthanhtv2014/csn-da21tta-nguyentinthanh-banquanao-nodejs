@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2023 at 04:07 AM
+-- Generation Time: Nov 19, 2023 at 04:05 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -41,8 +41,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `tensp`, `loaisp`, `soluong`, `giatien`, `mota`) VALUES
-('SP002', 'Quần tây', 'quần', 10, '130000', NULL),
-('SP003', 'Áo dài', 'quần', 10, '50000', NULL);
+('SP001', 'Áo dài', 'quần', 20, '50000', 'profile_pic-1700405904055.jpg'),
+('SP002', 'Quần ', 'quần', 10, '130000', 'profile_pic-1700405894278.jpg'),
+('SP007', 'Áo dài', 'quần', 10, '150000', 'profile_pic-1700406008757.jpg');
 
 -- --------------------------------------------------------
 
