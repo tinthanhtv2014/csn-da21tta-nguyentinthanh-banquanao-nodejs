@@ -39,8 +39,39 @@
   width: 0; /* Bắt đầu với độ rộng là 0 */
   height: 2px; /* Độ dày của đường gạch */
   background: black;
-  transition: width 0.3s ease; /* Hiệu ứng chuyển động */
+  transition: width 0.7s ease; /* Hiệu ứng chuyển động */
 }
 .header-ul ul li:hover::after {
   width: 100%; /* Khi hover, đường gạch sẽ mở rộng đến 100% */
+}
+
+.navSearch {
+  color: black;
+  display: flex;
+  padding: 0 30px;
+}
+
+.iconSearch {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.navSearch:hover .iconSearch {
+  color: black;
+}
+.navSearch input {
+  font-size: 14px;
+
+  height: 40px;
+  width: 300px;
+  color: black;
+
+  transition: all 0.5s;
+}
+
+.navSearch input:focus {
+  padding-right: 26px;
+  width: 300px;
+  cursor: text;
+  opacity: 1;
 }
