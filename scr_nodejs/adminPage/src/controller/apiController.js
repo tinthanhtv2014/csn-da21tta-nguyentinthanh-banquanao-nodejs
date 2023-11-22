@@ -1,15 +1,32 @@
 const express = require("express");
 const connection = require("../config/dataBase");
-
+const fs = require("fs");
 //hien thi data thong qua api
 const getAllProduct = async (req, res) => {
-  const [results, fields] = await connection.execute(
-    "SELECT * FROM `product` "
-  );
-  return res.status(200).json({
-    message: "ok",
-    data: results,
-  });
+  try {
+    const [results, fields] = await connection.execute(
+      "SELECT * FROM `product`"
+    );
+
+    // Thêm đường dẫn đầy đủ cho mỗi sản phẩm
+    const productsWithImageUrls = results.map((product) => {
+      return {
+        ...product,
+        imageUrl: `http://localhost:8081/api/v1/images/${product.mota}`,
+      };
+    });
+
+    return res.status(200).json({
+      message: "ok",
+      data: productsWithImageUrls,
+    });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
 };
 
 //them data thong qua api
