@@ -10,3 +10,4 @@ ngày 19/11: thêm ảnh vào cơ sở dữ liệu và đưa lên trang nodejs �
 ngày 20/11: tạo ra dự ấn frontend cho trang web
 ngày 21/11: tạo thanh navbar cho trang web
 ngày 22/11: tạo slide và tiến hành lấy api từ dự án nodejs lên dự án reactjs
+ngày 23/11: thiết kế lại cơ sở dữ liệu và thêm chức năng chọn các option tạo thêm sản phẩm cho trang nodejs
