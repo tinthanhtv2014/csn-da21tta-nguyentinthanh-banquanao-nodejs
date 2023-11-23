@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 23, 2023 at 11:21 AM
+-- Generation Time: Nov 23, 2023 at 03:02 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Database: `quanlysanpham`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `billproduct`
+--
+
+CREATE TABLE `billproduct` (
+  `mahd` varchar(255) NOT NULL,
+  `idkh` varchar(255) NOT NULL,
+  `diachiship` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `billproduct`
+--
+
+INSERT INTO `billproduct` (`mahd`, `idkh`, `diachiship`) VALUES
+('HD001', 'KH002', 'bụi lùm');
 
 -- --------------------------------------------------------
 
@@ -66,6 +85,25 @@ INSERT INTO `companyname` (`tenNSX`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `detailbillproduct`
+--
+
+CREATE TABLE `detailbillproduct` (
+  `mahd` varchar(255) NOT NULL,
+  `id` varchar(255) NOT NULL,
+  `soluongsp` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `detailbillproduct`
+--
+
+INSERT INTO `detailbillproduct` (`mahd`, `id`, `soluongsp`) VALUES
+('HD001', 'SP007', 10);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product`
 --
 
@@ -84,10 +122,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `tensp`, `soluong`, `loaisp`, `tenNSX`, `giatien`, `mota`) VALUES
-('SP002', 'Quần ', 10, 'áo thun', 'bbb', '130000', 'profile_pic-1700405894278.jpg'),
+('SP002', 'Quần ', 10, 'áo thun', 'bbb', '130000', 'profile_pic-1700746894945.jpg'),
 ('SP003', 'áo thun nam đẹp', 20, 'áo thun', 'aaa', '130000', 'profile_pic-1700732120198.jpg'),
-('SP004', 'áo dài nam xấu như chó', 10, 'quần dài', 'ccc', '150000', 'profile_pic-1700734895394.jpg'),
-('SP007', 'Áo dài', 10, 'áo dài', 'ccc', '150000', 'profile_pic-1700406008757.jpg');
+('SP007', 'Quần tây', 20, 'áo dài', 'aaa', '130000', 'profile_pic-1700747022080.jpg');
 
 -- --------------------------------------------------------
 
@@ -116,6 +153,13 @@ INSERT INTO `users` (`idkh`, `hotenkh`, `sdt`, `diachi`, `ngaysinh`) VALUES
 --
 
 --
+-- Indexes for table `billproduct`
+--
+ALTER TABLE `billproduct`
+  ADD PRIMARY KEY (`mahd`),
+  ADD KEY `idkh` (`idkh`);
+
+--
 -- Indexes for table `cateproduct`
 --
 ALTER TABLE `cateproduct`
@@ -126,6 +170,13 @@ ALTER TABLE `cateproduct`
 --
 ALTER TABLE `companyname`
   ADD PRIMARY KEY (`tenNSX`);
+
+--
+-- Indexes for table `detailbillproduct`
+--
+ALTER TABLE `detailbillproduct`
+  ADD PRIMARY KEY (`mahd`,`id`),
+  ADD KEY `id` (`id`);
 
 --
 -- Indexes for table `product`
@@ -144,6 +195,19 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `billproduct`
+--
+ALTER TABLE `billproduct`
+  ADD CONSTRAINT `billproduct_ibfk_1` FOREIGN KEY (`idkh`) REFERENCES `users` (`idkh`);
+
+--
+-- Constraints for table `detailbillproduct`
+--
+ALTER TABLE `detailbillproduct`
+  ADD CONSTRAINT `detailbillproduct_ibfk_1` FOREIGN KEY (`id`) REFERENCES `product` (`id`),
+  ADD CONSTRAINT `detailbillproduct_ibfk_2` FOREIGN KEY (`mahd`) REFERENCES `billproduct` (`mahd`);
 
 --
 -- Constraints for table `product`
