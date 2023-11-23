@@ -36,14 +36,15 @@ const createProduct = async (req, res) => {
   let loaisp = req.body.loaisp;
   let soluong = req.body.soluong;
   let giatien = req.body.giatien;
-  if (!id || !tensp || !loaisp || !soluong || !giatien) {
+  let tenNSX = req.body.tenNSX;
+  if (!id || !tensp || !loaisp || !soluong || !giatien || !tenNSX) {
     return res.status(200).json({
       message: "missing ",
     });
   }
   await connection.execute(
-    "insert into product(id,tensp,loaisp,soluong,giatien) values (?,?,?,?,?)",
-    [id, tensp, loaisp, soluong, giatien]
+    "insert into product(id,tensp,loaisp,tenNSX,soluong,giatien) values (?,?,?,?,?,?)",
+    [id, tensp, loaisp, tenNSX, soluong, giatien]
   );
   return res.status(200).json({
     message: "ok",
@@ -71,14 +72,15 @@ const updateProduct = async (req, res) => {
   let loaisp = req.body.loaisp;
   let soluong = req.body.soluong;
   let giatien = req.body.giatien;
-  if (!id || !tensp || !loaisp || !soluong || !giatien) {
+  let tenNSX = req.body.tenNSX;
+  if (!id || !tensp || !loaisp || !soluong || !giatien || !tenNSX) {
     return res.status(200).json({
       message: "missing ",
     });
   }
   await connection.execute(
-    "update product set tensp = ?,loaisp = ?,soluong = ?, giatien = ? where id = ?",
-    [tensp, loaisp, soluong, giatien, id]
+    "update product set tensp = ?,loaisp = ?,tenNSX = ?,soluong = ?, giatien = ? where id = ?",
+    [tensp, loaisp, tenNSX, soluong, giatien, id]
   );
   return res.status(200).json({
     message: "ok",

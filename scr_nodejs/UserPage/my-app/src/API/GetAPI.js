@@ -57,6 +57,7 @@ class GetAPI extends Component {
                 <th>ID</th>
                 <th>Tên sản phẩm</th>
                 <th>Loại sản phẩm</th>
+                <th>Tên nhà sản xuất</th>
                 <th>Số lượng</th>
                 <th>Giá tiền</th>
                 <th>Mô tả</th>
@@ -69,6 +70,7 @@ class GetAPI extends Component {
                     <td>{item.id}</td>
                     <td>{item.tensp}</td>
                     <td>{item.loaisp}</td>
+                    <td>{item.tenNSX}</td>
                     <td>{item.soluong}</td>
                     <td>{item.giatien}</td>
                     <td>

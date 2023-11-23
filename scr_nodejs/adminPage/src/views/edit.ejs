@@ -8,8 +8,9 @@
   </head>
   <body>
     <div class="topnav">
-      <a class="active" href="/">Home</a>
-      <a href="#news">News</a>
+      <a  href="/">Home</a>
+      <a class="active" href="#news">News</a>
+      
     </div>
 
     <div class="w3-container">
@@ -21,6 +22,7 @@
             <th>id</th>
             <th>Tên sản phẩm</th>
             <th>Loại sản phẩm</th>
+            <th>Tên nhà sản xuất</th>
             <th>Số lượng</th>
 
             <th>Giá tiền</th>
@@ -34,6 +36,7 @@
             <td><%= dataproduct[i].id %></td>
             <td><%= dataproduct[i].tensp %></td>
             <td><%= dataproduct[i].loaisp %></td>
+            <td><%= dataproduct[i].tenNSX %></td>
             <td><%= dataproduct[i].soluong %></td>
 
             <td><%= dataproduct[i].giatien %></td>
@@ -82,7 +85,23 @@
           </div>
           <div>
             <label for="">Thể loại : </label>
-            <input type="text" name="loaisp" value="<%=dataProduct.loaisp %>" />
+            <select name="loaisp" value="<%=dataProduct.loaisp %>">
+              <option <%= dataProduct.loaisp === 'áo dài' ? 'selected' : '' %>>áo dài</option>
+              <option <%= dataProduct.loaisp === 'áo thun' ? 'selected' : '' %>>áo thun</option>
+              <option <%= dataProduct.loaisp === 'áo vest' ? 'selected' : '' %>>áo vest</option>
+              <option <%= dataProduct.loaisp === 'quần dài' ? 'selected' : '' %>>quần dài</option>
+              <option <%= dataProduct.loaisp === 'quần jean' ? 'selected' : '' %>>quần jean</option>
+              <option <%= dataProduct.loaisp === 'quần short' ? 'selected' : '' %>>quần short</option>
+              <option <%= dataProduct.loaisp === 'quần tây' ? 'selected' : '' %>>quần tây</option>
+            </select>
+          </div>
+          <div>
+            <label for="">Tên nhà sản xuất</label>
+            <select name="tenNSX" value="<%=dataProduct.tenNSX %>">
+              <option <%= dataProduct.tenNSX === 'aaa' ? 'selected' : '' %>>aaa</option>
+              <option <%= dataProduct.tenNSX === 'bbb' ? 'selected' : '' %>>bbb</option>
+              <option <%= dataProduct.tenNSX === 'ccc' ? 'selected' : '' %>>ccc</option>
+            </select>
           </div>
           <div>
             <label for="">Số lượng thêm : </label>
@@ -109,6 +128,7 @@
               value="<%=dataProduct.mota %>"
             />
           </div>
+         
           <div>
             <button type="submit">Save</button>
           </div>

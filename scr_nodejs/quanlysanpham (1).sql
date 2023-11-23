@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2023 at 04:05 PM
+-- Generation Time: Nov 23, 2023 at 11:21 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,14 +24,57 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cateproduct`
+--
+
+CREATE TABLE `cateproduct` (
+  `loaisp` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cateproduct`
+--
+
+INSERT INTO `cateproduct` (`loaisp`) VALUES
+('áo dài'),
+('áo thun'),
+('áo vest'),
+('quần dài'),
+('quần jean'),
+('quần short'),
+('quần tây');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `companyname`
+--
+
+CREATE TABLE `companyname` (
+  `tenNSX` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `companyname`
+--
+
+INSERT INTO `companyname` (`tenNSX`) VALUES
+('aaa'),
+('bbb'),
+('ccc');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product`
 --
 
 CREATE TABLE `product` (
   `id` varchar(10) NOT NULL,
   `tensp` varchar(255) NOT NULL,
-  `loaisp` varchar(255) NOT NULL,
   `soluong` int(11) NOT NULL,
+  `loaisp` varchar(255) NOT NULL,
+  `tenNSX` varchar(255) NOT NULL,
   `giatien` varchar(255) NOT NULL,
   `mota` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -40,10 +83,11 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `tensp`, `loaisp`, `soluong`, `giatien`, `mota`) VALUES
-('SP001', 'Áo dài', 'quần', 20, '50000', 'profile_pic-1700405904055.jpg'),
-('SP002', 'Quần ', 'quần', 10, '130000', 'profile_pic-1700405894278.jpg'),
-('SP007', 'Áo dài', 'quần', 10, '150000', 'profile_pic-1700406008757.jpg');
+INSERT INTO `product` (`id`, `tensp`, `soluong`, `loaisp`, `tenNSX`, `giatien`, `mota`) VALUES
+('SP002', 'Quần ', 10, 'áo thun', 'bbb', '130000', 'profile_pic-1700405894278.jpg'),
+('SP003', 'áo thun nam đẹp', 20, 'áo thun', 'aaa', '130000', 'profile_pic-1700732120198.jpg'),
+('SP004', 'áo dài nam xấu như chó', 10, 'quần dài', 'ccc', '150000', 'profile_pic-1700734895394.jpg'),
+('SP007', 'Áo dài', 10, 'áo dài', 'ccc', '150000', 'profile_pic-1700406008757.jpg');
 
 -- --------------------------------------------------------
 
@@ -72,16 +116,41 @@ INSERT INTO `users` (`idkh`, `hotenkh`, `sdt`, `diachi`, `ngaysinh`) VALUES
 --
 
 --
+-- Indexes for table `cateproduct`
+--
+ALTER TABLE `cateproduct`
+  ADD PRIMARY KEY (`loaisp`);
+
+--
+-- Indexes for table `companyname`
+--
+ALTER TABLE `companyname`
+  ADD PRIMARY KEY (`tenNSX`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `tenNSX` (`tenNSX`),
+  ADD KEY `loaisp` (`loaisp`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`idkh`);
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`tenNSX`) REFERENCES `companyname` (`tenNSX`),
+  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`loaisp`) REFERENCES `cateproduct` (`loaisp`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
