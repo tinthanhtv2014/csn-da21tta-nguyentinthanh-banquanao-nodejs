@@ -1,0 +1,20 @@
+.centered-text {
+  text-align: center; /* Căn giữa nội dung */
+  line-height: 1.2; /* Chiều cao dòng để giữa chữ theo chiều dọc */
+  margin-top: 4%; /* Khoảng cách trên là 20% của chiều cao */
+  margin-bottom: 4%; /* Khoảng cách dưới là 20% của chiều cao */
+  font-size: 30px;
+  font-weight: 500;
+  animation: slideDown 1.5s ease-in-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

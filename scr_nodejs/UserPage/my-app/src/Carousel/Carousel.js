@@ -1,6 +1,9 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
+import Slide1 from "../assets/image/slide1.jpg";
+import Slide2 from "../assets/image/slide2.jpg";
+import Slide3 from "../assets/image/slide3.jpg";
 import {
   Carousel,
   CarouselItem,
@@ -11,21 +14,18 @@ import {
 
 const items = [
   {
-    src: "https://picsum.photos/id/123/1200/400",
-    altText: "Slide 1",
-    caption: "Slide 1",
+    src: Slide1,
+
     key: 1,
   },
   {
-    src: "https://picsum.photos/id/456/1200/400",
-    altText: "Slide 2",
-    caption: "Slide 2",
+    src: Slide2,
+
     key: 2,
   },
   {
-    src: "https://picsum.photos/id/678/1200/400",
-    altText: "Slide 3",
-    caption: "Slide 3",
+    src: Slide3,
+
     key: 3,
   },
 ];

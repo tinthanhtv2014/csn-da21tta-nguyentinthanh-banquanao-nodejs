@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-
+import Logo from "../assets/image/phoenix-fire-bird-logo-template-vector-183360811.jpg";
 function Footer() {
   return (
     <>
@@ -8,7 +8,9 @@ function Footer() {
       <div className="container-footer">
         <div className="footer-logo">
           {" "}
-          <p className="logo">PhucShoe</p>
+          <p className="logo">
+            <img src={Logo} alt="" />
+          </p>
         </div>
 
         <div className="footer-hr"></div>
@@ -17,10 +19,10 @@ function Footer() {
             {" "}
             <p className="footer-thongtin2">Thông Tin Liên Hệ</p>
             <p className="footer-thongtinlienhe_diachi">
-              Địa chỉ: Tỉnh Trà Vinh
+              Địa chỉ: Mậu Thân, Phường 9 Tỉnh Trà Vinh
             </p>
-            <p>Email: hohoangphucjob@gmail.com</p>
-            <p>Hotline: 037248322</p>
+            <p>Email:tinthanhtv2014@gmail.com</p>
+            <p>Hotline: 0395890398</p>
           </div>
           <div className="footer-hr"></div>
           <div className="footer-chinhsach">

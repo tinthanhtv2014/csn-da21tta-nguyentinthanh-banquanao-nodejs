@@ -38,6 +38,10 @@
   align-items: center;
   display: flex;
 }
+.logo img {
+  width: 90%;
+  height: 90%;
+}
 
 .footer-logo {
   width: 20%;
