@@ -79,6 +79,7 @@ class Item extends React.Component {
                         {item.tenNSX}
                       </CardSubtitle>
                       <CardText>{item.giatien}</CardText>
+                      <CardText>{item.chitietsanpham}</CardText>
                       <Button>Buy</Button>
                     </CardBody>
                   </Card>
