@@ -30,7 +30,7 @@ const createNewProduct = async (req, res) => {
   let soluong = req.body.soluong;
   let giatien = req.body.giatien;
   let tenNSX = req.body.tenNSX;
-
+  let chitietsanpham = req.body.chitietsanpham;
   if (req.fileValidationError) {
     return res.status(400).json({ error: req.fileValidationError });
   } else if (!req.file) {
@@ -39,8 +39,17 @@ const createNewProduct = async (req, res) => {
 
   try {
     await connection.execute(
-      "insert into product(id,tensp,soluong,loaisp,tenNSX, giatien,mota) values (?,?,?,?,?,?,?)",
-      [id, tensp, soluong, loaisp, tenNSX, giatien, req.file.filename]
+      "insert into product(id,tensp,soluong,loaisp,tenNSX, giatien,chitietsanpham,mota) values (?,?,?,?,?,?,?,?)",
+      [
+        id,
+        tensp,
+        soluong,
+        loaisp,
+        tenNSX,
+        giatien,
+        chitietsanpham,
+        req.file.filename,
+      ]
     );
     return res.redirect("/");
   } catch (error) {
@@ -74,6 +83,7 @@ const updateProduct = async (req, res, err) => {
   let soluong = req.body.soluong;
   let giatien = req.body.giatien;
   let tenNSX = req.body.tenNSX;
+  let chitietsanpham = req.body.chitietsanpham;
   if (req.fileValidationError) {
     return res.status(400).json({ error: req.fileValidationError });
   } else if (!req.file) {
@@ -81,8 +91,17 @@ const updateProduct = async (req, res, err) => {
   }
   try {
     await connection.execute(
-      "UPDATE product SET tensp = ?,soluong = ?, loaisp = ?,tenNSX = ?, giatien = ?, mota = ? WHERE id = ?",
-      [tensp, soluong, loaisp, tenNSX, giatien, req.file.filename, id]
+      "UPDATE product SET tensp = ?,soluong = ?, loaisp = ?,tenNSX = ?, giatien = ?,chitietsanpham=?, mota = ? WHERE id = ?",
+      [
+        tensp,
+        soluong,
+        loaisp,
+        tenNSX,
+        giatien,
+        chitietsanpham,
+        req.file.filename,
+        id,
+      ]
     );
 
     return res.redirect("/");
