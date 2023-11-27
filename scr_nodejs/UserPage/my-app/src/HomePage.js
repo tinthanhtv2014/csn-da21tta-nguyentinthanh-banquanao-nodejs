@@ -1,4 +1,3 @@
-import "./App.css";
 import Navbar from "./Navbar/Navbar";
 import GetAPI from "./API/GetAPI";
 import Carousel1 from "./Carousel/Carousel";
@@ -7,14 +6,18 @@ import Footer from "./footer/FooterReact";
 import Blank from "./blank/Blank";
 
 import React from "react";
-import HomePage from "./HomePage";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-function App() {
-  return (
-    <div className="App">
-      <HomePage />
-    </div>
-  );
+class HomePage extends React.Component {
+  render() {
+    return (
+      <>
+        <Navbar />
+        <Carousel1 />
+        <Blank />
+        <GetAPI />
+        <Item />
+        <Footer />
+      </>
+    );
+  }
 }
-
-export default App;
+export default HomePage;
