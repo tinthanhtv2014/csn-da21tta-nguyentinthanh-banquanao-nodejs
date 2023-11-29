@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 25, 2023 at 04:22 PM
+-- Generation Time: Nov 29, 2023 at 02:45 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -117,17 +117,41 @@ CREATE TABLE `product` (
   `tenNSX` varchar(255) NOT NULL,
   `giatien` varchar(255) NOT NULL,
   `mota` text DEFAULT NULL,
-  `chitietsanpham` varchar(255) DEFAULT NULL
+  `chitietsanpham` varchar(255) DEFAULT NULL,
+  `kichco` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `tensp`, `soluong`, `loaisp`, `tenNSX`, `giatien`, `mota`, `chitietsanpham`) VALUES
-('SP002', 'Quần ', 10, 'áo thun', 'bbb', '130000', 'profile_pic-1700925677639.jpg', 'vãi l luôn đầu cắt moii'),
-('SP003', 'áo thun nam đẹp', 20, 'áo thun', 'aaa', '130000', 'profile_pic-1700732120198.jpg', 'vãi đạn luôn đầu bồi'),
-('SP007', 'Quần tây', 20, 'áo dài', 'aaa', '130000', 'profile_pic-1700747022080.jpg', 'vãi mèo luôn đầu card');
+INSERT INTO `product` (`id`, `tensp`, `soluong`, `loaisp`, `tenNSX`, `giatien`, `mota`, `chitietsanpham`, `kichco`) VALUES
+('SP001', 'Áo dài', 20, 'áo dài', 'aaa', '50000', 'profile_pic-1701009619146.jpg', 'vãi l luôn đầu cắt moii', 'S'),
+('SP002', 'Quần ', 10, 'áo thun', 'bbb', '130000', 'profile_pic-1700925677639.jpg', 'vãi l luôn đầu cắt moii', 'X'),
+('SP003', 'áo thun nam đẹp', 20, 'áo thun', 'aaa', '130000', 'profile_pic-1700732120198.jpg', 'vãi đạn luôn đầu bồi', 'XL'),
+('SP004', 'áo thun nam ádklashdophasds', 10, 'áo dài', 'aaa', '50000', 'profile_pic-1701265398626.png', 'vãi l luôn đầu cắt moiiiádasdasdasd', 'S'),
+('SP007', 'Quần tây', 20, 'áo dài', 'aaa', '130000', 'profile_pic-1700747022080.jpg', 'vãi mèo luôn đầu card', 'XL'),
+('SP008', 'áo thun nam đẹp', 20, 'áo dài', 'aaa', '150000', 'profile_pic-1701263609841.jpg', 'vãi l luôn đầu cắt moiii', 'XL');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `size`
+--
+
+CREATE TABLE `size` (
+  `kichco` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `size`
+--
+
+INSERT INTO `size` (`kichco`) VALUES
+('S'),
+('X'),
+('XL'),
+('XXL');
 
 -- --------------------------------------------------------
 
@@ -187,7 +211,14 @@ ALTER TABLE `detailbillproduct`
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `tenNSX` (`tenNSX`),
-  ADD KEY `loaisp` (`loaisp`);
+  ADD KEY `loaisp` (`loaisp`),
+  ADD KEY `kichco` (`kichco`);
+
+--
+-- Indexes for table `size`
+--
+ALTER TABLE `size`
+  ADD PRIMARY KEY (`kichco`);
 
 --
 -- Indexes for table `users`
@@ -217,7 +248,8 @@ ALTER TABLE `detailbillproduct`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`tenNSX`) REFERENCES `companyname` (`tenNSX`),
-  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`loaisp`) REFERENCES `cateproduct` (`loaisp`);
+  ADD CONSTRAINT `product_ibfk_3` FOREIGN KEY (`loaisp`) REFERENCES `cateproduct` (`loaisp`),
+  ADD CONSTRAINT `product_ibfk_4` FOREIGN KEY (`kichco`) REFERENCES `size` (`kichco`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

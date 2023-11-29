@@ -23,7 +23,7 @@
             <th>Loại sản phẩm</th>
             <th>Tên nhà sản xuất</th>
             <th>Số lượng</th>
-
+            <th>Kích Cỡ</th>
             <th>Giá tiền</th>
             <th>Chi tiết sản phẩm</th>
             <th>Minh họa</th>
@@ -38,7 +38,7 @@
             <td><%= dataProduct[i].loaisp %></td>
             <td><%= dataProduct[i].tenNSX %></td>
             <td><%= dataProduct[i].soluong %></td>
-
+            <td><%= dataProduct[i].kichco %></td>
             <td><%= dataProduct[i].giatien %></td>
             <td><%= dataProduct[i].chitietsanpham %></td>
             <td>
@@ -96,6 +96,15 @@
               <option>quần jean</option>
               <option>quần short</option>
               <option>quần tây</option>
+            </select>
+          </div>
+          <div>
+            <label for="">Kích cỡ : </label>
+            <select name="kichco" id="hall" value="3">
+              <option>S</option>
+              <option>X</option>
+              <option>XL</option>
+              <option>XXL</option>
             </select>
           </div>
           <div>

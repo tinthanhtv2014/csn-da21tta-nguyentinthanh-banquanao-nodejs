@@ -29,7 +29,8 @@ body {
 
 .create-user-container {
   text-align: center;
-  padding: 15px;
+  padding: 20px;
+  margin: auto;
 }
 
 .create-user-container label {
@@ -37,5 +38,35 @@ body {
 }
 .create-user-container button {
   margin-top: 15px;
+  cursor: pointer;
+}
+.create-user-container div {
+  display: flex;
+
+  margin: 15px auto;
+}
+
+.create-user-container form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px; /* Điều chỉnh chiều rộng tối đa của form */
+  margin: 10px auto;
+}
+.create-user-container label {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.create-user-container input,
+.create-user-container select {
+  flex: 2;
+}
+
+.create-user-container fieldset {
+  padding: 0 20px;
+}
+
+.create-user-container button {
+  margin: 10px auto;
   cursor: pointer;
 }

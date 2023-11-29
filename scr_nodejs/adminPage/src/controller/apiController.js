@@ -38,6 +38,7 @@ const createProduct = async (req, res) => {
   let giatien = req.body.giatien;
   let tenNSX = req.body.tenNSX;
   let chitietsanpham = req.body.chitietsanpham;
+  let kichco = req.body.kichco;
   if (
     !id ||
     !tensp ||
@@ -45,15 +46,16 @@ const createProduct = async (req, res) => {
     !soluong ||
     !giatien ||
     !tenNSX ||
-    !chitietsanpham
+    !chitietsanpham ||
+    !kichco
   ) {
     return res.status(200).json({
       message: "missing ",
     });
   }
   await connection.execute(
-    "insert into product(id,tensp,loaisp,tenNSX,soluong,giatien,chitietsanpham) values (?,?,?,?,?,?,?)",
-    [id, tensp, loaisp, tenNSX, soluong, giatien, chitietsanpham]
+    "insert into product(id,tensp,loaisp,tenNSX,soluong,giatien,chitietsanpham,kichco) values (?,?,?,?,?,?,?,?)",
+    [id, tensp, loaisp, tenNSX, soluong, giatien, chitietsanpham, kichco]
   );
   return res.status(200).json({
     message: "ok",
@@ -83,6 +85,7 @@ const updateProduct = async (req, res) => {
   let giatien = req.body.giatien;
   let tenNSX = req.body.tenNSX;
   let chitietsanpham = req.body.chitietsanpham;
+  let kichco = req.body.kichco;
   if (
     !id ||
     !tensp ||
@@ -90,15 +93,16 @@ const updateProduct = async (req, res) => {
     !soluong ||
     !giatien ||
     !tenNSX ||
-    !chitietsanpham
+    !chitietsanpham ||
+    !kichco
   ) {
     return res.status(200).json({
       message: "missing ",
     });
   }
   await connection.execute(
-    "update product set tensp = ?,loaisp = ?,tenNSX = ?,soluong = ?, giatien = ?,chitietsanpham=? where id = ?",
-    [tensp, loaisp, tenNSX, soluong, giatien, chitietsanpham, id]
+    "update product set tensp = ?,loaisp = ?,tenNSX = ?,soluong = ?, giatien = ?,chitietsanpham=?,kichco=? where id = ?",
+    [tensp, loaisp, tenNSX, soluong, giatien, chitietsanpham, kichco, id]
   );
   return res.status(200).json({
     message: "ok",

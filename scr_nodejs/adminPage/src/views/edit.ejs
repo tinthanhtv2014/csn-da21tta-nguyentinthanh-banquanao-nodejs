@@ -8,8 +8,8 @@
   </head>
   <body>
     <div class="topnav">
-      <a  href="/">Home</a>
-      <a class="active" href="#news">News</a>
+      <a  href="/" class="active">Home</a>
+      <a  href="/user-order">Users-Order</a>
       
     </div>
 
@@ -24,7 +24,7 @@
             <th>Loại sản phẩm</th>
             <th>Tên nhà sản xuất</th>
             <th>Số lượng</th>
-
+            <th>Kích Cỡ</th>
             <th>Giá tiền</th>
             <th>Minh họa</th>
             <th>Actions</th>
@@ -38,7 +38,7 @@
             <td><%= dataproduct[i].loaisp %></td>
             <td><%= dataproduct[i].tenNSX %></td>
             <td><%= dataproduct[i].soluong %></td>
-
+            <td><%= dataproduct[i].kichco %></td>
             <td><%= dataproduct[i].giatien %></td>
             <td><%= dataproduct[i].chitietsanpham %></td>
             <td>
@@ -94,6 +94,16 @@
               <option <%= dataProduct.loaisp === 'quần jean' ? 'selected' : '' %>>quần jean</option>
               <option <%= dataProduct.loaisp === 'quần short' ? 'selected' : '' %>>quần short</option>
               <option <%= dataProduct.loaisp === 'quần tây' ? 'selected' : '' %>>quần tây</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="">Kích cỡ : </label>
+            <select name="kichco" id="hall" value="<%=dataProduct.kichco %>">
+              <option <%= dataProduct.kichco === 'S' ? 'selected' : '' %>>S</option>
+              <option <%= dataProduct.kichco === 'X' ? 'selected' : '' %>>X</option>
+              <option <%= dataProduct.kichco === 'XL' ? 'selected' : '' %>>XL</option>
+              <option <%= dataProduct.kichco === 'XXL' ? 'selected' : '' %>>XXL</option>
             </select>
           </div>
           <div>

@@ -40,7 +40,7 @@ class ThongTinChiTietSp extends Component {
     const { navigate } = this.props.history;
 
     if (selectedSize == null) {
-      alert("Vui lòng chọn Size giày");
+      alert("Vui lòng chọn Size Sản phẩm");
       event.preventDefault();
     } else {
       navigate(`/muahang/${state.id}`, {
