@@ -45,7 +45,7 @@ class GetAPI extends Component {
 
   render() {
     const { data, loading, error } = this.state;
-
+   
     return (
       <div className="data-table">
         {loading && <p>Loading...</p>}

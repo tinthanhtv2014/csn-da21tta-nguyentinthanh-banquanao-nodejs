@@ -13,7 +13,9 @@ class Navbar extends React.Component {
 
           <div className="header-ul">
             <ul>
-              <li>Home</li>
+              <li>
+                <a href="/">Home</a>
+              </li>
               <li>Contact</li>
               <li>About</li>
               <li>News</li>

@@ -105,9 +105,39 @@ const updateProduct = async (req, res) => {
   });
 };
 
+const getDetailProduct = async (req, res) => {
+  let userid = req.params.id;
+
+  try {
+    let [results, fields] = await connection.query(
+      "SELECT * FROM `product` where id = ?",
+      [userid]
+    );
+
+    // Thêm đường dẫn đầy đủ cho mỗi sản phẩm
+    const productsWithImageUrls = results.map((product) => {
+      return {
+        ...product,
+        imageUrl: `http://localhost:8081/api/v1/images/${product.mota}`,
+      };
+    });
+
+    return res.status(200).json({
+      data: results,
+    });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   getAllProduct,
   createProduct,
   deleteProduct,
   updateProduct,
+  getDetailProduct,
 };

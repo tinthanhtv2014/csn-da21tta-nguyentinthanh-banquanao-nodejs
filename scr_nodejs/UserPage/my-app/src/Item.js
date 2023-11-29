@@ -9,7 +9,7 @@ import {
   Button,
 } from "reactstrap";
 import "./style.css";
-
+import { Link } from "react-router-dom";
 class Item extends React.Component {
   constructor(props) {
     super(props);
@@ -74,13 +74,19 @@ class Item extends React.Component {
                       src={`http://localhost:8081/public/images/${item.mota}`}
                     />
                     <CardBody>
-                      <CardTitle tag="h5">{item.tensp}</CardTitle>
                       <CardSubtitle className="mb-2 text-muted" tag="h6">
                         {item.tenNSX}
                       </CardSubtitle>
-                      <CardText>{item.giatien}</CardText>
-                      <CardText>{item.chitietsanpham}</CardText>
-                      <Button>Buy</Button>
+                      <CardTitle tag="h5">{item.tensp}</CardTitle>
+
+                      <CardText>{item.giatien} Đ</CardText>
+
+                      <Link
+                        to={`/thongtinchitietsp/${item.id}`}
+                        className="btn btn-primary"
+                      >
+                        Buy
+                      </Link>
                     </CardBody>
                   </Card>
                 ))
