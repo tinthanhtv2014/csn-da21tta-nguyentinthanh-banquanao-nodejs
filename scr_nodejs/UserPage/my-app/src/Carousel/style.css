@@ -1,0 +1,37 @@
+CarouselItem {
+  margin-bottom: 30%;
+}
+/* Trong file style.css hoặc nơi bạn đang thực hiện CSS styling */
+
+/* Căn giữa chiều rộng và chiều cao của Carousel1 */
+.Carousel1 {
+  width: 70%; /* Điều chỉnh theo ý muốn của bạn */
+  margin: 0 auto; /* Để căn giữa chiều rộng */
+}
+
+/* Tùy chỉnh chiều cao của ảnh trong CarouselItem */
+.CarouselItem img {
+  width: 100%; /* 100% chiều rộng */
+  height: auto; /* Tự động tính toán chiều cao để giữ tỷ lệ */
+}
+
+/* Tùy chỉnh chiều rộng và chiều cao của các điểm chỉ số (indicators) */
+.CarouselIndicators {
+  width: 100%; /* 100% chiều rộng */
+  bottom: 10px; /* Điều chỉnh theo ý muốn của bạn */
+}
+
+/* Tùy chỉnh chiều rộng và chiều cao của các nút điều khiển (controls) */
+.CarouselControl {
+  width: 5%; /* Điều chỉnh theo ý muốn của bạn */
+  top: 50%; /* Đưa nút lên giữa chiều cao */
+  transform: translateY(-50%);
+}
+
+/* Tùy chỉnh các điểm chỉ số (indicators) và nút điều khiển (controls) khi hiển thị trên di động */
+@media (max-width: 768px) {
+  .CarouselIndicators,
+  .CarouselControl {
+    display: none; /* Ẩn indicators và controls trên di động nếu cần */
+  }
+}

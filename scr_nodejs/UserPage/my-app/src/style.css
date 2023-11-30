@@ -1,45 +1,42 @@
-/* Trong file CSS của bạn hoặc trực tiếp trong JSX nếu bạn đang sử dụng styled-components */
 /* style.css */
+
+.container {
+  margin-top: 23%;
+}
 
 .container-product {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  margin-bottom: 50px;
 }
 
 .card {
-  /* border: 1px solid #ddd; */
   border-radius: 8px;
-  margin: 10px;
+  margin: 10px; /* Khoảng cách giữa các card */
   padding: 15px;
   text-align: center;
-  width: calc((100% - 50px) / 6);
+  width: calc(
+    (100% - 20px) / 4
+  ); /* Điều chỉnh số 4 cho số card trên mỗi hàng */
   transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover {
   transform: scale(1.05);
 }
-.CardBody {
-  text-align: left;
-}
 
 .card img {
   max-width: 100%;
   height: 40%;
-
   width: 80%;
   margin: 0 auto;
   transition: transform 0.3s ease;
 }
 
-.card:hover img {
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
 .card-title {
-  margin: 10px 0;
+  margin: 9px 0;
   font-size: 20px;
 }
 
@@ -50,8 +47,25 @@
   font-size: 15px;
 }
 
+.btn-primary {
+  padding: 7px 45px;
+  margin-left: 22.8%;
+  margin-top: 9%;
+  background-color: black;
+  transition: all 0.3s ease-in;
+  text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: gray;
+}
+
 /* Media queries for responsiveness */
 @media screen and (max-width: 600px) {
+  .container-product {
+    margin-bottom: 30px;
+  }
+
   .card {
     width: 100%;
   }
@@ -63,49 +77,6 @@
 
 @media screen and (min-width: 601px) and (max-width: 768px) {
   .card {
-    width: 48%;
+    width: calc((100% - 30px) / 2);
   }
-}
-.container-product {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.card {
-  width: 18rem;
-  margin: 10px;
-  text-align: left; /* Canh trái cho text */
-}
-
-.card-text {
-  margin-bottom: 10px;
-  position: relative; /* Để có thể sử dụng position absolute cho underline */
-  padding-bottom: 20px;
-}
-
-.card-text::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 1px; /* Độ dày của đường gạch đen */
-  background-color: black; /* Màu của đường gạch đen */
-  bottom: 0;
-  left: 0;
-}
-
-.btn-primary {
-  padding: 10px 45px;
-  margin-left: 22.8%;
-  /* display: block; */
-  margin-top: 15%; /* Khoảng cách giữa chữ và button */
-  background-color: black;
-  transition: all 0.3 ease-in;
-  text-align: center;
-}
-.btn-primary:hover {
-  background-color: gray;
-}
-.card-body {
-  padding-top: 10px;
 }

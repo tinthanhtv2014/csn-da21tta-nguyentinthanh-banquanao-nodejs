@@ -4,7 +4,6 @@ import Logo from "../assets/image/phoenix-fire-bird-logo-template-vector-1833608
 function Footer() {
   return (
     <>
-      <hr></hr>
       <div className="container-footer">
         <div className="footer-logo">
           {" "}

@@ -1,11 +1,13 @@
 .centered-text {
-  text-align: center; /* Căn giữa nội dung */
-  line-height: 1.2; /* Chiều cao dòng để giữa chữ theo chiều dọc */
-  margin-top: 4%; /* Khoảng cách trên là 20% của chiều cao */
-  margin-bottom: 4%; /* Khoảng cách dưới là 20% của chiều cao */
+  text-align: center;
+  line-height: 1.2;
+  margin-top: 4%;
+  margin-bottom: 4%; /* Điều chỉnh giá trị này để giảm khoảng cách dưới */
   font-size: 30px;
   font-weight: 500;
   animation: slideDown 1.5s ease-in-out;
+  width: 100%;
+  height: 30%;
 }
 
 @keyframes slideDown {

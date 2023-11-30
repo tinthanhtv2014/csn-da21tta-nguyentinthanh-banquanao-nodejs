@@ -1,7 +1,6 @@
 .header-container {
-  height: 20%;
+  height: 13vh;
   width: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,29 +11,36 @@
 }
 
 .header-logo {
-  width: 10%;
-  height: 10%;
-  margin-right: 30px;
+  width: 7vw;
+  height: 10vh;
+  margin-right: 2vw;
 }
+
 .header-logo img {
   width: 100%;
   height: 100%;
-  margin-right: 20px;
 }
 
 .header-ul ul {
   display: flex;
+  align-items: center;
 }
 
 .header-ul ul li {
-  padding: 0 40px;
+  padding: 0 20px;
   list-style: none;
-  font-size: 30px;
+  font-size: 2.5vh;
   position: relative;
   overflow: hidden;
   flex-wrap: wrap;
 }
+
 .header-ul ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.header-ul ul div a {
   text-decoration: none;
   color: black;
 }
@@ -44,42 +50,104 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 0; /* Bắt đầu với độ rộng là 0 */
-  height: 2px; /* Độ dày của đường gạch */
+  width: 0;
+  height: 2px;
   background: black;
-  transition: width 0.7s ease; /* Hiệu ứng chuyển động */
+  transition: width 0.7s ease;
 }
+
 .header-ul ul li:hover::after {
-  width: 100%; /* Khi hover, đường gạch sẽ mở rộng đến 100% */
+  width: 100%;
 }
 
 .navSearch {
   color: black;
   display: flex;
-  padding: 0 30px;
+  padding: 0 2vw;
+  align-items: center;
 }
 
 .iconSearch {
-  width: 40px;
-  height: 40px;
+  width: 4vh;
+  height: 4vh;
   cursor: pointer;
 }
+
 .navSearch:hover .iconSearch {
   color: black;
 }
+
 .navSearch input {
-  font-size: 14px;
-
-  height: 40px;
-  width: 300px;
+  font-size: 1.4vh;
+  height: 4vh;
+  width: 20vw;
   color: black;
-
   transition: all 0.5s;
 }
 
 .navSearch input:focus {
-  padding-right: 26px;
-  width: 300px;
+  padding-right: 1.3vw;
+  width: 20vw;
   cursor: text;
   opacity: 1;
+}
+/* Ẩn border và background của dropdown toggle */
+.dropdown-toggle {
+  color: black !important;
+  background-color: white !important;
+  border: none !important;
+  font-size: 2.5vh !important;
+}
+
+.dropdown-item a {
+  color: black !important;
+}
+
+.dropdown-item a:hover {
+  color: white !important;
+  background-color: black !important;
+}
+
+.dropdown-item:hover {
+  color: white !important;
+  background-color: black !important;
+}
+
+.dropdown-header {
+  color: gray !important;
+}
+
+/* CSS để làm cho chữ trong toggle to ra */
+.dropdown-toggle {
+  padding-right: 20px !important; /* Điều chỉnh khoảng cách giữa chữ và caret */
+}
+
+/* CSS để làm cho caret nằm gần chữ */
+.dropdown-toggle::after {
+  margin-left: 5px !important; /* Điều chỉnh khoảng cách giữa caret và chữ */
+}
+
+/* CSS để ẩn menu ban đầu */
+/* 
+.dropdown {
+  position: relative !important;
+} */
+
+.dropdown-toggle::after {
+  content: "" !important; /* Mũi tên xuống */
+  margin-left: 5px !important;
+}
+
+.dropdown-menu {
+  opacity: 0;
+  display: block !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height 0.7s ease-in-out !important;
+  margin-bottom: 5px !important;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  max-height: 200px !important; /* Độ cao tối đa của dropdown khi hover */
 }

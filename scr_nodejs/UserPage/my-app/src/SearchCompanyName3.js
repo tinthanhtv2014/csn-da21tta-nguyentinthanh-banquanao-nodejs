@@ -2,10 +2,9 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { CardBody, CardTitle, Card, CardSubtitle, CardText } from "reactstrap";
 import "./style.css";
-import { Link } from "react-router-dom";
-
 import { FaStar } from "react-icons/fa";
-class Item extends React.Component {
+import { Link } from "react-router-dom";
+class Companyname3 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -22,10 +21,13 @@ class Item extends React.Component {
 
   fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:8081/api/v1/product", {
-        method: "GET",
-        mode: "cors",
-      });
+      const response = await fetch(
+        "http://localhost:8081/api/v1/product/company/ccc",
+        {
+          method: "GET",
+          mode: "cors",
+        }
+      );
       if (!response.ok) {
         throw new Error("Yêu cầu không thành công");
       }
@@ -70,11 +72,11 @@ class Item extends React.Component {
                     />
                     <CardBody>
                       <CardSubtitle className="mb-2 text-muted" tag="h6">
-                        Tên hãng : {item.tenNSX}
+                        {item.tenNSX}
                       </CardSubtitle>
                       <CardTitle tag="h5">{item.tensp}</CardTitle>
 
-                      <CardText>Giá: {item.giatien} Đ</CardText>
+                      <CardText>{item.giatien} Đ</CardText>
                       <div className="star-container">
                         <FaStar className="yellow-star" />
                         <FaStar className="yellow-star" />
@@ -102,4 +104,4 @@ class Item extends React.Component {
   }
 }
 
-export default Item;
+export default Companyname3;
