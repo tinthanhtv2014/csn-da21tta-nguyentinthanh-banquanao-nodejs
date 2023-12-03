@@ -1,6 +1,6 @@
 import React from "react";
-import Logo from "../assets/image/phoenix-fire-bird-logo-template-vector-183360811.jpg";
-import "./style.css";
+import Logo from "./assets/image/phoenix-fire-bird-logo-template-vector-183360811.jpg";
+import "./styleNavbar.css";
 import { MdOutlineSearch } from "react-icons/md";
 import {
   Dropdown,

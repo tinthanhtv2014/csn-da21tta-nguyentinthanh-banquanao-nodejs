@@ -49,9 +49,12 @@ class Item extends React.Component {
 
   render() {
     const { data, loading, error } = this.state;
+    console.log("check data: ", data);
     return (
       <>
         <div className="container">
+          <h3>Sản phẩm trong tuần</h3>
+
           {loading && <p>Loading...</p>}
           {error && <p>Error: {error}</p>}
           {!loading && !error && (

@@ -1,8 +1,8 @@
 .centered-text {
   text-align: center;
   line-height: 1.2;
-  margin-top: 4%;
-  margin-bottom: 4%; /* Điều chỉnh giá trị này để giảm khoảng cách dưới */
+  /* margin-top: 4%;
+  margin-bottom: 4%;  */
   font-size: 30px;
   font-weight: 500;
   animation: slideDown 1.5s ease-in-out;

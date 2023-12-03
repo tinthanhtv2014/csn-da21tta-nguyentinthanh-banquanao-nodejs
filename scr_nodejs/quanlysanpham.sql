@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2023 at 02:45 PM
+-- Generation Time: Dec 03, 2023 at 11:21 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `billproduct` (
-  `mahd` varchar(255) NOT NULL,
-  `idkh` varchar(255) NOT NULL,
+  `mahd` int(11) NOT NULL,
+  `idkh` int(11) NOT NULL,
   `diachiship` varchar(255) NOT NULL,
   `thoigiandat` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -39,8 +39,8 @@ CREATE TABLE `billproduct` (
 --
 
 INSERT INTO `billproduct` (`mahd`, `idkh`, `diachiship`, `thoigiandat`) VALUES
-('HD001', 'KH002', 'bụi lùm', NULL),
-('HD002', 'KH002', 'trà vinh', NULL);
+(1, 1, 'bụi lùm', NULL),
+(2, 2, 'trà vinh', NULL);
 
 -- --------------------------------------------------------
 
@@ -91,7 +91,7 @@ INSERT INTO `companyname` (`tenNSX`) VALUES
 --
 
 CREATE TABLE `detailbillproduct` (
-  `mahd` varchar(255) NOT NULL,
+  `mahd` int(11) NOT NULL,
   `id` varchar(255) NOT NULL,
   `soluongsp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -101,7 +101,7 @@ CREATE TABLE `detailbillproduct` (
 --
 
 INSERT INTO `detailbillproduct` (`mahd`, `id`, `soluongsp`) VALUES
-('HD002', 'SP007', 10);
+(1, 'SP007', 10);
 
 -- --------------------------------------------------------
 
@@ -130,8 +130,22 @@ INSERT INTO `product` (`id`, `tensp`, `soluong`, `loaisp`, `tenNSX`, `giatien`, 
 ('SP002', 'Quần ', 10, 'áo thun', 'bbb', '130000', 'profile_pic-1700925677639.jpg', 'vãi l luôn đầu cắt moii', 'X'),
 ('SP003', 'áo thun nam đẹp', 20, 'áo thun', 'aaa', '130000', 'profile_pic-1700732120198.jpg', 'vãi đạn luôn đầu bồi', 'XL'),
 ('SP004', 'áo thun nam ádklashdophasds', 10, 'áo dài', 'aaa', '50000', 'profile_pic-1701265398626.png', 'vãi l luôn đầu cắt moiiiádasdasdasd', 'S'),
-('SP007', 'Quần tây', 20, 'áo dài', 'aaa', '130000', 'profile_pic-1700747022080.jpg', 'vãi mèo luôn đầu card', 'XL'),
-('SP008', 'áo thun nam đẹp', 20, 'áo dài', 'aaa', '150000', 'profile_pic-1701263609841.jpg', 'vãi l luôn đầu cắt moiii', 'XL');
+('SP005', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701340460181.jpg', 'aduboyysz', 'S'),
+('SP006', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701354288069.jpg', 'aduboyysz', 'S'),
+('SP007', 'Quần tây', 20, 'áo dài', 'ccc', '130000', 'profile_pic-1701339730275.jpg', 'vãi mèo luôn đầu card', 'XL'),
+('SP008', 'áo thun nam đẹp', 20, 'áo dài', 'aaa', '150000', 'profile_pic-1701263609841.jpg', 'vãi l luôn đầu cắt moiii', 'XL'),
+('SP009', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526221378.jpg', 'aduboyysz', 'S'),
+('SP010', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526299037.jpg', 'aduboyysz', 'S'),
+('SP011', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526232745.jpg', 'aduboyysz', 'S'),
+('SP012', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526280533.jpg', 'aduboyysz', 'S'),
+('SP013', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526244741.jpg', 'aduboyysz', 'S'),
+('SP014', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526256654.jpg', 'aduboyysz', 'S'),
+('SP015', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526321411.jpg', 'aduboyysz', 'S'),
+('SP016', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526332490.jpg', 'aduboyysz', 'S'),
+('SP017', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526361750.jpg', 'aduboyysz', 'S'),
+('SP018', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701528186975.jpg', 'aduboyysz', 'S'),
+('SP019', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701528202149.jpg', 'aduboyysz', 'S'),
+('SP020', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701528217299.jpg', 'aduboyysz', 'S');
 
 -- --------------------------------------------------------
 
@@ -160,7 +174,7 @@ INSERT INTO `size` (`kichco`) VALUES
 --
 
 CREATE TABLE `users` (
-  `idkh` varchar(10) NOT NULL,
+  `idkh` int(11) NOT NULL,
   `hotenkh` varchar(255) NOT NULL,
   `sdt` varchar(10) NOT NULL,
   `diachi` varchar(255) NOT NULL,
@@ -172,8 +186,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`idkh`, `hotenkh`, `sdt`, `diachi`, `ngaysinh`) VALUES
-('KH001', 'Nguyễn Tín Thành', '0395890398', 'trà vinh', '2000-01-01'),
-('KH002', 'Quốc Bảo', '0123456789', 'ở đâu không biết', '2003-01-01');
+(1, 'Nguyễn Tín Thành', '0395890398', 'trà vinh', '2000-01-01'),
+(2, 'Quốc Bảo', '0123456789', 'ở đâu không biết', '2003-01-01'),
+(3, 'đâsasd', 'ádasdad', 'adadđ', NULL),
+(4, 'sadsad', 'ádasdad', 'adadđ', NULL);
 
 --
 -- Indexes for dumped tables
@@ -225,6 +241,28 @@ ALTER TABLE `size`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`idkh`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `billproduct`
+--
+ALTER TABLE `billproduct`
+  MODIFY `mahd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `detailbillproduct`
+--
+ALTER TABLE `detailbillproduct`
+  MODIFY `mahd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `idkh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

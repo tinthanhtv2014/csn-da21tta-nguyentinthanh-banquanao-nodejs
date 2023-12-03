@@ -1,9 +1,9 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./style.css";
-import Slide1 from "../assets/image/slide1.jpg";
-import Slide2 from "../assets/image/slide2.jpg";
-import Slide3 from "../assets/image/slide3.jpg";
+import "./styleCarou.css";
+import Slide1 from "./assets/image/slide1.jpg";
+import Slide2 from "./assets/image/slide2.jpg";
+import Slide3 from "./assets/image/slide3.jpg";
 import {
   Carousel,
   CarouselItem,

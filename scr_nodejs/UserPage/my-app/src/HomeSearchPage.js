@@ -1,13 +1,14 @@
 import Navbar from "./Navbar";
 
 import Carousel1 from "./Carousel";
-import Item from "./Item";
+
 import Footer from "./FooterReact";
 import Blank from "./Blank";
 import "./homepage.css";
 import React from "react";
-import Itemver2 from "./itemv2.js/Itemver2";
-class HomePage extends React.Component {
+
+import Companyname from "./SearchCompanyName";
+class HomeSearchPage extends React.Component {
   render() {
     return (
       <>
@@ -24,7 +25,7 @@ class HomePage extends React.Component {
         </div>
         <div className="container-item">
           {" "}
-          <Itemver2 />
+          <Companyname />
         </div>
         <div className="Container-Footer">
           {" "}
@@ -34,4 +35,4 @@ class HomePage extends React.Component {
     );
   }
 }
-export default HomePage;
+export default HomeSearchPage;

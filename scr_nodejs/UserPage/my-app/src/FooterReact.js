@@ -1,6 +1,6 @@
 import React from "react";
-import "./style.css";
-import Logo from "../assets/image/phoenix-fire-bird-logo-template-vector-183360811.jpg";
+import "./styleFooter.css";
+import Logo from "./assets/image/phoenix-fire-bird-logo-template-vector-183360811.jpg";
 function Footer() {
   return (
     <>

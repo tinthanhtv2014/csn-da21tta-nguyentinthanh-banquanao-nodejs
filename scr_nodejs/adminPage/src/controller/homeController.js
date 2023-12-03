@@ -18,7 +18,9 @@ const getDetailPage = async (req, res) => {
 };
 
 const getUserPage = async (req, res) => {
-  const [results, fields] = await connection.execute("SELECT * FROM `users` ");
+  const [results, fields] = await connection.execute(
+    "SELECT users.idkh, users.hotenkh, users.sdt, users.diachi, users.ngaysinh, billproduct.mahd, billproduct.diachiship, billproduct.thoigiandat FROM users JOIN billproduct ON users.idkh = billproduct.idkh  "
+  );
 
   return res.render("user.ejs", { dataUsers: results });
 };
@@ -143,6 +145,18 @@ const upload = multer().single("profile_pic");
 //   return res.redirect("/");
 // };
 
+const updateUser = async (req, res) => {
+  const hotenkh = req.body.hotenkh;
+  const sdt = req.body.sdt;
+  const diachi = req.body.diachi;
+  const ngaysinh = req.body.ngaysinh;
+  await connection.execute(
+    "insert into users(idkh,hotenkh,sdt,diachi) values (?,?,?,?)",
+    [ngaysinh, hotenkh, sdt, diachi]
+  );
+  return res.send("da dat hang thanh cong");
+};
+
 module.exports = {
   getHomePage,
   getDetailPage,
@@ -151,6 +165,7 @@ module.exports = {
   getEditPage,
   updateProduct,
   getUserPage,
+  updateUser,
 };
 
 // if (req.fileValidationError) {

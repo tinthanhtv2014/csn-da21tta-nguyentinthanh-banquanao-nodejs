@@ -11,14 +11,38 @@ html {
 body {
   background-color: #f8f8f8; /* Màu nền của trang */
 }
-
-.container {
+.Container-navbar {
   width: 100%;
-  height: 100vh;
+  height: auto;
+  z-index: 20;
+  position: sticky;
+  top: 0;
 }
-
-Navbar {
-  background-color: red;
+.Container-Carou {
+  height: auto;
   width: 100%;
-  height: 200px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  z-index: 20;
+}
+.Container-Blank {
+  height: auto;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  z-index: 20;
+}
+.container-item {
+  width: auto;
+  height: auto;
+  margin-top: 50px;
+  margin-bottom: 1500px;
+  z-index: 20;
+}
+.Container-Footer {
+  width: auto;
+  height: auto;
+  margin-top: 150%;
+  margin-bottom: 50px;
+  z-index: 20;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./styleBlank.css";
 class Blank extends React.Component {
   render() {
     return (

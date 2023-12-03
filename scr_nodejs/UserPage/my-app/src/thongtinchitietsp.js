@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import "./assets/css/thongtinchitietsp.css";
 
 class ThongTinChiTietSp extends Component {
@@ -126,13 +126,12 @@ class ThongTinChiTietSp extends Component {
                           +
                         </div>
                       </div>
-                      <button
-                        type="button"
-                        className="purchase-button"
-                        onClick={(event) => this.handleClickMuaHang(event)}
+                      <Link
+                        to={`/thongtindathangsp/${product.id}`}
+                        className="btn btn-primary"
                       >
-                        Mua Hàng
-                      </button>
+                        Buy
+                      </Link>
                     </div>
                   </div>
                 </form>

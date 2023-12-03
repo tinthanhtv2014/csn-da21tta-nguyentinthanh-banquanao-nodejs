@@ -1,17 +1,19 @@
 import "./App.css";
-import Navbar from "./Navbar/Navbar";
-import GetAPI from "./API/GetAPI";
-import Carousel1 from "./Carousel/Carousel";
-import Item from "./Item";
-import Footer from "./footer/FooterReact";
-import Blank from "./blank/Blank";
+import Navbar from "./Navbar";
+
+import Footer from "./FooterReact";
+
 import ProductDetail from "./thongtinchitietsp";
 import React from "react";
 import HomePage from "./HomePage";
 import Companyname from "./SearchCompanyName";
 import Companyname2 from "./SearchCompanyName2";
 import Companyname3 from "./SearchCompanyName3";
+import Thongtindathang from "./thongtindathang";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import HomeSearchPage from "./HomeSearchPage";
+import HomeSearchPage2 from "./HomeSearchPage2";
+import HomeSearchPage3 from "./HomeSearchPage3";
 function App() {
   return (
     <div className="App">
@@ -28,22 +30,23 @@ function App() {
           </Route>
           <Route path="/company/aaa">
             <>
-              <Navbar />
-              <Companyname />
-              <Footer />
+              <HomeSearchPage />
             </>
           </Route>
           <Route path="/company/bbb">
             <>
-              <Navbar />
-              <Companyname2 />
-              <Footer />
+              <HomeSearchPage2 />
             </>
           </Route>
           <Route path="/company/ccc">
             <>
+              <HomeSearchPage3 />
+            </>
+          </Route>
+          <Route path="/thongtindathangsp/:id">
+            <>
               <Navbar />
-              <Companyname3 />
+              <Thongtindathang />
               <Footer />
             </>
           </Route>

@@ -1,9 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { CardBody, CardTitle, Card, CardSubtitle, CardText } from "reactstrap";
-import { FaStar } from "react-icons/fa";
-import "./style.css";
-import { Link } from "react-router-dom";
+
+import "./styleSearch.css";
+
 class Companyname extends React.Component {
   constructor(props) {
     super(props);
@@ -50,54 +49,41 @@ class Companyname extends React.Component {
   };
 
   render() {
-    const { data, loading, error } = this.state;
+    const { data } = this.state;
     return (
       <>
-        <div className="container">
-          {loading && <p>Loading...</p>}
-          {error && <p>Error: {error}</p>}
-          {!loading && !error && (
-            <div className="container-product">
-              {data ? (
-                data.map((item) => (
-                  <Card
-                    style={{
-                      width: "18rem",
-                    }}
-                    key={item.id}
-                  >
-                    <img
-                      alt={item.tensp}
-                      src={`http://localhost:8081/public/images/${item.mota}`}
-                    />
-                    <CardBody>
-                      <CardSubtitle className="mb-2 text-muted" tag="h6">
-                        {item.tenNSX}
-                      </CardSubtitle>
-                      <CardTitle tag="h5">{item.tensp}</CardTitle>
-
-                      <CardText>{item.giatien} Đ</CardText>
-                      <div className="star-container">
-                        <FaStar className="yellow-star" />
-                        <FaStar className="yellow-star" />
-                        <FaStar className="yellow-star" />
-                        <FaStar className="yellow-star" />
-                        <FaStar className="yellow-star" />
-                      </div>
-                      <Link
-                        to={`/thongtinchitietsp/${item.id}`}
-                        className="btn btn-primary"
-                      >
-                        Buy
-                      </Link>
-                    </CardBody>
-                  </Card>
-                ))
-              ) : (
-                <div>No data available</div>
-              )}
-            </div>
-          )}
+        <div className="container-bottom">
+          <div className="tieude">
+            <h1>Sản Phẩm Nổi Bật</h1>
+          </div>
+          <ul className="products">
+            {data &&
+              data.length > 0 &&
+              data.map((item, index) => (
+                <li key={index}>
+                  <div className="product-top">
+                    <a
+                      href={`/thongtinchitietsp/${item.id}`}
+                      className="product-thumb"
+                    >
+                      <img
+                        src={`http://localhost:8081/public/images/${item.mota}`}
+                        alt={item.tensp}
+                      />
+                    </a>
+                    <a href={`/thongtinchitietsp/${item.id}`} className="mua">
+                      Mua
+                    </a>
+                  </div>
+                  <div className="product-info">
+                    <div className="product-name">{item.tensp}</div>
+                    <div className="product-price">
+                      {item.giatien.toLocaleString()} VND
+                    </div>
+                  </div>
+                </li>
+              ))}
+          </ul>
         </div>
       </>
     );
