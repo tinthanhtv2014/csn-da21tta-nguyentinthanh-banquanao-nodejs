@@ -34,24 +34,11 @@ class ThongTinChiTietSp extends Component {
     }
   }
 
-  handleClickMuaHang = (event) => {
-    const { selectedSize, counterValue } = this.state;
-    const { state } = this.props.location;
-    const { navigate } = this.props.history;
-
-    if (selectedSize == null) {
-      alert("Vui lòng chọn Size Sản phẩm");
-      event.preventDefault();
-    } else {
-      navigate(`/muahang/${state.id}`, {
-        state: { giay: state, soLuong: counterValue, size: selectedSize },
-      });
-    }
-    // Thêm mã xử lý mua hàng của bạn ở đây nếu cần
-  };
-
   handleSizeClick = (size) => {
     this.setState({ selectedSize: size });
+
+    console.log("check size: ", size);
+    console.log("check this state: ", this.state);
   };
 
   increment = () => {
@@ -68,7 +55,7 @@ class ThongTinChiTietSp extends Component {
   };
 
   render() {
-    const { product, counterValue, selectedSize } = this.state;
+    const { product } = this.state;
     let isEmptyObj = Object.keys(product).length === 0;
 
     return (
@@ -86,46 +73,31 @@ class ThongTinChiTietSp extends Component {
                   </div>
                   <div className="product-h3">
                     <h3 className="h3">{product.tensp}</h3>
-                    <p className="product-price">${product.giatien}</p>
+                    <p className="product-price">
+                      {product.giatien.toLocaleString()} VND
+                    </p>
                     <div className="size">
-                      <p className="size-p">Size</p>
-                      {["S", "X", "XL", "XXL"].map((size) => (
-                        <div
-                          key={size}
-                          className={`size-option ${
-                            selectedSize === size ? "selected" : ""
-                          }`}
-                          onClick={() => this.handleSizeClick(size)}
-                        >
-                          <p
-                            className={`size-text ${
-                              selectedSize === size ? "selected-text" : ""
-                            }`}
-                          >
-                            {size}
-                          </p>
-                        </div>
-                      ))}
+                      <p className="size-p">Mô tả</p>
+                      <p>
+                        Bảng size Outerity <br /> S: Dài 69 Rộng 52.5 | 1m50 -
+                        1m65, 45 - 55Kg <br />
+                        X: Dài 73 Rộng 55 | 1m60 - 1m75, 50 - 65Kg <br /> XL:
+                        Dài 76.5 Rộng 57.5 | 1m7 - 1m8, 65Kg - 80Kg <br /> 👉
+                        Nếu chưa biết lựa size bạn có thể inbox để được chúng
+                        mình tư vấn. <br />
+                        ‼️LƯU Ý ▪️Khi giặt sản phẩm bằng tay: Vui lòng hoà tan
+                        kĩ nước giặt, bột giặt với nước sau đó mới cho sản phẩm
+                        vào. ▪️Khi giặt sản phẩm bằng máy giặt: Vui lòng đổ nước
+                        giặt, bột giặt vào khay của máy. <br />
+                        🚫TUYỆT ĐỐI KHÔNG đổ nước giặt, bột giặt trực tiếp vào
+                        sản phẩm. Như vậy sẽ ảnh hưởng đến màu sắc của sản phẩm
+                        và làm cho áo có tình trạng loang màu. Outerity xin cảm
+                        ơn ạ🖤
+                      </p>
                     </div>
                     <hr></hr>
                     <p className="con-hang">Còn hàng</p>
                     <div className="product-h3_muahang">
-                      <div className="counter-container">
-                        <div className="span1" onClick={this.decrement}>
-                          -
-                        </div>
-                        <input
-                          type="text"
-                          id="counter"
-                          value={counterValue}
-                          min={1}
-                          max={5000}
-                          readOnly
-                        />
-                        <div className="span2" onClick={this.increment}>
-                          +
-                        </div>
-                      </div>
                       <Link
                         to={`/thongtindathangsp/${product.id}`}
                         className="btn btn-primary"

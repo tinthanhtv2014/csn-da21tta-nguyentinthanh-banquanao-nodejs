@@ -18,12 +18,14 @@
       <table class="w3-table-all w3-hoverable">
         <thead>
           <tr class="w3-light-grey">
-            <th>mã hóa đơn</th>
             <th>id khách hàng</th>
-            <th>Họ tên khách hàng</th>
+            <th>Họ tên Khách hàng</th>
             <th>Số điện thoại</th>
-            <th>Địa chỉ</th>
-            <th>Ngày sinh</th>
+            <th>Mã hóa đơn</th>
+            <th>Tên sản phẩm</th>
+            <th>Kích cỡ</th>
+            <th>Số lượng sản phẩm</th>
+            <th>Địa chỉ ship</th>
 
             <th>Thời gian đặt</th>
           </tr>
@@ -31,13 +33,14 @@
         <tbody>
           <% for(let i=0; i < dataUsers.length; i++) { %>
           <tr>
-            <td><%= dataUsers[i].mahd %></td>
             <td><%= dataUsers[i].idkh %></td>
             <td><%= dataUsers[i].hotenkh %></td>
-            <td><%= dataUsers[i].sdt %></td>
-            <td><%= dataUsers[i].diachi %></td>
-            <td><%= dataUsers[i].ngaysinh %></td>
-
+            <td><%= dataUsers[i].sdt%></td>
+            <td><%= dataUsers[i].mahd %></td>
+            <td><%= dataUsers[i].tensp %></td>
+            <td><%= dataUsers[i].kichco %></td>
+            <td><%= dataUsers[i].soluongsp %></td>
+            <td><%= dataUsers[i].diachiship%></td>
             <td><%= dataUsers[i].thoigiandat %></td>
           </tr>
           <% } %>

@@ -1,6 +1,7 @@
 const express = require("express");
 const connection = require("../config/dataBase");
 const multer = require("multer");
+const moment = require("moment");
 const getHomePage = async (req, res) => {
   const [results, fields] = await connection.execute(
     "SELECT * FROM `product` "
@@ -19,7 +20,7 @@ const getDetailPage = async (req, res) => {
 
 const getUserPage = async (req, res) => {
   const [results, fields] = await connection.execute(
-    "SELECT users.idkh, users.hotenkh, users.sdt, users.diachi, users.ngaysinh, billproduct.mahd, billproduct.diachiship, billproduct.thoigiandat FROM users JOIN billproduct ON users.idkh = billproduct.idkh  "
+    "SELECT users.idkh, users.hotenkh, users.sdt, billproduct.mahd, product.tensp,product.kichco, detailbillproduct.soluongsp, billproduct.diachiship, billproduct.thoigiandat FROM users JOIN billproduct ON users.idkh = billproduct.idkh JOIN detailbillproduct ON billproduct.mahd = detailbillproduct.mahd JOIN product ON detailbillproduct.id = product.id; "
   );
 
   return res.render("user.ejs", { dataUsers: results });
@@ -146,15 +147,66 @@ const upload = multer().single("profile_pic");
 // };
 
 const updateUser = async (req, res) => {
-  const hotenkh = req.body.hotenkh;
-  const sdt = req.body.sdt;
-  const diachi = req.body.diachi;
-  const ngaysinh = req.body.ngaysinh;
-  await connection.execute(
-    "insert into users(idkh,hotenkh,sdt,diachi) values (?,?,?,?)",
-    [ngaysinh, hotenkh, sdt, diachi]
-  );
-  return res.send("da dat hang thanh cong");
+  try {
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    const currentTime = moment();
+    const formattedTime = currentTime.format("YYYY-MM-DD HH:mm:ss");
+    const randomIntegerInRange = getRandomInt(0, 60000);
+    const randomIntegerHoadon = getRandomInt(0, 60000);
+    const hotenkh = req.body.hotenkh;
+    const sdt = req.body.sdt;
+    const diachi = req.body.diachi;
+    const ghichu = req.body.ghichu;
+    const size = req.body.size;
+    const soluong = req.body.soluong;
+    const id = req.body.id;
+
+    console.log(
+      "check data post: ",
+      randomIntegerHoadon,
+      randomIntegerInRange,
+      formattedTime,
+      hotenkh,
+      diachi,
+      sdt,
+      size,
+      soluong,
+      id
+    );
+
+    await connection.execute(
+      "insert into users(idkh,hotenkh,sdt,diachi) values (?,?,?,?)",
+      [randomIntegerInRange, hotenkh, sdt, diachi]
+    );
+
+    await connection.execute("UPDATE product SET kichco = ? WHERE id = ?", [
+      size,
+      id,
+    ]);
+
+    await connection.execute(
+      "insert into billproduct(mahd,idkh,diachiship,thoigiandat) values (?,?,?,?)",
+      [randomIntegerHoadon, randomIntegerInRange, diachi, formattedTime]
+    );
+
+    await connection.execute(
+      "insert into detailbillproduct(mahd,id,soluongsp) values (?,?,?)",
+      [randomIntegerHoadon, id, soluong]
+    );
+
+    return res.redirect("http://localhost:3000");
+  } catch (error) {
+    console.error("An error occurred:", error);
+    // Xử lý lỗi ở đây, có thể trả về một trang lỗi hoặc thông báo lỗi cho người dùng
+    return res
+      .status(500)
+      .send("Bạn chưa truyền đủ thông tin không thể đặt hàng !!!!");
+  }
 };
 
 module.exports = {

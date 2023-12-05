@@ -83,6 +83,7 @@ ul.products li .product-info {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 ul.products li .product-info a {

@@ -193,7 +193,7 @@
 }
 
 .muahang-tamtinh3 {
-  margin-left: 80%;
+  margin-left: 72%;
 }
 
 .muahang-phivanchuyen {
@@ -201,7 +201,7 @@
 }
 
 .muahang-phivanchuyen1 {
-  margin-left: 78%;
+  margin-left: 67%;
 }
 
 .muahang-tongcong {
@@ -209,7 +209,7 @@
 }
 
 .muahang-tongcong1 {
-  margin-left: 80%;
+  margin-left: 65%;
 }
 
 .muahang-tongcong2 {
@@ -238,3 +238,111 @@
 }
 
 /* Add this style to position the container relative to the image */
+
+.span1 {
+  cursor: pointer;
+  padding: 6px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 7px;
+  transition: all 0.3s ease-in;
+  font-size: 20px;
+  margin-left: 10%;
+}
+
+.span2 {
+  cursor: pointer;
+  padding: 6px 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 7px;
+  transition: all 0.3s ease-in;
+}
+
+.span1,
+.span2 {
+  cursor: pointer;
+  font-size: 18px; /* Điều chỉnh kích thước mặc định của dấu + và - */
+}
+
+/* Đổi màu khi hover */
+.span1:hover,
+.span2:hover {
+  color: white; /* Đổi màu khi hover */
+  background-color: black;
+  transform: scale(1.2);
+}
+
+.buttonSoluong {
+  display: flex;
+  margin-bottom: 9px;
+}
+
+/* .size-option {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 20px;
+  padding: 5px 13px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 30px;
+  transition: all 0.3s ease-in;
+}
+.size-option:hover {
+  background-color: black;
+  color: white;
+} */
+
+.size-text {
+  margin: 0;
+  font-size: 24px;
+}
+
+.sizeChoose {
+  margin-bottom: 9px;
+  margin-left: 10%;
+}
+
+.size-option {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 20px;
+  border: none;
+  padding: 2px;
+}
+
+.size-option input[type="radio"] {
+  display: none; /* Ẩn nút radio mặc định */
+  text-decoration: none;
+}
+
+.size-option label {
+  display: block;
+  padding: 9px;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+
+.size-option input[type="radio"]:checked + label {
+  background-color: black;
+  color: white;
+  border-color: black; /* Màu khi được chọn */
+}
+
+.size-option input[type="radio"]:checked + label::before {
+  background-color: black; /* Màu của hình vuông khi được chọn */
+  border-color: black;
+  visibility: hidden; /* Ẩn hình vuông khi được chọn */
+}
+
+.size-option label:checked {
+  background-color: black;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  /* margin-top: 9px; */
+  margin-left: 10%;
+  margin-bottom: 10px;
+}
