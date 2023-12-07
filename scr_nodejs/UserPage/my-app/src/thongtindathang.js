@@ -1,14 +1,12 @@
 import React, { Component } from "react";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 import "./assets/css/muahang.css";
 import { Button } from "reactstrap";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 class Thongtintdathang extends Component {
   constructor(props) {
-    // Trong constructor của Thongtintdathang
-
     super(props);
 
     this.state = {
@@ -22,6 +20,7 @@ class Thongtintdathang extends Component {
         sdt: "",
         diachi: "",
       },
+      isOrderSuccess: false,
     };
   }
 
@@ -43,6 +42,18 @@ class Thongtintdathang extends Component {
         console.error("Error fetching product data: ", error);
       }
     }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const successMessage = urlParams.get("successMessage");
+
+    if (successMessage && !this.state.isOrderSuccess) {
+      this.setState({ isOrderSuccess: true });
+      alert(successMessage);
+
+      setTimeout(() => {
+        this.setState({ isOrderSuccess: false });
+      }, 3000);
+    }
   }
 
   handleSizeChange = (size) => {
@@ -62,42 +73,30 @@ class Thongtintdathang extends Component {
     }
   };
 
-  handleBuyClick = (event) => {
-    event.preventDefault();
+  handleOrder = async () => {
+    try {
+      const { product, counterValue, selectedSize } = this.state;
 
-    const { selectedSize, counterValue, hotenkh, sdt, diachi } = this.state;
+      const response = await axios.post("http://your-server-endpoint", {
+        id: product.id,
+        tensp: product.tensp,
+        size: selectedSize,
+        soluong: counterValue,
+        hotenkh: document.getElementsByName("hotenkh")[0].value,
+        sdt: document.getElementsByName("sdt")[0].value,
+        diachi: document.getElementsByName("diachi")[0].value,
+        ghichu: document.getElementsByName("ghichu")[0].value,
+      });
 
-    // Kiểm tra điều kiện và hiển thị thông báo nếu cần
-    const errorMessages = {};
-
-    if (!selectedSize) {
-      errorMessages.selectedSize = "Vui lòng chọn kích cỡ";
+      if (response.data.success) {
+        alert("Bạn đã đặt hàng thành công!");
+        window.location.href = `http://localhost:3000/thongtindathangsp/${response.data.id}`;
+      } else {
+        console.error("Đặt hàng không thành công:", response.data.message);
+      }
+    } catch (error) {
+      console.error("Lỗi khi đặt hàng:", error.message);
     }
-
-    if (!counterValue) {
-      errorMessages.counterValue = "Vui lòng chọn số lượng";
-    }
-
-    if (!hotenkh) {
-      errorMessages.hotenkh = "Vui lòng nhập họ và tên";
-    }
-
-    if (!sdt) {
-      errorMessages.sdt = "Vui lòng nhập số điện thoại";
-    }
-
-    if (!diachi) {
-      errorMessages.diachi = "Vui lòng nhập địa chỉ";
-    }
-
-    if (Object.keys(errorMessages).length > 0) {
-      this.setState({ errorMessages });
-      toast.error("Vui lòng điền đầy đủ thông tin");
-      return;
-    }
-
-    // Nếu không có lỗi, tiếp tục xử lý mua hàng
-    // ...
   };
 
   render() {
@@ -106,7 +105,6 @@ class Thongtintdathang extends Component {
 
     return (
       <>
-        <ToastContainer />
         {isEmptyObj === false && (
           <div className="muahang-container">
             <a href="/some-valid-link" className="logo-muahang">
@@ -229,9 +227,7 @@ class Thongtintdathang extends Component {
                         className="sanpham-img"
                         alt="Product"
                       />
-                      <span className="sanpham-name">
-                        Sản phẩm: {product.tensp}{" "}
-                      </span>
+                      <span className="sanpham-name">{product.tensp} </span>
                       <span className="sanpham-price">
                         {product.giatien.toLocaleString()} VND
                       </span>
@@ -273,9 +269,9 @@ class Thongtintdathang extends Component {
                     <button
                       type="submit"
                       className="btn btn-primary"
-                      onClick={(event) => this.handleBuyClick(event)}
+                      onClick={this.handleOrder}
                     >
-                      Buy
+                      Xác Nhận
                     </button>
                   </div>
                 </div>

@@ -20,3 +20,58 @@
     transform: translateY(0);
   }
 }
+.btn-link {
+  position: relative;
+  padding: 7px 50px;
+  margin: auto;
+  background-color: white;
+  text-align: center;
+  border-radius: 0;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+.btn-link::before,
+.btn-link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background-color: black;
+  transition: all 0.3s ease-in;
+  z-index: -1;
+}
+
+.btn-link::before {
+  left: 0;
+  z-index: 1; /* Đặt z-index lớn hơn để chữ hiển thị phía trên */
+}
+
+.btn-link::after {
+  right: 0;
+  z-index: 1; /* Đặt z-index lớn hơn để chữ hiển thị phía trên */
+}
+
+.btn-link:hover::before {
+  width: 50%;
+}
+
+.btn-link:hover::after {
+  width: 50%;
+}
+
+.btn-link span {
+  position: relative;
+  z-index: 2; /* Đặt z-index để chữ nằm phía trên cả hai lớp */
+}
+.btn-link span:hover {
+  color: white;
+}
+
+.btn-link:hover {
+  color: white;
+}

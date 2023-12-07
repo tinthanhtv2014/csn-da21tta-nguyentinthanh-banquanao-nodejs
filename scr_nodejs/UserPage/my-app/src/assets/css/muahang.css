@@ -125,7 +125,7 @@
 }
 
 .sanpham-name {
-  margin-left: 10%;
+  margin-left: 5%;
   font-size: 18px;
   color: #565252;
 }
@@ -193,7 +193,7 @@
 }
 
 .muahang-tamtinh3 {
-  margin-left: 72%;
+  margin-left: 67.7%;
 }
 
 .muahang-phivanchuyen {
@@ -201,7 +201,7 @@
 }
 
 .muahang-phivanchuyen1 {
-  margin-left: 67%;
+  margin-left: 63%;
 }
 
 .muahang-tongcong {
@@ -209,7 +209,7 @@
 }
 
 .muahang-tongcong1 {
-  margin-left: 65%;
+  margin-left: 60%;
 }
 
 .muahang-tongcong2 {
@@ -321,6 +321,13 @@
   padding: 9px;
   border-radius: 4px;
   border: 1px solid black;
+  transition: all 0.5 ease-in;
+}
+
+.size-option label:hover {
+  background-color: #000000;
+  color: white;
+  cursor: pointer;
 }
 
 .size-option input[type="radio"]:checked + label {
@@ -345,4 +352,17 @@
   /* margin-top: 9px; */
   margin-left: 10%;
   margin-bottom: 10px;
+}
+.btn-primary {
+  background-color: white;
+  padding: 10px 50px;
+  color: #000000;
+  border: 1px solid black;
+  margin-left: 43%;
+  margin-top: 6%;
+}
+
+.btn-primary:hover {
+  background-color: #000000;
+  color: white;
 }

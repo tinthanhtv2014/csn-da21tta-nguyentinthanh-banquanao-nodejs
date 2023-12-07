@@ -14,6 +14,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import HomeSearchPage from "./HomeSearchPage";
 import HomeSearchPage2 from "./HomeSearchPage2";
 import HomeSearchPage3 from "./HomeSearchPage3";
+import FullItem from "./FullItem";
+import HomePageFullitem from "./HomepageFullItem";
 function App() {
   return (
     <div className="App">
@@ -48,6 +50,12 @@ function App() {
               <Navbar />
               <Thongtindathang />
               <Footer />
+            </>
+          </Route>
+
+          <Route path="/danhsachsanpham">
+            <>
+              <HomePageFullitem />
             </>
           </Route>
         </Switch>

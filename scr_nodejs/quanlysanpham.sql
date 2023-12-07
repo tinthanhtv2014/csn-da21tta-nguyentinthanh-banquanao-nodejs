@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2023 at 11:21 AM
+-- Generation Time: Dec 07, 2023 at 06:55 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -31,7 +31,7 @@ CREATE TABLE `billproduct` (
   `mahd` int(11) NOT NULL,
   `idkh` int(11) NOT NULL,
   `diachiship` varchar(255) NOT NULL,
-  `thoigiandat` date DEFAULT NULL
+  `thoigiandat` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -40,7 +40,8 @@ CREATE TABLE `billproduct` (
 
 INSERT INTO `billproduct` (`mahd`, `idkh`, `diachiship`, `thoigiandat`) VALUES
 (1, 1, 'bụi lùm', NULL),
-(2, 2, 'trà vinh', NULL);
+(2, 2, 'trà vinh', NULL),
+(32650, 58399, 'tân thế giới', '2023-12-07 04:50:16');
 
 -- --------------------------------------------------------
 
@@ -101,7 +102,7 @@ CREATE TABLE `detailbillproduct` (
 --
 
 INSERT INTO `detailbillproduct` (`mahd`, `id`, `soluongsp`) VALUES
-(1, 'SP007', 10);
+(32650, 'SP003', 2);
 
 -- --------------------------------------------------------
 
@@ -115,9 +116,9 @@ CREATE TABLE `product` (
   `soluong` int(11) NOT NULL,
   `loaisp` varchar(255) NOT NULL,
   `tenNSX` varchar(255) NOT NULL,
-  `giatien` varchar(255) NOT NULL,
+  `giatien` float NOT NULL,
   `mota` text DEFAULT NULL,
-  `chitietsanpham` varchar(255) DEFAULT NULL,
+  `chitietsanpham` text DEFAULT NULL,
   `kichco` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -126,26 +127,22 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `tensp`, `soluong`, `loaisp`, `tenNSX`, `giatien`, `mota`, `chitietsanpham`, `kichco`) VALUES
-('SP001', 'Áo dài', 20, 'áo dài', 'aaa', '50000', 'profile_pic-1701009619146.jpg', 'vãi l luôn đầu cắt moii', 'S'),
-('SP002', 'Quần ', 10, 'áo thun', 'bbb', '130000', 'profile_pic-1700925677639.jpg', 'vãi l luôn đầu cắt moii', 'X'),
-('SP003', 'áo thun nam đẹp', 20, 'áo thun', 'aaa', '130000', 'profile_pic-1700732120198.jpg', 'vãi đạn luôn đầu bồi', 'XL'),
-('SP004', 'áo thun nam ádklashdophasds', 10, 'áo dài', 'aaa', '50000', 'profile_pic-1701265398626.png', 'vãi l luôn đầu cắt moiiiádasdasdasd', 'S'),
-('SP005', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701340460181.jpg', 'aduboyysz', 'S'),
-('SP006', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701354288069.jpg', 'aduboyysz', 'S'),
-('SP007', 'Quần tây', 20, 'áo dài', 'ccc', '130000', 'profile_pic-1701339730275.jpg', 'vãi mèo luôn đầu card', 'XL'),
-('SP008', 'áo thun nam đẹp', 20, 'áo dài', 'aaa', '150000', 'profile_pic-1701263609841.jpg', 'vãi l luôn đầu cắt moiii', 'XL'),
-('SP009', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526221378.jpg', 'aduboyysz', 'S'),
-('SP010', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526299037.jpg', 'aduboyysz', 'S'),
-('SP011', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526232745.jpg', 'aduboyysz', 'S'),
-('SP012', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526280533.jpg', 'aduboyysz', 'S'),
-('SP013', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526244741.jpg', 'aduboyysz', 'S'),
-('SP014', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526256654.jpg', 'aduboyysz', 'S'),
-('SP015', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526321411.jpg', 'aduboyysz', 'S'),
-('SP016', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526332490.jpg', 'aduboyysz', 'S'),
-('SP017', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701526361750.jpg', 'aduboyysz', 'S'),
-('SP018', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701528186975.jpg', 'aduboyysz', 'S'),
-('SP019', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701528202149.jpg', 'aduboyysz', 'S'),
-('SP020', 'áo', 10, 'áo dài', 'aaa', '100000', 'profile_pic-1701528217299.jpg', 'aduboyysz', 'S');
+('KP001', 'SIGNATURE HOODIE / WHITE COLOR', 10, 'áo vest', 'bbb', 270000, 'profile_pic-1701924529410.jpeg', '', 'S'),
+('KP002', 'SIGNATURE HOODIE / GREEN COLOR', 10, 'áo dài', 'bbb', 280000, 'profile_pic-1701924545279.jpeg', 'không có', 'S'),
+('KP003', 'SIGNATURE HOODIE / BROWN COLOR', 10, 'áo dài', 'ccc', 270000, 'profile_pic-1701924557287.jpeg', 'không có', 'S'),
+('KP004', 'SIGNATURE HOODIE / BLACK COLOR', 10, 'áo thun', 'ccc', 270000, 'profile_pic-1701924567995.jpeg', 'không có', 'XL'),
+('KP005', 'Polo Meowment - Meow Collection / White', 10, 'áo thun', 'ccc', 180000, 'profile_pic-1701924799917.jpg', 'không có', 'S'),
+('KP006', 'Polo Outerity Collection TES / Green', 10, 'áo thun', 'aaa', 180000, 'profile_pic-1701924971442.jpg', 'không có', 'S'),
+('KP007', 'Polo Outerity Collection TES / Light Grey', 10, 'áo thun', 'ccc', 180000, 'profile_pic-1701925021504.jpg', 'không có', 'S'),
+('KP008', 'Polo Outerity Collection TES / Brown', 10, 'áo dài', 'ccc', 180000, 'profile_pic-1701924878198.jpg', 'không có', 'S'),
+('SP001', 'Line Dino Tee / Navy - Cano', 10, 'áo thun', 'aaa', 209000, 'profile_pic-1701922121542.jpg', 'không có', 'S'),
+('SP002', 'Line Dino Tee / Black - Cano', 10, 'áo thun', 'aaa', 209000, 'profile_pic-1701922185573.jpg', 'không có', 'XL'),
+('SP003', 'Line Dino Tee / Cano - Black', 10, 'áo dài', 'aaa', 209000, 'profile_pic-1701922237596.jpg', 'không có', 'XXL'),
+('SP004', 'Line Dino Tee / Gray - Cano', 10, 'áo dài', 'aaa', 209000, 'profile_pic-1701922278958.jpg', 'không có', 'S'),
+('SP005', 'Baby Tee Line Meow / Black', 10, 'áo dài', 'ccc', 131000, 'profile_pic-1701922531010.jpg', 'không có', 'S'),
+('SP006', 'Baby Tee Line Meow / Navy Peony', 10, 'áo thun', 'ccc', 131000, 'profile_pic-1701922571973.jpg', 'aduboyysz', 'S'),
+('SP007', 'Baby Tee Line Meow / Sky Blue', 10, 'áo thun', 'bbb', 131000, 'profile_pic-1701922552407.jpg', 'không có', 'S'),
+('SP008', 'Baby Tee Line Meow / Pink', 10, 'áo dài', 'bbb', 131000, 'profile_pic-1701922491158.jpg', 'không có', 'S');
 
 -- --------------------------------------------------------
 
@@ -189,7 +186,8 @@ INSERT INTO `users` (`idkh`, `hotenkh`, `sdt`, `diachi`, `ngaysinh`) VALUES
 (1, 'Nguyễn Tín Thành', '0395890398', 'trà vinh', '2000-01-01'),
 (2, 'Quốc Bảo', '0123456789', 'ở đâu không biết', '2003-01-01'),
 (3, 'đâsasd', 'ádasdad', 'adadđ', NULL),
-(4, 'sadsad', 'ádasdad', 'adadđ', NULL);
+(4, 'sadsad', 'ádasdad', 'adadđ', NULL),
+(58399, 'nhà báo nhân dân', '0908152508', 'tân thế giới', NULL);
 
 --
 -- Indexes for dumped tables
@@ -250,19 +248,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `billproduct`
 --
 ALTER TABLE `billproduct`
-  MODIFY `mahd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `mahd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50422;
 
 --
 -- AUTO_INCREMENT for table `detailbillproduct`
 --
 ALTER TABLE `detailbillproduct`
-  MODIFY `mahd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `mahd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50422;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `idkh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idkh` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59610;
 
 --
 -- Constraints for dumped tables

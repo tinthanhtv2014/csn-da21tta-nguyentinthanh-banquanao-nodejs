@@ -1,9 +1,9 @@
 import React from "react";
 
 import { withRouter } from "react-router-dom";
-import "./ListSanPham.css";
+import "./Fullitem.css";
 
-class Itemver2 extends React.Component {
+class FullItem extends React.Component {
   constructor(props) {
     super(props);
 
@@ -20,7 +20,7 @@ class Itemver2 extends React.Component {
 
   fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:8081/api/v1/productNew", {
+      const response = await fetch("http://localhost:8081/api/v1/product", {
         method: "GET",
         mode: "cors",
       });
@@ -50,9 +50,9 @@ class Itemver2 extends React.Component {
 
     return (
       <div className="container-bottom">
-        {/* <div className="tieude">
-          <h1>Sản Phẩm Nổi Bật</h1>
-        </div> */}
+        <div className="tieude">
+          <h1>Danh Sách Sản Phẩm</h1>
+        </div>
         <ul className="products">
           {data &&
             data.length > 0 &&
@@ -86,4 +86,4 @@ class Itemver2 extends React.Component {
   }
 }
 
-export default withRouter(Itemver2);
+export default withRouter(FullItem);

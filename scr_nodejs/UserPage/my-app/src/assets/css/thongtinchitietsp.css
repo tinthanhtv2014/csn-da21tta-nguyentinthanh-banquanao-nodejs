@@ -48,25 +48,6 @@
   font-size: 27px;
 }
 
-.size-option {
-  display: inline-block;
-  cursor: pointer;
-  margin-right: 20px;
-  padding: 5px 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 30px;
-  transition: all 0.3s ease-in;
-}
-.size-option:hover {
-  background-color: black;
-  color: white;
-}
-
-.size-text {
-  margin: 0;
-}
-
 .selected {
   background-color: black;
   color: #fff;
@@ -134,4 +115,21 @@
   background-color: black;
   transition: all 0.3s ease-in;
   text-align: center;
+}
+
+.tieudesp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding-bottom: 10px; */
+}
+
+.tieudesp h1 {
+  text-align: center;
+  width: 50%;
+  font-weight: bold;
+  padding: 5px;
+  background-color: white;
+  margin-top: 1%;
+  margin-bottom: -3%;
 }

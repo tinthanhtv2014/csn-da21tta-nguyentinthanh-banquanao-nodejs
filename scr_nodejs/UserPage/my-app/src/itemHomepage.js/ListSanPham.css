@@ -77,13 +77,13 @@ ul.products li:hover .product-top .product-thumb img {
 }
 
 ul.products li .product-info {
-  padding: 10px 0px;
+  padding: 10px 4px;
   background-color: #fff;
-  padding-left: 13px;
+  padding-left: 10px;
   box-sizing: border-box;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-start; */
 }
 
 ul.products li .product-info a {
@@ -102,7 +102,7 @@ ul.products li .product-info a.product-TheLoai {
 
 ul.products li .product-info a.product-name {
   color: #334862;
-  padding: 3px 0px;
+  padding: 3px 30px;
   text-transform: uppercase;
   padding-right: 10px;
   box-sizing: border-box;
@@ -113,3 +113,11 @@ ul.products li .product-info a.product-price {
   padding: 2px 0px;
   font-weight: 600;
 }
+
+.product-price {
+  color: red;
+}
+/* 
+.product-name {
+  padding: 10px 50px;
+} */

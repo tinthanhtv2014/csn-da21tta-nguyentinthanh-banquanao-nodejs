@@ -62,6 +62,9 @@ class ThongTinChiTietSp extends Component {
       <>
         {isEmptyObj === false && (
           <>
+            <div className="tieudesp">
+              <h1>Thông Tin Sản Phẩm </h1>
+            </div>
             <div className="container">
               <div className="product-info">
                 <form className="form">
@@ -93,6 +96,7 @@ class ThongTinChiTietSp extends Component {
                         sản phẩm. Như vậy sẽ ảnh hưởng đến màu sắc của sản phẩm
                         và làm cho áo có tình trạng loang màu. Outerity xin cảm
                         ơn ạ🖤
+                        {/* {product.chitietsanpham} */}
                       </p>
                     </div>
                     <hr></hr>
@@ -102,7 +106,7 @@ class ThongTinChiTietSp extends Component {
                         to={`/thongtindathangsp/${product.id}`}
                         className="btn btn-primary"
                       >
-                        Buy
+                        Đặt Hàng
                       </Link>
                     </div>
                   </div>

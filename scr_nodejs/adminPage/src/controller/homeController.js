@@ -2,6 +2,7 @@ const express = require("express");
 const connection = require("../config/dataBase");
 const multer = require("multer");
 const moment = require("moment");
+
 const getHomePage = async (req, res) => {
   const [results, fields] = await connection.execute(
     "SELECT * FROM `product` "
@@ -145,7 +146,6 @@ const upload = multer().single("profile_pic");
 //   ]);
 //   return res.redirect("/");
 // };
-
 const updateUser = async (req, res) => {
   try {
     function getRandomInt(min, max) {
@@ -153,59 +153,60 @@ const updateUser = async (req, res) => {
       max = Math.floor(max);
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
+    // Kiểm tra dữ liệu đầu vào
+    const { hotenkh, sdt, diachi, size, soluong, id, tensp } = req.body;
+    if (!hotenkh || !sdt || !diachi || !size || !soluong || !id) {
+      throw new Error("Bạn chưa truyền đủ thông tin không thể đặt hàng !!!!");
+    }
 
-    const currentTime = moment();
-    const formattedTime = currentTime.format("YYYY-MM-DD HH:mm:ss");
+    // Lấy thời gian hiện tại
+    const currentTime = new Date();
+    const formattedTime = currentTime
+      .toISOString()
+      .slice(0, 19)
+      .replace("T", " ");
+
+    // Tạo các số ngẫu nhiên
     const randomIntegerInRange = getRandomInt(0, 60000);
     const randomIntegerHoadon = getRandomInt(0, 60000);
-    const hotenkh = req.body.hotenkh;
-    const sdt = req.body.sdt;
-    const diachi = req.body.diachi;
-    const ghichu = req.body.ghichu;
-    const size = req.body.size;
-    const soluong = req.body.soluong;
-    const id = req.body.id;
 
-    console.log(
-      "check data post: ",
-      randomIntegerHoadon,
-      randomIntegerInRange,
-      formattedTime,
-      hotenkh,
-      diachi,
-      sdt,
-      size,
-      soluong,
-      id
-    );
-
+    // Insert thông tin khách hàng
     await connection.execute(
-      "insert into users(idkh,hotenkh,sdt,diachi) values (?,?,?,?)",
+      "INSERT INTO users(idkh, hotenkh, sdt, diachi) VALUES (?, ?, ?, ?)",
       [randomIntegerInRange, hotenkh, sdt, diachi]
     );
 
+    // Cập nhật thông tin sản phẩm
     await connection.execute("UPDATE product SET kichco = ? WHERE id = ?", [
       size,
       id,
     ]);
 
+    // Insert thông tin hóa đơn
     await connection.execute(
-      "insert into billproduct(mahd,idkh,diachiship,thoigiandat) values (?,?,?,?)",
+      "INSERT INTO billproduct(mahd, idkh, diachiship, thoigiandat) VALUES (?, ?, ?, ?)",
       [randomIntegerHoadon, randomIntegerInRange, diachi, formattedTime]
     );
 
+    // Insert thông tin chi tiết hóa đơn
     await connection.execute(
-      "insert into detailbillproduct(mahd,id,soluongsp) values (?,?,?)",
+      "INSERT INTO detailbillproduct(mahd, id, soluongsp) VALUES (?, ?, ?)",
       [randomIntegerHoadon, id, soluong]
     );
 
-    return res.redirect("http://localhost:3000");
+    // Chuyển hướng về trang chủ sau khi đặt hàng thành công
+    const successMessage = "Bạn đã đặt hàng thành công!";
+
+    return res.json({
+      success: true,
+      message: "Bạn đã đặt hàng thành công!",
+      "sản phẩm ": tensp,
+      "Số lượng đặt": soluong,
+      Size: size,
+    });
   } catch (error) {
     console.error("An error occurred:", error);
-    // Xử lý lỗi ở đây, có thể trả về một trang lỗi hoặc thông báo lỗi cho người dùng
-    return res
-      .status(500)
-      .send("Bạn chưa truyền đủ thông tin không thể đặt hàng !!!!");
+    return res.status(500).send(error.message || "Đã có lỗi xảy ra");
   }
 };
 

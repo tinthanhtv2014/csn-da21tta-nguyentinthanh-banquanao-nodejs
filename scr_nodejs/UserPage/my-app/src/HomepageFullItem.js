@@ -7,8 +7,10 @@ import Blank from "./Blank";
 import ItemHomepage from "./itemHomepage.js/ItemHomepage";
 import Blanker2 from "./Blanker2";
 import { ToastContainer, toast } from "react-toastify";
+import FullItem from "./FullItem";
 import "react-toastify/dist/ReactToastify.css";
-class HomePage extends React.Component {
+import "./Homepagefull.css";
+class HomePageFullitem extends React.Component {
   componentDidMount() {}
 
   render() {
@@ -21,23 +23,12 @@ class HomePage extends React.Component {
           {" "}
           <Carousel1 />
         </div>
-        <div className="Container-Blank">
-          {" "}
-          <Blank />
-        </div>
+
         <div className="container-item">
           {" "}
-          <Itemver2 />
+          <FullItem />
         </div>
-        <div className="Container-Blanker">
-          {" "}
-          <Blanker2 />
-        </div>
-        <div className="container-item">
-          {" "}
-          <ItemHomepage />
-        </div>
-        <div className="Container-Footer">
+        <div className="Container-Footerr">
           {" "}
           <Footer />
         </div>
@@ -46,4 +37,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+export default HomePageFullitem;

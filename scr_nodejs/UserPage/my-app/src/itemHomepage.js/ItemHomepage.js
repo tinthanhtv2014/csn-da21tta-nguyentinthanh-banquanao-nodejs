@@ -3,7 +3,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import "./ListSanPham.css";
 
-class Itemver2 extends React.Component {
+class ItemHomepage extends React.Component {
   constructor(props) {
     super(props);
 
@@ -20,7 +20,7 @@ class Itemver2 extends React.Component {
 
   fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:8081/api/v1/productNew", {
+      const response = await fetch("http://localhost:8081/api/v1/productNew2", {
         method: "GET",
         mode: "cors",
       });
@@ -86,4 +86,4 @@ class Itemver2 extends React.Component {
   }
 }
 
-export default withRouter(Itemver2);
+export default withRouter(ItemHomepage);

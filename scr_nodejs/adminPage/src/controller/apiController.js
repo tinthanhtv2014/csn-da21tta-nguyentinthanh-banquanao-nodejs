@@ -166,6 +166,60 @@ let getDetailCompanyProduct = async (req, res) => {
   }
 };
 
+const getAllProductNew = async (req, res) => {
+  try {
+    const [results, fields] = await connection.execute(
+      "SELECT * FROM `product` WHERE `id` LIKE 'SP%';"
+    );
+
+    // Thêm đường dẫn đầy đủ cho mỗi sản phẩm
+    const productsWithImageUrls = results.map((product) => {
+      return {
+        ...product,
+        imageUrl: `http://localhost:8081/api/v1/images/${product.mota}`,
+      };
+    });
+
+    return res.status(200).json({
+      message: "ok",
+      data: productsWithImageUrls,
+    });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
+};
+
+const getAllProductNew2 = async (req, res) => {
+  try {
+    const [results, fields] = await connection.execute(
+      "SELECT * FROM `product` WHERE `id` LIKE 'KP%';"
+    );
+
+    // Thêm đường dẫn đầy đủ cho mỗi sản phẩm
+    const productsWithImageUrls = results.map((product) => {
+      return {
+        ...product,
+        imageUrl: `http://localhost:8081/api/v1/images/${product.mota}`,
+      };
+    });
+
+    return res.status(200).json({
+      message: "ok",
+      data: productsWithImageUrls,
+    });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({
+      message: "Internal server error",
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   getAllProduct,
   createProduct,
@@ -173,4 +227,6 @@ module.exports = {
   updateProduct,
   getDetailProduct,
   getDetailCompanyProduct,
+  getAllProductNew,
+  getAllProductNew2,
 };
