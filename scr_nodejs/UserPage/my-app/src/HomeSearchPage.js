@@ -27,7 +27,7 @@ class HomeSearchPage extends React.Component {
           {" "}
           <Companyname />
         </div>
-        <div className="Container-Footer">
+        <div className="Container-Footer1">
           {" "}
           <Footer />
         </div>

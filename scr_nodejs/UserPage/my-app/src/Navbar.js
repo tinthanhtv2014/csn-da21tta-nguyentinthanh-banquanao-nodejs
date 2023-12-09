@@ -31,7 +31,9 @@ class Navbar extends React.Component {
       <>
         <div className="header-container">
           <div className="header-logo">
-            <img src={Logo} alt="" />
+            <a href="/">
+              <img src={Logo} alt="" />
+            </a>
           </div>
 
           <div className="header-ul">
@@ -39,7 +41,9 @@ class Navbar extends React.Component {
               <li>
                 <a href="/">Home</a>
               </li>
-              <li>Contact</li>
+              <li>
+                <a href="/danhsachsanpham">Sản phẩm</a>
+              </li>
               <li>About</li>
               <div className="d-flex p-5">
                 <Dropdown

@@ -56,6 +56,13 @@ class Thongtintdathang extends Component {
     }
   }
 
+  handleSoluong = (event) => {
+    console.log("check value: ", this.state.counterValue);
+    console.log("check soluong: ", this.state.product.soluong);
+    if (this.state.counterValue > this.state.product.soluong) {
+    }
+  };
+
   handleSizeChange = (size) => {
     this.setState({ selectedSize: size });
   };
@@ -64,6 +71,13 @@ class Thongtintdathang extends Component {
     this.setState((prevState) => ({
       counterValue: prevState.counterValue + 1,
     }));
+    if (this.state.counterValue >= this.state.product.soluong) {
+      alert("hết hàng rồi bạn ơi, hôm khác đến nhé =)))");
+      this.setState((prevState) => ({
+        counterValue: this.state.product.soluong,
+      }));
+      return;
+    }
   };
 
   decrement = () => {
@@ -73,36 +87,11 @@ class Thongtintdathang extends Component {
     }
   };
 
-  handleOrder = async () => {
-    try {
-      const { product, counterValue, selectedSize } = this.state;
-
-      const response = await axios.post("http://your-server-endpoint", {
-        id: product.id,
-        tensp: product.tensp,
-        size: selectedSize,
-        soluong: counterValue,
-        hotenkh: document.getElementsByName("hotenkh")[0].value,
-        sdt: document.getElementsByName("sdt")[0].value,
-        diachi: document.getElementsByName("diachi")[0].value,
-        ghichu: document.getElementsByName("ghichu")[0].value,
-      });
-
-      if (response.data.success) {
-        alert("Bạn đã đặt hàng thành công!");
-        window.location.href = `http://localhost:3000/thongtindathangsp/${response.data.id}`;
-      } else {
-        console.error("Đặt hàng không thành công:", response.data.message);
-      }
-    } catch (error) {
-      console.error("Lỗi khi đặt hàng:", error.message);
-    }
-  };
-
   render() {
     const { product, counterValue, selectedSize, errorMessages } = this.state;
     let isEmptyObj = Object.keys(product).length === 0;
-
+    console.log("check product: ", product.soluong);
+    console.log("check countervalue: ", counterValue);
     return (
       <>
         {isEmptyObj === false && (
@@ -156,7 +145,7 @@ class Thongtintdathang extends Component {
                         value={counterValue}
                         min={1}
                         max={5000}
-                        readOnly
+                        // readOnly
                         onChange={(event) => this.handleSoluong(event)}
                       />
                       <div className="span2" onClick={this.increment}>

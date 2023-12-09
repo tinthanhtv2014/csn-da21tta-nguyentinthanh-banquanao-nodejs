@@ -43,7 +43,7 @@ body {
   width: auto;
   height: auto;
   /* margin-top: 70%; */
-  margin-bottom: 50px;
+
   z-index: 20;
 }
 
@@ -56,5 +56,13 @@ body {
   width: 100%;
   margin-top: 50px;
   margin-bottom: 50px;
+  z-index: 20;
+}
+
+.Container-Footer1 {
+  width: auto;
+  height: auto;
+  margin-top: 70%;
+
   z-index: 20;
 }

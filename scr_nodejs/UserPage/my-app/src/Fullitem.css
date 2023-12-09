@@ -2,19 +2,22 @@
   position: absolute;
 }
 
-.tieude {
+.tieude1 {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-bottom: 10px;
+  text-align: center;
+  flex-direction: column;
 }
 
-.tieude h1 {
-  text-align: center;
-  width: 50%;
-  font-weight: bold;
-  padding: 5px;
-  background-color: white;
+.Searchfillter {
+  margin-left: 80%;
+}
+
+.fillter {
+  display: flex;
+  flex-direction: column;
 }
 
 ul.products {
@@ -112,4 +115,15 @@ ul.products li .product-info a.product-price {
   color: red;
   padding: 2px 0px;
   font-weight: 600;
+}
+
+.tieude {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Thêm các điều chỉnh phù hợp với giao diện của bạn */
+input[type="radio"] {
+  margin-right: 10px; /* Khoảng cách giữa các nút radio */
 }

@@ -21,7 +21,7 @@ const getDetailPage = async (req, res) => {
 
 const getUserPage = async (req, res) => {
   const [results, fields] = await connection.execute(
-    "SELECT users.idkh, users.hotenkh, users.sdt, billproduct.mahd, product.tensp,product.kichco, detailbillproduct.soluongsp, billproduct.diachiship, billproduct.thoigiandat FROM users JOIN billproduct ON users.idkh = billproduct.idkh JOIN detailbillproduct ON billproduct.mahd = detailbillproduct.mahd JOIN product ON detailbillproduct.id = product.id; "
+    "SELECT users.idkh, users.hotenkh, users.sdt, billproduct.mahd, product.tensp,product.kichco, detailbillproduct.soluongsp,product.giatien,detailbillproduct.soluongsp*product.giatien as total ,billproduct.diachiship, billproduct.thoigiandat FROM users JOIN billproduct ON users.idkh = billproduct.idkh JOIN detailbillproduct ON billproduct.mahd = detailbillproduct.mahd JOIN product ON detailbillproduct.id = product.id; "
   );
 
   return res.render("user.ejs", { dataUsers: results });
@@ -194,16 +194,15 @@ const updateUser = async (req, res) => {
       [randomIntegerHoadon, id, soluong]
     );
 
+    await connection.execute(
+      " UPDATE product SET soluong = soluong - ? WHERE id = ?",
+      [soluong, id]
+    );
+
     // Chuyển hướng về trang chủ sau khi đặt hàng thành công
     const successMessage = "Bạn đã đặt hàng thành công!";
 
-    return res.json({
-      success: true,
-      message: "Bạn đã đặt hàng thành công!",
-      "sản phẩm ": tensp,
-      "Số lượng đặt": soluong,
-      Size: size,
-    });
+    return res.send("cảm ơn bạn đã đặt hàng");
   } catch (error) {
     console.error("An error occurred:", error);
     return res.status(500).send(error.message || "Đã có lỗi xảy ra");
