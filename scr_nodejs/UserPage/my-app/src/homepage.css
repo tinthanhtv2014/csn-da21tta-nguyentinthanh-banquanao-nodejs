@@ -42,7 +42,7 @@ body {
 .Container-Footer {
   width: auto;
   height: auto;
-  /* margin-top: 70%; */
+  margin-top: 90%;
 
   z-index: 20;
 }
@@ -62,7 +62,22 @@ body {
 .Container-Footer1 {
   width: auto;
   height: auto;
-  margin-top: 70%;
+  margin-top: 120%;
+
+  z-index: 20;
+}
+
+.Container-Footer2 {
+  width: auto;
+  height: auto;
+  margin-top: 130%;
+
+  z-index: 20;
+}
+
+.Container-FooterSlide {
+  width: auto;
+  height: auto;
 
   z-index: 20;
 }

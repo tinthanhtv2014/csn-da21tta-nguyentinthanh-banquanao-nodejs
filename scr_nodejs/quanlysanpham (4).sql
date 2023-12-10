@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2023 at 05:41 AM
+-- Generation Time: Dec 10, 2023 at 04:11 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -40,16 +40,7 @@ CREATE TABLE `billproduct` (
 
 INSERT INTO `billproduct` (`mahd`, `idkh`, `diachiship`, `thoigiandat`) VALUES
 (1, 1, 'bụi lùm', NULL),
-(2, 2, 'trà vinh', NULL),
-(1331, 40877, 'tra vinh', '2023-12-09 02:24:54'),
-(8197, 39363, 'trà vinh', '2023-12-09 03:04:36'),
-(23161, 37590, 'tân thế giới', '2023-12-09 02:52:59'),
-(32339, 27233, 'trà vinh', '2023-12-09 03:15:03'),
-(32650, 58399, 'tân thế giới', '2023-12-07 04:50:16'),
-(32814, 34951, 'trà vinh', '2023-12-09 02:53:19'),
-(35974, 28343, 'tân thế giới', '2023-12-09 02:19:02'),
-(50745, 21214, 'tân thế giới', '2023-12-09 02:52:49'),
-(52147, 9516, 'tân thế giới', '2023-12-09 02:14:24');
+(2, 2, 'trà vinh', NULL);
 
 -- --------------------------------------------------------
 
@@ -105,21 +96,6 @@ CREATE TABLE `detailbillproduct` (
   `soluongsp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `detailbillproduct`
---
-
-INSERT INTO `detailbillproduct` (`mahd`, `id`, `soluongsp`) VALUES
-(1331, 'KP006', 6),
-(8197, 'KP007', 1),
-(23161, 'KP007', 1),
-(32339, 'KP007', 1),
-(32650, 'SP003', 2),
-(32814, 'KP007', 1),
-(35974, 'KP006', 3),
-(50745, 'KP007', 1),
-(52147, 'KP006', 3);
-
 -- --------------------------------------------------------
 
 --
@@ -149,16 +125,32 @@ INSERT INTO `product` (`id`, `tensp`, `soluong`, `loaisp`, `tenNSX`, `giatien`, 
 ('KP004', 'SIGNATURE HOODIE / BLACK COLOR', 10, 'áo thun', 'ccc', 270000, 'profile_pic-1701924567995.jpeg', 'không có', 'XL'),
 ('KP005', 'Polo Meowment - Meow Collection / White', 10, 'áo thun', 'ccc', 180000, 'profile_pic-1701924799917.jpg', 'không có', 'S'),
 ('KP006', 'Polo Outerity Collection TES / Green', 10, 'áo thun', 'aaa', 180000, 'profile_pic-1702091344051.jpg', 'không có', 'XXL'),
-('KP007', 'Polo Outerity Collection TES / Light Grey', 5, 'áo thun', 'ccc', 180000, 'profile_pic-1701925021504.jpg', 'không có', 'XXL'),
+('KP007', 'Polo Outerity Collection TES / Light Grey', 10, 'áo thun', 'ccc', 180000, 'profile_pic-1701925021504.jpg', 'không có', 'XXL'),
 ('KP008', 'Polo Outerity Collection TES / Brown', 10, 'áo dài', 'ccc', 180000, 'profile_pic-1701924878198.jpg', 'không có', 'S'),
-('SP001', 'Line Dino Tee / Navy - Cano', 10, 'áo thun', 'aaa', 209000, 'profile_pic-1701922121542.jpg', 'không có', 'S'),
+('QP001', 'BASIC SHORT / BLACK COLOR', 10, 'quần short', 'ccc', 404000, 'profile_pic-1702179106543.jpg', 'không có', 'S'),
+('QP002', 'BASIC SHORT / BROWN COLOR', 10, 'quần short', 'bbb', 304000, 'profile_pic-1702179334928.jpg', 'không có', 'XXL'),
+('QP003', 'BASIC SHORT / Cream New', 10, 'quần short', 'ccc', 204000, 'profile_pic-1702178410630.jpg', 'không có', 'XXL'),
+('QP004', 'BASIC SHORT / DARK GREEN COLOR', 10, 'quần short', 'aaa', 204000, 'profile_pic-1702178470275.jpg', 'không có', 'S'),
+('QP005', 'BASIC SHORT / Gray Pinstrip', 10, 'quần short', 'bbb', 304000, 'profile_pic-1702179352754.jpg', 'không có', 'S'),
+('QP006', 'BASIC SHORT / GREY COLOR', 10, 'quần short', 'bbb', 204000, 'profile_pic-1702178527232.jpg', 'không có', 'S'),
+('QP007', 'BASIC SHORT / WHITE COLOR', 10, 'quần short', 'ccc', 204000, 'profile_pic-1702178551877.jpg', 'không có', 'S'),
+('QP008', 'Short Sporty / Black', 10, 'quần short', 'ccc', 204000, 'profile_pic-1702208174534.jpg', 'không có', 'S'),
+('SP001', 'Line Dino Tee / Navy - Cano', 10, 'áo thun', 'aaa', 209000, 'profile_pic-1701922121542.jpg', 'không có', 'XXL'),
 ('SP002', 'Polo  Collection TES / Black', 10, 'áo thun', 'aaa', 209000, 'profile_pic-1702096495658.jpg', 'không có', 'XL'),
 ('SP003', 'Line Dino Tee / Cano - Black', 10, 'áo dài', 'aaa', 209000, 'profile_pic-1702096240701.jpg', 'không có', 'XXL'),
 ('SP004', 'Line Dino Tee / Gray - Cano', 10, 'áo dài', 'aaa', 209000, 'profile_pic-1701922278958.jpg', 'không có', 'S'),
 ('SP005', 'Baby Tee Line Meow / Black', 10, 'áo dài', 'ccc', 131000, 'profile_pic-1702096748916.jpg', 'không có', 'S'),
 ('SP006', 'Baby Tee Line Meow / Navy Peony', 10, 'áo thun', 'ccc', 131000, 'profile_pic-1702096740969.jpg', 'aduboyysz', 'S'),
 ('SP007', 'Baby Tee Line Meow / Sky Blue', 10, 'áo thun', 'bbb', 131000, 'profile_pic-1702096716512.jpg', 'không có', 'S'),
-('SP008', 'Baby Tee Line Meow / Pink', 10, 'áo dài', 'bbb', 131000, 'profile_pic-1702096309872.jpg', 'không có', 'S');
+('SP008', 'Baby Tee Line Meow / Pink', 10, 'áo dài', 'bbb', 131000, 'profile_pic-1702096309872.jpg', 'không có', 'S'),
+('XP001', 'Giza Double Zip Jacket / Black', 10, 'áo vest', 'ccc', 419000, 'profile_pic-1702177497200.jpg', 'không có', 'S'),
+('XP002', 'Winter Night Double Zip Jacket / Black', 10, 'áo vest', 'aaa', 418000, 'profile_pic-1702177537985.jpg', 'không có', 'S'),
+('XP003', 'Hoodie Double Zip Blue Fish / Canoli Cream', 10, 'áo vest', 'aaa', 319000, 'profile_pic-1702177587951.jpg', 'không có', 'S'),
+('XP004', 'Outerity No Internet / Black', 10, 'áo vest', 'aaa', 309000, 'profile_pic-1702177693396.jpg', 'không có', 'S'),
+('XP005', 'Hoodie Zip Snow / White', 10, 'áo vest', 'ccc', 308000, 'profile_pic-1702177806514.jpg', 'không có', 'S'),
+('XP006', 'HALF TEE v3.0 / NAVY COLOR', 10, 'áo thun', 'aaa', 164000, 'profile_pic-1702177916141.jpeg', 'không có', 'S'),
+('XP007', 'SIGNATURE TEE / Ver 2.0 - Light Grey', 10, 'áo thun', 'bbb', 118000, 'profile_pic-1702177970181.jpg', 'không có', 'S'),
+('XP008', 'POLO LITTLE CONTAIN / WHITE COLOR', 10, 'áo thun', 'ccc', 194000, 'profile_pic-1702178023357.jpg', 'không có', 'S');
 
 -- --------------------------------------------------------
 
@@ -200,18 +192,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`idkh`, `hotenkh`, `sdt`, `diachi`, `ngaysinh`) VALUES
 (1, 'Nguyễn Tín Thành', '0395890398', 'trà vinh', '2000-01-01'),
-(2, 'Quốc Bảo', '0123456789', 'ở đâu không biết', '2003-01-01'),
-(3, 'đâsasd', 'ádasdad', 'adadđ', NULL),
-(4, 'sadsad', 'ádasdad', 'adadđ', NULL),
-(9516, 'nhà báo cha báo mẹ', '0908152508', 'tân thế giới', NULL),
-(21214, 'nhà báo cha báo mẹ', '0908152508', 'tân thế giới', NULL),
-(27233, 'thành', '0908152508', 'trà vinh', NULL),
-(28343, 'nhà báo cha báo mẹ', '0908152508', 'tân thế giới', NULL),
-(34951, 'nhà báo cha báo mẹ', '0908152508', 'trà vinh', NULL),
-(37590, 'nhà báo cha báo mẹ', '0908152508', 'tân thế giới', NULL),
-(39363, 'thành', '0908152508', 'trà vinh', NULL),
-(40877, 'nhà báo cha báo mẹ', '0908152508', 'tra vinh', NULL),
-(58399, 'nhà báo nhân dân', '0908152508', 'tân thế giới', NULL);
+(2, 'Quốc Bảo', '0123456789', 'ở đâu không biết', '2003-01-01');
 
 --
 -- Indexes for dumped tables

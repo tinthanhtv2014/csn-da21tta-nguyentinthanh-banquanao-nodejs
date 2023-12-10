@@ -37,7 +37,7 @@ class HomePage extends React.Component {
           {" "}
           <ItemHomepage />
         </div>
-        <div className="Container-Footer">
+        <div className="Container-FooterSlide">
           {" "}
           <Footer />
         </div>

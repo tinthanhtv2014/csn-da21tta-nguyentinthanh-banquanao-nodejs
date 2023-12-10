@@ -24,6 +24,21 @@ app.use(cors());
 app.use("/", webRoutes);
 app.use("/api/v1/", apiRoute);
 
+// Import statements...
+app.get("/search-product/:productId", (req, res) => {
+  const productId = req.params.productId;
+
+  // Lọc sản phẩm theo productId
+  const searchResult = dataProduct.filter(
+    (product) => product.id === productId
+  );
+
+  // Render trang hiển thị kết quả tìm kiếm
+  res.render("home.ejs", { searchResult });
+});
+
+// Rest of your routes...
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${hostname}:${port}`);
 });

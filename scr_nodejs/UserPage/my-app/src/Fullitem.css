@@ -12,12 +12,20 @@
 }
 
 .Searchfillter {
-  margin-left: 80%;
+  margin-left: 60%;
+}
+
+.Searchfillter .editinput input {
+  width: 100%;
 }
 
 .fillter {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+}
+
+.fillter label {
+  margin-right: 30px;
 }
 
 ul.products {

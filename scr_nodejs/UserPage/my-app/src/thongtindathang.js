@@ -125,11 +125,6 @@ class Thongtintdathang extends Component {
                           >
                             {size}
                           </label>
-                          {errorMessages.size && (
-                            <p className="error-message">
-                              {errorMessages.size}
-                            </p>
-                          )}
                         </div>
                       ))}
                     </div>
@@ -151,9 +146,6 @@ class Thongtintdathang extends Component {
                       <div className="span2" onClick={this.increment}>
                         +
                       </div>
-                      {errorMessages.soluong && (
-                        <p className="error-message">{errorMessages.soluong}</p>
-                      )}
                     </div>
 
                     <label className="muahang-label">
@@ -163,9 +155,6 @@ class Thongtintdathang extends Component {
                         className="muahang-input hoten"
                         placeholder="Họ và tên"
                       />
-                      {errorMessages.hotenkh && (
-                        <p className="error-message">{errorMessages.hotenkh}</p>
-                      )}
                     </label>
 
                     <br />
@@ -188,9 +177,6 @@ class Thongtintdathang extends Component {
                         className="muahang-input muahang-sonha"
                         placeholder="Địa chỉ chi tiết"
                       />
-                      {errorMessages.diachi && (
-                        <p className="error-message">{errorMessages.diachi}</p>
-                      )}
                     </label>
 
                     <br />

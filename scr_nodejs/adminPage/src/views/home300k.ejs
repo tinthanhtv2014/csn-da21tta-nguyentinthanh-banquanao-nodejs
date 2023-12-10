@@ -8,13 +8,12 @@
   </head>
   <body>
     <div class="topnav">
-      <a  href="/" class="active">Home</a>
-      <a  href="/user-order">Users-Order</a>
-      
+      <a href="/" class="active">Home</a>
+      <a href="/user-order">Users-Order</a>
     </div>
 
     <div class="w3-container">
-      <h2>Cập Nhật Sản Phẩm</h2>
+      <h2>Danh Sách Sản Phẩm</h2>
       <label for="productId">Lọc theo giá tiền sản phẩm: </label>
       <form action="/searchPrice200" method="get">
         <label for="priceUnder200">Dưới 200k</label>
@@ -49,7 +48,6 @@
         />
         <button type="submit" class="editButton2">Tìm kiếm</button>
       </form>
-
       <form action="/Tim" enctype="multipart/form-data" method="POST">
         <input type="text" placeholder="tìm id sản phẩm" name="timid" />
         <input type="text" placeholder="tìm tên sản phẩm" name="timtensp" />
@@ -91,40 +89,42 @@
             <th>Số lượng</th>
             <th>Kích Cỡ</th>
             <th>Giá tiền</th>
+            <th>Chi tiết sản phẩm</th>
             <th>Mô tả</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
-          <% for(let i=0; i < dataproduct.length; i++) { %>
+          <% for(let i=0; i < dataProduct.length; i++) { %>
           <tr>
-            <td><%= dataproduct[i].id %></td>
-            <td><%= dataproduct[i].tensp %></td>
-            <td><%= dataproduct[i].loaisp %></td>
-            <td><%= dataproduct[i].tenNSX %></td>
-            <td><%= dataproduct[i].soluong %></td>
-            <td><%= dataproduct[i].kichco %></td>
-            <td><%= dataproduct[i].giatien %></td>
-            <td><%= dataproduct[i].chitietsanpham %></td>
+            <td><%= dataProduct[i].id %></td>
+            <td><%= dataProduct[i].tensp %></td>
+            <td><%= dataProduct[i].loaisp %></td>
+            <td><%= dataProduct[i].tenNSX %></td>
+            <td><%= dataProduct[i].soluong %></td>
+            <td><%= dataProduct[i].kichco %></td>
+            <td><%= dataProduct[i].giatien %></td>
+            <td><%= dataProduct[i].chitietsanpham %></td>
             <td>
               <img
-                src="/images/<%= dataproduct[i].mota %>"
+                src="/images/<%= dataProduct[i].mota %>"
                 alt=""
                 width="100px"
                 height="100px"
               />
             </td>
-
-            <td>
-              <form action="/editproduct/<%=dataproduct[i].id%>" method="get">
+            <td style="display: flex; flex-direction: column">
+              <form action="/editproduct/<%=dataProduct[i].id%>" method="get">
                 <button type="submit" class="editButton">edit</button>
               </form>
+
               <form action="/delete-product" method="post">
                 <input
                   type="text"
                   hidden
-                  value="<%=dataproduct[i].id%>"
+                  value="<%=dataProduct[i].id%>"
                   name="productId"
+                  ư
                 /><button type="submit" class="editButton">delete</button>
               </form>
             </td>
@@ -135,84 +135,78 @@
     </div>
     <div class="create-user-container">
       <form
-        action="/update-product"
+        action="/create-new-product"
         method="post"
         enctype="multipart/form-data"
       >
         <fieldset>
-          <legend><b>Cập nhật sản phẩm vào database</b></legend>
+          <legend><b>Thêm sản phẩm vào database</b></legend>
 
           <div>
-            <input type="text" name="id" hidden value="<%=dataProduct.id %>" />
+            <label for="">ID sản phẩm : </label>
+            <input type="text" name="id" />
           </div>
           <div>
             <label for="">Tên sản phẩm : </label>
-            <input type="text" name="tensp" value="<%=dataProduct.tensp %>" />
+            <input type="text" name="tensp" />
           </div>
           <div>
             <label for="">Thể loại : </label>
-            <select name="loaisp" value="<%=dataProduct.loaisp %>">
-              <option <%= dataProduct.loaisp === 'áo dài' ? 'selected' : '' %>>áo dài</option>
-              <option <%= dataProduct.loaisp === 'áo thun' ? 'selected' : '' %>>áo thun</option>
-              <option <%= dataProduct.loaisp === 'áo vest' ? 'selected' : '' %>>áo vest</option>
-              <option <%= dataProduct.loaisp === 'quần dài' ? 'selected' : '' %>>quần dài</option>
-              <option <%= dataProduct.loaisp === 'quần jean' ? 'selected' : '' %>>quần jean</option>
-              <option <%= dataProduct.loaisp === 'quần short' ? 'selected' : '' %>>quần short</option>
-              <option <%= dataProduct.loaisp === 'quần tây' ? 'selected' : '' %>>quần tây</option>
+            <select name="loaisp" id="hall" value="3">
+              <option>áo dài</option>
+              <option>áo thun</option>
+              <option>áo vest</option>
+              <option>quần dài</option>
+              <option>quần jean</option>
+              <option>quần short</option>
+              <option>quần tây</option>
             </select>
           </div>
-
           <div>
             <label for="">Kích cỡ : </label>
-            <select name="kichco" id="hall" value="<%=dataProduct.kichco %>">
-              <option <%= dataProduct.kichco === 'S' ? 'selected' : '' %>>S</option>
-              <option <%= dataProduct.kichco === 'X' ? 'selected' : '' %>>X</option>
-              <option <%= dataProduct.kichco === 'XL' ? 'selected' : '' %>>XL</option>
-              <option <%= dataProduct.kichco === 'XXL' ? 'selected' : '' %>>XXL</option>
+            <select name="kichco" id="hall" value="3">
+              <option>S</option>
+              <option>X</option>
+              <option>XL</option>
+              <option>XXL</option>
             </select>
           </div>
           <div>
-            <label for="">Tên nhà sản xuất</label>
-            <select name="tenNSX" value="<%=dataProduct.tenNSX %>">
-              <option <%= dataProduct.tenNSX === 'aaa' ? 'selected' : '' %>>aaa</option>
-              <option <%= dataProduct.tenNSX === 'bbb' ? 'selected' : '' %>>bbb</option>
-              <option <%= dataProduct.tenNSX === 'ccc' ? 'selected' : '' %>>ccc</option>
+            <label for="">Hãng sản xuất</label>
+            <select name="tenNSX" id="hall" value="3">
+              <option>aaa</option>
+              <option>bbb</option>
+              <option>ccc</option>
             </select>
           </div>
           <div>
             <label for="">Số lượng thêm : </label>
-            <input
-              type="text"
-              name="soluong"
-              value="<%=dataProduct.soluong %>"
-            />
+            <input type="text" name="soluong" />
           </div>
           <div>
             <label for="">Giá tiền : </label>
-            <input
-              type="text"
-              name="giatien"
-              value="<%=dataProduct.giatien %>"
-            />
+            <input type="text" name="giatien" />
           </div>
           <div>
             <label for="">Chi tiết sản phẩm: </label>
-            <input type="text" name="chitietsanpham" value="<%=dataProduct.chitietsanpham %>"/>
+            <input type="text" name="chitietsanpham" />
           </div>
+
           <div>
-            <label for="">edit images: </label>
-            <input
-              type="file"
-              name="profile_pic"
-              value="<%=dataProduct.mota %>"
-            />
+            <label for="">Avatar: </label>
+            <input type="file" name="profile_pic" />
           </div>
-         
+
           <div>
-            <button type="submit" class="editButton">Save</button>
+            <button type="submit" class="editButton">Submit</button>
           </div>
         </fieldset>
       </form>
+      <form
+        method="POST"
+        action="/upload-profile-pic"
+        enctype="multipart/form-data"
+      ></form>
     </div>
   </body>
 </html>

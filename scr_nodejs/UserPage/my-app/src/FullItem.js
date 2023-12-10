@@ -70,7 +70,7 @@ class FullItem extends React.Component {
             : priceFilter === "300000"
             ? item.giatien < 300000 && item.giatien >= 200000
             : priceFilter === "500000"
-            ? item.giatien < 500000
+            ? item.giatien < 500000 && item.giatien >= 300000
             : true
         );
 
@@ -82,7 +82,7 @@ class FullItem extends React.Component {
           </div>
 
           <div className="Searchfillter">
-            <div>
+            <div className="editinput">
               <input
                 placeholder="tìm kiếm sản phẩm"
                 value={searchTerm}

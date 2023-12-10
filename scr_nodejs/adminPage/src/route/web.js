@@ -13,6 +13,10 @@ const {
   updateProduct,
   getUserPage,
   updateUser,
+  getProduct200,
+  getProduct300,
+  getProduct500,
+  postHomePage,
 } = require("../controller/homeController");
 
 const storage = multer.diskStorage({
@@ -54,4 +58,9 @@ router.post("/update-product", upload.single("profile_pic"), updateProduct);
 router.post("/update-user", updateUser);
 router.get("/user-order", getUserPage);
 
+router.get("/searchPrice200", getProduct200);
+router.get("/searchPrice300", getProduct300);
+router.get("/searchPrice500", getProduct500);
+
+router.post("/Tim", upload.none(), postHomePage);
 module.exports = router;

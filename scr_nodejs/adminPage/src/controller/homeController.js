@@ -21,7 +21,7 @@ const getDetailPage = async (req, res) => {
 
 const getUserPage = async (req, res) => {
   const [results, fields] = await connection.execute(
-    "SELECT users.idkh, users.hotenkh, users.sdt, billproduct.mahd, product.tensp,product.kichco, detailbillproduct.soluongsp,product.giatien,detailbillproduct.soluongsp*product.giatien as total ,billproduct.diachiship, billproduct.thoigiandat FROM users JOIN billproduct ON users.idkh = billproduct.idkh JOIN detailbillproduct ON billproduct.mahd = detailbillproduct.mahd JOIN product ON detailbillproduct.id = product.id; "
+    "SELECT users.idkh, users.hotenkh, users.sdt, billproduct.mahd, product.tensp,product.kichco, detailbillproduct.soluongsp,product.giatien,detailbillproduct.soluongsp*product.giatien as total ,billproduct.diachiship, billproduct.thoigiandat FROM users JOIN billproduct ON users.idkh = billproduct.idkh JOIN detailbillproduct ON billproduct.mahd = detailbillproduct.mahd JOIN product ON detailbillproduct.id = product.id order by billproduct.thoigiandat DESC; "
   );
 
   return res.render("user.ejs", { dataUsers: results });
@@ -209,6 +209,58 @@ const updateUser = async (req, res) => {
   }
 };
 
+const getProduct200 = async (req, res) => {
+  const [results, fields] = await connection.execute(
+    "SELECT * FROM `product` where giatien <= 200000"
+  );
+  return res.render("home200k.ejs", { dataProduct: results });
+};
+
+const getProduct300 = async (req, res) => {
+  const [results, fields] = await connection.execute(
+    "SELECT * FROM `product` where giatien <= 300000 and giatien > 200000"
+  );
+  return res.render("home300k.ejs", { dataProduct: results });
+};
+
+const getProduct500 = async (req, res) => {
+  const [results, fields] = await connection.execute(
+    "SELECT * FROM `product` where giatien <= 500000 and giatien > 300000"
+  );
+  return res.render("home500k.ejs", { dataProduct: results });
+};
+
+let postHomePage = async (req, res) => {
+  // Sử dụng req.body để lấy dữ liệu từ biểu mẫu POST
+  const timid = req.body.timid;
+  const timtensp = req.body.timtensp;
+  const timloaisp = req.body.timloaisp;
+  const timsize = req.body.timsize;
+  //console.log(req.body);
+  // Bắt đầu câu truy vấn SQL
+  let sqlQuery = `SELECT A.id,A.tensp,A.loaisp,A.soluong,B.tenNSX,A.giatien,A.mota,A.chitietsanpham,A.kichco from product as A, companyname as B where A.tenNSX = B.tenNSX`;
+
+  if (timid) {
+    sqlQuery += ` AND A.id LIKE '%${timid}%'`;
+  }
+
+  if (timtensp) {
+    sqlQuery += ` AND A.tensp LIKE '%${timtensp}%'`;
+  }
+
+  if (timloaisp) {
+    sqlQuery += ` AND A.loaisp LIKE '${timloaisp}'`;
+  }
+
+  if (timsize) {
+    sqlQuery += ` AND A.kichco LIKE '${timsize}'`;
+  }
+
+  // Kết thúc câu truy vấn SQL
+  const [rows, fields] = await connection.execute(sqlQuery);
+  return res.render("search.ejs", { dataProduct: rows });
+};
+
 module.exports = {
   getHomePage,
   getDetailPage,
@@ -218,6 +270,10 @@ module.exports = {
   updateProduct,
   getUserPage,
   updateUser,
+  getProduct200,
+  getProduct300,
+  getProduct500,
+  postHomePage,
 };
 
 // if (req.fileValidationError) {

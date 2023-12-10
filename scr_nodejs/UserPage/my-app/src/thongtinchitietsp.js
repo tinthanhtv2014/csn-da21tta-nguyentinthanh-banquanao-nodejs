@@ -57,7 +57,7 @@ class ThongTinChiTietSp extends Component {
   render() {
     const { product } = this.state;
     let isEmptyObj = Object.keys(product).length === 0;
-
+    let stockStatus = product.soluong <= 0 ? "Hết hàng" : "Còn hàng";
     return (
       <>
         {isEmptyObj === false && (
@@ -100,7 +100,7 @@ class ThongTinChiTietSp extends Component {
                       </p>
                     </div>
                     <hr></hr>
-                    <p className="con-hang">Còn hàng</p>
+                    <p className="con-hang">{stockStatus}</p>
                     <div className="product-h3_muahang">
                       <Link
                         to={`/thongtindathangsp/${product.id}`}
