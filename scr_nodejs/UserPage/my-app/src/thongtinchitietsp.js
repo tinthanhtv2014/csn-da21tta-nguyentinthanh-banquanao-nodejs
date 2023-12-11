@@ -102,12 +102,14 @@ class ThongTinChiTietSp extends Component {
                     <hr></hr>
                     <p className="con-hang">{stockStatus}</p>
                     <div className="product-h3_muahang">
-                      <Link
-                        to={`/thongtindathangsp/${product.id}`}
-                        className="btn btn-primary"
-                      >
-                        Đặt Hàng
-                      </Link>
+                      {product.soluong > 0 && (
+                        <Link
+                          to={`/thongtindathangsp/${product.id}`}
+                          className="btn btn-primary"
+                        >
+                          Đặt Hàng
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </form>
