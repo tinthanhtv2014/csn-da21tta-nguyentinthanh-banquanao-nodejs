@@ -8,6 +8,8 @@
   animation: slideDown 1.5s ease-in-out;
   width: 100%;
   height: 30%;
+  position: static;
+  padding: 3% 0;
 }
 
 @keyframes slideDown {

@@ -12,25 +12,13 @@ class HomeSearchPage extends React.Component {
   render() {
     return (
       <>
-        <div className="Container-navbar">
-          <Navbar />
-        </div>
-        <div className="Container-Carou">
-          {" "}
-          <Carousel1 />
-        </div>
-        <div className="Container-Blank">
-          {" "}
-          <Blank />
-        </div>
-        <div className="container-item">
-          {" "}
-          <Companyname2 />
-        </div>
-        <div className="Container-Footer">
-          {" "}
-          <Footer />
-        </div>
+        <Navbar />
+
+        <Carousel1 />
+
+        <Companyname2 />
+
+        <Footer />
       </>
     );
   }

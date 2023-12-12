@@ -14,33 +14,19 @@ class HomePage extends React.Component {
   render() {
     return (
       <>
-        <div className="Container-navbar">
-          <Navbar />
-        </div>
-        <div className="Container-Carou">
-          {" "}
-          <Carousel1 />
-        </div>
-        <div className="Container-Blank">
-          {" "}
-          <Blank />
-        </div>
-        <div className="container-item">
-          {" "}
-          <Itemver2 />
-        </div>
-        <div className="Container-Blanker">
-          {" "}
-          <Blanker2 />
-        </div>
-        <div className="container-item">
-          {" "}
-          <ItemHomepage />
-        </div>
-        <div className="Container-FooterSlide">
-          {" "}
-          <Footer />
-        </div>
+        <Navbar />
+
+        <Carousel1 />
+
+        <Blank />
+
+        <Itemver2 />
+
+        <Blanker2 />
+
+        <ItemHomepage />
+
+        <Footer />
       </>
     );
   }

@@ -16,22 +16,13 @@ class HomePageFullitem extends React.Component {
   render() {
     return (
       <>
-        <div className="Container-navbar">
-          <Navbar />
-        </div>
-        <div className="Container-Carou">
-          {" "}
-          <Carousel1 />
-        </div>
+        <Navbar />
 
-        <div className="container-item">
-          {" "}
-          <FullItem />
-        </div>
-        <div className="Container-Footerr">
-          {" "}
-          <Footer />
-        </div>
+        <Carousel1 />
+
+        <FullItem />
+
+        <Footer />
       </>
     );
   }
