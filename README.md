@@ -133,3 +133,4 @@ ngày 1/12: tạo trang hiển thị thông chi tiết cho sản phẩm <br>
 ngày 2/12: tạo trang đặt hàng <br>
 ngày 3/12: tiến hành lấy dữ liệu từ reactjs về nodejs thông qua nút đặt hàng <br>
 ngày 6/12: fix 1 vài lỗi khi bấm nút đặt hàng mà không điền thông tin thì thông báo nhập lại <br>
+ngày 10/12: nâng cấp giao diện cho trang nodejs và tiến hành thêm các nút lọc dựa theo các tiêu chí
