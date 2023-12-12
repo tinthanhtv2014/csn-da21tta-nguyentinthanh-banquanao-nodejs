@@ -1,6 +1,6 @@
 import React from "react";
 import "./styleBlank.css";
-import { withRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 class Blanker2 extends React.Component {
   render() {
     return (
