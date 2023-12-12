@@ -1,9 +1,9 @@
 # csn-da21tta-nguyentinthanh-banquanao-nodejs
-đề tài: xây dựng website bán quần áo
-giáo viên hướng dẫn: Võ Thành C
-sinh viên thực hiện: Nguyễn Tín Thành - 110121104 - DA21TTA
-email: tinthanhtv2014@gmail.com
-dienthoai: 0395890398
+đề tài: xây dựng website bán quần áo <br>
+giáo viên hướng dẫn: Võ Thành C<br>
+sinh viên thực hiện: Nguyễn Tín Thành - 110121104 - DA21TTA<br>
+email: tinthanhtv2014@gmail.com<br>
+dienthoai: 0395890398<br>
 
 ### Nội dung đề tài:
 
