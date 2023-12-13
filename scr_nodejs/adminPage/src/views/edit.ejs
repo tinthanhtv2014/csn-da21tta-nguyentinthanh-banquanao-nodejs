@@ -15,6 +15,87 @@
 
     <div class="w3-container">
       <h2>Cập Nhật Sản Phẩm</h2>
+      <div class="create-user-container">
+        <form
+          action="/update-product"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <fieldset>
+            <legend><b>Cập nhật sản phẩm vào database</b></legend>
+  
+            <div>
+              <input type="text" name="id" hidden value="<%=dataProduct.id %>" />
+            </div>
+            <div>
+              <label for="">Tên sản phẩm : </label>
+              <input type="text" name="tensp" value="<%=dataProduct.tensp %>" />
+            </div>
+            <div>
+              <label for="">Thể loại : </label>
+              <select name="loaisp" value="<%=dataProduct.loaisp %>">
+                <option <%= dataProduct.loaisp === 'áo dài' ? 'selected' : '' %>>áo dài</option>
+                <option <%= dataProduct.loaisp === 'áo thun' ? 'selected' : '' %>>áo thun</option>
+                <option <%= dataProduct.loaisp === 'áo vest' ? 'selected' : '' %>>áo vest</option>
+                <option <%= dataProduct.loaisp === 'quần dài' ? 'selected' : '' %>>quần dài</option>
+                <option <%= dataProduct.loaisp === 'quần jean' ? 'selected' : '' %>>quần jean</option>
+                <option <%= dataProduct.loaisp === 'quần short' ? 'selected' : '' %>>quần short</option>
+                <option <%= dataProduct.loaisp === 'quần tây' ? 'selected' : '' %>>quần tây</option>
+              </select>
+            </div>
+  
+            <div>
+              <label for="">Kích cỡ : </label>
+              <select name="kichco" id="hall" value="<%=dataProduct.kichco %>">
+                <option <%= dataProduct.kichco === 'S' ? 'selected' : '' %>>S</option>
+                <option <%= dataProduct.kichco === 'X' ? 'selected' : '' %>>X</option>
+                <option <%= dataProduct.kichco === 'XL' ? 'selected' : '' %>>XL</option>
+                <option <%= dataProduct.kichco === 'XXL' ? 'selected' : '' %>>XXL</option>
+              </select>
+            </div>
+            <div>
+              <label for="">Tên nhà sản xuất</label>
+              <select name="tenNSX" value="<%=dataProduct.tenNSX %>">
+                <option <%= dataProduct.tenNSX === 'aaa' ? 'selected' : '' %>>aaa</option>
+                <option <%= dataProduct.tenNSX === 'bbb' ? 'selected' : '' %>>bbb</option>
+                <option <%= dataProduct.tenNSX === 'ccc' ? 'selected' : '' %>>ccc</option>
+              </select>
+            </div>
+            <div>
+              <label for="">Số lượng thêm : </label>
+              <input
+                type="text"
+                name="soluong"
+                value="<%=dataProduct.soluong %>"
+              />
+            </div>
+            <div>
+              <label for="">Giá tiền : </label>
+              <input
+                type="text"
+                name="giatien"
+                value="<%=dataProduct.giatien %>"
+              />
+            </div>
+            <div>
+              <label for="">Chi tiết sản phẩm: </label>
+              <input type="text" name="chitietsanpham" value="<%=dataProduct.chitietsanpham %>"/>
+            </div>
+            <div>
+              <label for="">edit images: </label>
+              <input
+                type="file"
+                name="profile_pic"
+                value="<%=dataProduct.mota %>"
+              />
+            </div>
+           
+            <div>
+              <button type="submit" class="editButton">Save</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
       <label for="productId">Lọc theo giá tiền sản phẩm: </label>
       <form action="/searchPrice200" method="get">
         <label for="priceUnder200">Dưới 200k</label>
@@ -133,86 +214,6 @@
         </tbody>
       </table>
     </div>
-    <div class="create-user-container">
-      <form
-        action="/update-product"
-        method="post"
-        enctype="multipart/form-data"
-      >
-        <fieldset>
-          <legend><b>Cập nhật sản phẩm vào database</b></legend>
-
-          <div>
-            <input type="text" name="id" hidden value="<%=dataProduct.id %>" />
-          </div>
-          <div>
-            <label for="">Tên sản phẩm : </label>
-            <input type="text" name="tensp" value="<%=dataProduct.tensp %>" />
-          </div>
-          <div>
-            <label for="">Thể loại : </label>
-            <select name="loaisp" value="<%=dataProduct.loaisp %>">
-              <option <%= dataProduct.loaisp === 'áo dài' ? 'selected' : '' %>>áo dài</option>
-              <option <%= dataProduct.loaisp === 'áo thun' ? 'selected' : '' %>>áo thun</option>
-              <option <%= dataProduct.loaisp === 'áo vest' ? 'selected' : '' %>>áo vest</option>
-              <option <%= dataProduct.loaisp === 'quần dài' ? 'selected' : '' %>>quần dài</option>
-              <option <%= dataProduct.loaisp === 'quần jean' ? 'selected' : '' %>>quần jean</option>
-              <option <%= dataProduct.loaisp === 'quần short' ? 'selected' : '' %>>quần short</option>
-              <option <%= dataProduct.loaisp === 'quần tây' ? 'selected' : '' %>>quần tây</option>
-            </select>
-          </div>
-
-          <div>
-            <label for="">Kích cỡ : </label>
-            <select name="kichco" id="hall" value="<%=dataProduct.kichco %>">
-              <option <%= dataProduct.kichco === 'S' ? 'selected' : '' %>>S</option>
-              <option <%= dataProduct.kichco === 'X' ? 'selected' : '' %>>X</option>
-              <option <%= dataProduct.kichco === 'XL' ? 'selected' : '' %>>XL</option>
-              <option <%= dataProduct.kichco === 'XXL' ? 'selected' : '' %>>XXL</option>
-            </select>
-          </div>
-          <div>
-            <label for="">Tên nhà sản xuất</label>
-            <select name="tenNSX" value="<%=dataProduct.tenNSX %>">
-              <option <%= dataProduct.tenNSX === 'aaa' ? 'selected' : '' %>>aaa</option>
-              <option <%= dataProduct.tenNSX === 'bbb' ? 'selected' : '' %>>bbb</option>
-              <option <%= dataProduct.tenNSX === 'ccc' ? 'selected' : '' %>>ccc</option>
-            </select>
-          </div>
-          <div>
-            <label for="">Số lượng thêm : </label>
-            <input
-              type="text"
-              name="soluong"
-              value="<%=dataProduct.soluong %>"
-            />
-          </div>
-          <div>
-            <label for="">Giá tiền : </label>
-            <input
-              type="text"
-              name="giatien"
-              value="<%=dataProduct.giatien %>"
-            />
-          </div>
-          <div>
-            <label for="">Chi tiết sản phẩm: </label>
-            <input type="text" name="chitietsanpham" value="<%=dataProduct.chitietsanpham %>"/>
-          </div>
-          <div>
-            <label for="">edit images: </label>
-            <input
-              type="file"
-              name="profile_pic"
-              value="<%=dataProduct.mota %>"
-            />
-          </div>
-         
-          <div>
-            <button type="submit" class="editButton">Save</button>
-          </div>
-        </fieldset>
-      </form>
-    </div>
+   
   </body>
 </html>

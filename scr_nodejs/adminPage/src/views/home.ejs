@@ -14,7 +14,81 @@
 
     <div class="w3-container">
       <h2>Danh Sách Sản Phẩm</h2>
+      <div class="create-user-container">
+        <form
+          action="/create-new-product"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <fieldset>
+            <legend><b>Thêm sản phẩm vào database</b></legend>
 
+            <div>
+              <label for="">ID sản phẩm : </label>
+              <input type="text" name="id" />
+            </div>
+            <div>
+              <label for="">Tên sản phẩm : </label>
+              <input type="text" name="tensp" />
+            </div>
+            <div>
+              <label for="">Thể loại : </label>
+              <select name="loaisp" id="hall" value="3">
+                <option>áo dài</option>
+                <option>áo thun</option>
+                <option>áo vest</option>
+                <option>quần dài</option>
+                <option>quần jean</option>
+                <option>quần short</option>
+                <option>quần tây</option>
+              </select>
+            </div>
+            <div>
+              <label for="">Kích cỡ : </label>
+              <select name="kichco" id="hall" value="3">
+                <option>S</option>
+                <option>X</option>
+                <option>XL</option>
+                <option>XXL</option>
+              </select>
+            </div>
+            <div>
+              <label for="">Hãng sản xuất</label>
+              <select name="tenNSX" id="hall" value="3">
+                <option>aaa</option>
+                <option>bbb</option>
+                <option>ccc</option>
+              </select>
+            </div>
+            <div>
+              <label for="">Số lượng thêm : </label>
+              <input type="text" name="soluong" />
+            </div>
+            <div>
+              <label for="">Giá tiền : </label>
+              <input type="text" name="giatien" />
+            </div>
+            <div>
+              <label for="">Chi tiết sản phẩm: </label>
+              <input type="text" name="chitietsanpham" />
+            </div>
+
+            <div>
+              <label for="">Avatar: </label>
+              <input type="file" name="profile_pic" />
+            </div>
+
+            <div>
+              <button type="submit" class="editButton">Submit</button>
+            </div>
+          </fieldset>
+        </form>
+        <form
+          method="POST"
+          action="/upload-profile-pic"
+          enctype="multipart/form-data"
+        ></form>
+      </div>
       <label for="productId">Lọc theo giá tiền sản phẩm: </label>
       <form action="/searchPrice200" method="get">
         <label for="priceUnder200">Dưới 200k</label>
@@ -81,6 +155,7 @@
         </datalist>
         <button type="submit" class="editButton2">Tìm kiếm</button>
       </form>
+
       <table class="w3-table-all w3-hoverable">
         <thead>
           <tr class="w3-light-grey">
@@ -105,7 +180,7 @@
             <td><%= dataProduct[i].tenNSX %></td>
             <td><%= dataProduct[i].soluong %></td>
             <td><%= dataProduct[i].kichco %></td>
-            <td><%= dataProduct[i].giatien %></td>
+            <td><%= dataProduct[i].giatien.toLocaleString() %> VND</td>
             <td><%= dataProduct[i].chitietsanpham %></td>
             <td>
               <img
@@ -135,108 +210,5 @@
         </tbody>
       </table>
     </div>
-    <div class="create-user-container">
-      <form
-        action="/create-new-product"
-        method="post"
-        enctype="multipart/form-data"
-      >
-        <fieldset>
-          <legend><b>Thêm sản phẩm vào database</b></legend>
-
-          <div>
-            <label for="">ID sản phẩm : </label>
-            <input type="text" name="id" />
-          </div>
-          <div>
-            <label for="">Tên sản phẩm : </label>
-            <input type="text" name="tensp" />
-          </div>
-          <div>
-            <label for="">Thể loại : </label>
-            <select name="loaisp" id="hall" value="3">
-              <option>áo dài</option>
-              <option>áo thun</option>
-              <option>áo vest</option>
-              <option>quần dài</option>
-              <option>quần jean</option>
-              <option>quần short</option>
-              <option>quần tây</option>
-            </select>
-          </div>
-          <div>
-            <label for="">Kích cỡ : </label>
-            <select name="kichco" id="hall" value="3">
-              <option>S</option>
-              <option>X</option>
-              <option>XL</option>
-              <option>XXL</option>
-            </select>
-          </div>
-          <div>
-            <label for="">Hãng sản xuất</label>
-            <select name="tenNSX" id="hall" value="3">
-              <option>aaa</option>
-              <option>bbb</option>
-              <option>ccc</option>
-            </select>
-          </div>
-          <div>
-            <label for="">Số lượng thêm : </label>
-            <input type="text" name="soluong" />
-          </div>
-          <div>
-            <label for="">Giá tiền : </label>
-            <input type="text" name="giatien" />
-          </div>
-          <div>
-            <label for="">Chi tiết sản phẩm: </label>
-            <input type="text" name="chitietsanpham" />
-          </div>
-
-          <div>
-            <label for="">Avatar: </label>
-            <input type="file" name="profile_pic" />
-          </div>
-
-          <div>
-            <button type="submit" class="editButton">Submit</button>
-          </div>
-        </fieldset>
-      </form>
-      <form
-        method="POST"
-        action="/upload-profile-pic"
-        enctype="multipart/form-data"
-      ></form>
-    </div>
   </body>
-  <script>
-    function searchProducts(query) {
-      // Sử dụng AJAX để gửi yêu cầu tìm kiếm động
-      // và cập nhật kết quả tìm kiếm trên trang web
-      const searchResultsContainer = document.getElementById("searchResults");
-
-      // Xóa nội dung cũ
-      searchResultsContainer.innerHTML = "";
-
-      // Gửi yêu cầu tìm kiếm động
-      if (query.length > 0) {
-        // Thực hiện AJAX request (thay đổi đường dẫn tương ứng của bạn)
-        fetch(`/search-product/${query}`)
-          .then((response) => response.json())
-          .then((data) => {
-            // Hiển thị kết quả tìm kiếm
-            data.forEach((product) => {
-              const resultItem = document.createElement("div");
-              resultItem.innerText = `${product.id} - ${product.tensp}`;
-              searchResultsContainer.appendChild(resultItem);
-            });
-          })
-          .catch((error) =>
-            console.error("Error fetching search results:", error)
-          );
-      }
-    }
-  </script>
 </html>

@@ -1,13 +1,24 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 .topnav {
   overflow: hidden;
   background-color: #333;
+  position: fixed;
+  height: auto;
+  /* display: flex;
+  flex-direction: column; */
+  width: 100%;
+  /* margin-bottom: 1%; */
 }
 
+.w3-container h2 {
+  font-weight: 700;
+  margin: 0 auto;
+}
 .topnav a {
   float: left;
   color: #f2f2f2;
@@ -27,10 +38,18 @@ body {
   color: white;
 }
 
+.w3-container {
+  width: 100%;
+  margin-left: 0; /* Sửa lại margin-left thành 0 */
+  padding: 20px;
+  margin-top: 5%;
+}
+
 .create-user-container {
   text-align: center;
   padding: 20px;
   margin: auto;
+  max-width: 100%;
 }
 
 .create-user-container label {
@@ -49,17 +68,19 @@ body {
 .create-user-container form {
   display: flex;
   flex-direction: column;
-  max-width: 500px; /* Điều chỉnh chiều rộng tối đa của form */
+  max-width: 100%; /* Điều chỉnh chiều rộng tối đa của form */
   margin: 10px auto;
 }
 .create-user-container label {
   flex: 1;
   margin-right: 10px;
+  font-weight: 800;
+  text-align: left;
 }
 
 .create-user-container input,
 .create-user-container select {
-  flex: 2;
+  flex: 5;
 }
 
 .create-user-container fieldset {
@@ -77,6 +98,10 @@ body {
   background-color: white;
   transition: all 0.3s ease-in;
   cursor: pointer;
+  /* max-width: 100px;
+  max-height: 100px; */
+  margin: auto;
+  padding: 10px 0;
 }
 
 .editButton:hover {
@@ -85,11 +110,13 @@ body {
 }
 
 .editButton2 {
-  width: 10%;
+  width: 100%;
   height: 3.4%;
   background-color: white;
   transition: all 0.3s ease-in;
   cursor: pointer;
+  max-width: 100px;
+  max-height: 100px;
 }
 
 .editButton2:hover {
@@ -108,4 +135,84 @@ body {
 
 .search-container label {
   margin-right: 10px;
+}
+
+.w3-table-all {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+/* Màu nền cho hàng header */
+.w3-light-grey {
+  background-color: black;
+}
+
+/* Tạo đường biên cho ô */
+.w3-table-all th,
+.w3-table-all td {
+  border: 1px solid #000000;
+  padding: 8px;
+  text-align: center;
+}
+
+/* Hiệu ứng khi hover */
+.w3-hoverable tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Định dạng ảnh trong cột 'Mô tả' */
+.w3-table-all tbody td img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+}
+.w3-table-all tbody td form {
+  margin-bottom: 5px;
+}
+
+/* Màu nền đen cho hàng header */
+.w3-table-all thead {
+  background-color: #000;
+}
+
+/* Màu chữ trắng cho hàng header */
+.w3-table-all th {
+  color: #fff;
+  background-color: #000;
+}
+
+.w3-table-all th,
+.w3-table-all td {
+  text-align: center;
+}
+
+.w3-table-all .w3-hoverable {
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav {
+    flex-direction: row; /* Hiển thị các mục menu theo hàng ngang */
+  }
+
+  .topnav a {
+    float: none; /* Bỏ float để chúng hiển thị dọc */
+    width: 100%; /* Đảm bảo chiều rộng là 100% */
+    text-align: left; /* Canh trái văn bản */
+  }
+
+  .w3-container {
+    padding: 10px; /* Giảm padding để cập nhật không chiếm quá nhiều không gian */
+  }
+
+  .create-user-container {
+    padding: 10px;
+  }
+
+  .w3-table-all th,
+  .w3-table-all td {
+    padding: 6px;
+  }
 }
