@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2023 at 04:11 PM
+-- Generation Time: Dec 13, 2023 at 11:43 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -121,7 +121,7 @@ CREATE TABLE `product` (
 INSERT INTO `product` (`id`, `tensp`, `soluong`, `loaisp`, `tenNSX`, `giatien`, `mota`, `chitietsanpham`, `kichco`) VALUES
 ('KP001', 'SIGNATURE HOODIE / WHITE COLOR', 10, 'áo vest', 'bbb', 270000, 'profile_pic-1701924529410.jpeg', '', 'S'),
 ('KP002', 'SIGNATURE HOODIE / GREEN COLOR', 10, 'áo dài', 'bbb', 280000, 'profile_pic-1701924545279.jpeg', 'không có', 'S'),
-('KP003', 'SIGNATURE HOODIE / BROWN COLOR', 10, 'áo dài', 'ccc', 270000, 'profile_pic-1701924557287.jpeg', 'không có', 'S'),
+('KP003', 'SIGNATURE HOODIE / BROWN COLOR', 0, 'áo dài', 'ccc', 270000, 'profile_pic-1701924557287.jpeg', 'không có', 'XXL'),
 ('KP004', 'SIGNATURE HOODIE / BLACK COLOR', 10, 'áo thun', 'ccc', 270000, 'profile_pic-1701924567995.jpeg', 'không có', 'XL'),
 ('KP005', 'Polo Meowment - Meow Collection / White', 10, 'áo thun', 'ccc', 180000, 'profile_pic-1701924799917.jpg', 'không có', 'S'),
 ('KP006', 'Polo Outerity Collection TES / Green', 10, 'áo thun', 'aaa', 180000, 'profile_pic-1702091344051.jpg', 'không có', 'XXL'),
@@ -253,13 +253,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `billproduct`
 --
 ALTER TABLE `billproduct`
-  MODIFY `mahd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52148;
+  MODIFY `mahd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56352;
 
 --
 -- AUTO_INCREMENT for table `detailbillproduct`
 --
 ALTER TABLE `detailbillproduct`
-  MODIFY `mahd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52148;
+  MODIFY `mahd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56352;
 
 --
 -- AUTO_INCREMENT for table `users`
