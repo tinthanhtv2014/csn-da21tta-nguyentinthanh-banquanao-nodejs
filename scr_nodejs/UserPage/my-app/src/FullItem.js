@@ -71,6 +71,8 @@ class FullItem extends React.Component {
             ? item.giatien < 300000 && item.giatien >= 200000
             : priceFilter === "500000"
             ? item.giatien < 500000 && item.giatien >= 300000
+            : priceFilter === "700000"
+            ? item.giatien < 700000
             : true
         );
 
@@ -119,6 +121,16 @@ class FullItem extends React.Component {
                   onChange={() => this.handlePriceFilterChange("500000")}
                 />
                 Dưới 500k
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="priceFilter"
+                  value="700000"
+                  checked={priceFilter === "700000"}
+                  onChange={() => this.handlePriceFilterChange("700000")}
+                />
+                Tất cả
               </label>
             </div>
           </div>

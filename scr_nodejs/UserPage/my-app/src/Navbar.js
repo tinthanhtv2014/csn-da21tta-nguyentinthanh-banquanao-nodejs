@@ -54,13 +54,13 @@ class Navbar extends React.Component {
                   <DropdownToggle caret>Danh Mục</DropdownToggle>
                   <DropdownMenu {...args}>
                     <DropdownItem>
-                      <a href="/company/aaa">Hãng 1</a>
+                      <a href="/company/zara">ZARA</a>
                     </DropdownItem>
                     <DropdownItem>
-                      <a href="/company/bbb">Hãng 2</a>
+                      <a href="/company/louis">LOUIS</a>
                     </DropdownItem>
                     <DropdownItem>
-                      <a href="/company/ccc">Hãng 3</a>
+                      <a href="/company/fendi">FENDI</a>
                     </DropdownItem>
                   </DropdownMenu>
                 </Dropdown>

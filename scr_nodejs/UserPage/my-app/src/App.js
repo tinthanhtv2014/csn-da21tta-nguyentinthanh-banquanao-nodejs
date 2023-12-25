@@ -30,17 +30,17 @@ function App() {
               <Footer />
             </>
           </Route>
-          <Route path="/company/aaa">
+          <Route path="/company/zara">
             <>
               <HomeSearchPage />
             </>
           </Route>
-          <Route path="/company/bbb">
+          <Route path="/company/louis">
             <>
               <HomeSearchPage2 />
             </>
           </Route>
-          <Route path="/company/ccc">
+          <Route path="/company/fendi">
             <>
               <HomeSearchPage3 />
             </>
