@@ -5,6 +5,11 @@ import "./assets/css/muahang.css";
 import { Button } from "reactstrap";
 import "react-toastify/dist/ReactToastify.css";
 
+const isValidPhoneNumber = (phoneNumber) => {
+  // Sử dụng regex để kiểm tra xem giá trị có phải là số điện thoại Việt Nam hay không
+  return /^(0|\+84)([0-9]{9})$/g.test(phoneNumber);
+};
+
 class Thongtintdathang extends Component {
   constructor(props) {
     super(props);
@@ -87,6 +92,41 @@ class Thongtintdathang extends Component {
     }
   };
 
+  handleSdtChange = (event) => {
+    const inputValue = event.target.value;
+    const isPhoneNumberValid = isValidPhoneNumber(inputValue);
+
+    this.setState((prevState) => ({
+      errorMessages: {
+        ...prevState.errorMessages,
+        sdt: isPhoneNumberValid ? "" : "Số điện thoại không hợp lệ",
+      },
+    }));
+  };
+  handleOrder = (event) => {
+    // Kiểm tra lỗi tổng quát
+    if (this.hasErrors()) {
+      event.preventDefault();
+      alert("Vui lòng kiểm tra lại thông tin nhập đúng và đủ!");
+      return;
+    }
+
+    // Kiểm tra lỗi số điện thoại riêng
+    if (this.state.errorMessages.sdt) {
+      event.preventDefault();
+      alert("Số điện thoại không hợp lệ. Vui lòng kiểm tra lại!");
+      return;
+    }
+
+    // Xử lý logic đặt hàng
+    // ...
+  };
+
+  hasErrors = () => {
+    const { errorMessages } = this.state;
+    return Object.values(errorMessages).some((error) => error !== "");
+  };
+
   render() {
     const { product, counterValue, selectedSize, errorMessages } = this.state;
     let isEmptyObj = Object.keys(product).length === 0;
@@ -164,6 +204,7 @@ class Thongtintdathang extends Component {
                         name="sdt"
                         className="muahang-input muahang-sdt"
                         placeholder="Số điện thoại "
+                        onChange={this.handleSdtChange}
                       />
                       {errorMessages.sdt && (
                         <p className="error-message">{errorMessages.sdt}</p>
