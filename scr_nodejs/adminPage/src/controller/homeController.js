@@ -209,6 +209,9 @@ const updateUser = async (req, res) => {
   }
 };
 
+
+
+
 const getProduct200 = async (req, res) => {
   const [results, fields] = await connection.execute(
     "SELECT * FROM `product` where giatien <= 200000"
