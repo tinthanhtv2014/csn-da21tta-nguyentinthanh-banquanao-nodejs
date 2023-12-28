@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 25, 2023 lúc 04:24 PM
+-- Thời gian đã tạo: Th12 28, 2023 lúc 10:22 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -40,7 +40,10 @@ CREATE TABLE `billproduct` (
 
 INSERT INTO `billproduct` (`mahd`, `idkh`, `diachiship`, `thoigiandat`) VALUES
 (1, 1, 'bụi lùm', NULL),
-(2, 2, 'trà vinh', NULL);
+(2, 2, 'trà vinh', NULL),
+(9713, 51040, 'Tra vinh', '2023-12-26 10:37:07'),
+(22736, 32735, 'Tra vinh', '2023-12-26 10:35:50'),
+(58756, 9186, 'Tra vinh', '2023-12-26 10:39:06');
 
 -- --------------------------------------------------------
 
@@ -96,6 +99,15 @@ CREATE TABLE `detailbillproduct` (
   `soluongsp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Đang đổ dữ liệu cho bảng `detailbillproduct`
+--
+
+INSERT INTO `detailbillproduct` (`mahd`, `id`, `soluongsp`) VALUES
+(9713, 'KP006', 1),
+(22736, 'KP006', 1),
+(58756, 'KP006', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -124,7 +136,7 @@ INSERT INTO `product` (`id`, `tensp`, `soluong`, `loaisp`, `tenNSX`, `giatien`, 
 ('KP003', 'SIGNATURE HOODIE / BROWN COLOR', 0, 'áo dài', 'zara', 270000, 'profile_pic-1701924557287.jpeg', 'không có', 'XXL'),
 ('KP004', 'SIGNATURE HOODIE / BLACK COLOR', 10, 'áo thun', 'fendi', 270000, 'profile_pic-1701924567995.jpeg', 'không có', 'XL'),
 ('KP005', 'Polo Meowment - Meow Collection / White', 10, 'áo thun', 'louis', 180000, 'profile_pic-1701924799917.jpg', 'không có', 'S'),
-('KP006', 'Polo Outerity Collection TES / Green', 10, 'áo thun', 'zara', 180000, 'profile_pic-1702091344051.jpg', 'không có', 'XXL'),
+('KP006', 'Polo Outerity Collection TES / Green', 7, 'áo thun', 'zara', 180000, 'profile_pic-1702091344051.jpg', 'không có', 'XL'),
 ('KP007', 'Polo Outerity Collection TES / Light Grey', 10, 'áo thun', 'fendi', 180000, 'profile_pic-1701925021504.jpg', 'không có', 'XXL'),
 ('KP008', 'Polo Outerity Collection TES / Brown', 10, 'áo dài', 'louis', 180000, 'profile_pic-1701924878198.jpg', 'không có', 'S'),
 ('QP001', 'BASIC SHORT / BLACK COLOR', 10, 'quần short', 'zara', 404000, 'profile_pic-1702179106543.jpg', 'không có', 'S'),
@@ -192,7 +204,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`idkh`, `hotenkh`, `sdt`, `diachi`, `ngaysinh`) VALUES
 (1, 'Nguyễn Tín Thành', '0395890398', 'trà vinh', '2000-01-01'),
-(2, 'Quốc Bảo', '0123456789', 'ở đâu không biết', '2003-01-01');
+(2, 'Quốc Bảo', '0123456789', 'ở đâu không biết', '2003-01-01'),
+(9186, 'thành', '0395890398', 'Tra vinh', NULL),
+(32735, 'thành', '0395890398', 'Tra vinh', NULL),
+(51040, 'thành', '2313123231', 'Tra vinh', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -253,13 +268,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT cho bảng `billproduct`
 --
 ALTER TABLE `billproduct`
-  MODIFY `mahd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56352;
+  MODIFY `mahd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58757;
 
 --
 -- AUTO_INCREMENT cho bảng `detailbillproduct`
 --
 ALTER TABLE `detailbillproduct`
-  MODIFY `mahd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56352;
+  MODIFY `mahd` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58757;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
