@@ -14,7 +14,13 @@
 
     <div class="w3-container">
       <h2>Danh Sách Khách Hàng Đặt Sản Phẩm</h2>
-
+      <% for(let i=0; i < databill.length; i++) { %>
+      <h3>Tổng số lượng bán được: <%= databill[i].TongSoLuong %></h3>
+      <% } %> <% for(let i=0; i < datadetail.length; i++) { %>
+      <h3>Tổng doanh thu hiện tại: <%= datadetail[i].TongGiaTien %></h3>
+      <% } %> <% for(let i=0; i < datanameproduct.length; i++) { %>
+      <h3>Sản phẩm bán chạy nhất: <%= datanameproduct[i].ten %></h3>
+      <% } %>
       <table class="w3-table-all w3-hoverable">
         <thead>
           <tr class="w3-light-grey">

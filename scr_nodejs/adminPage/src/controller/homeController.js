@@ -23,8 +23,21 @@ const getUserPage = async (req, res) => {
   const [results, fields] = await connection.execute(
     "SELECT users.idkh, users.hotenkh, users.sdt, billproduct.mahd, product.tensp,product.kichco, detailbillproduct.soluongsp,product.giatien,detailbillproduct.soluongsp*product.giatien as total ,billproduct.diachiship, billproduct.thoigiandat FROM users JOIN billproduct ON users.idkh = billproduct.idkh JOIN detailbillproduct ON billproduct.mahd = detailbillproduct.mahd JOIN product ON detailbillproduct.id = product.id order by billproduct.thoigiandat DESC; "
   );
-
-  return res.render("user.ejs", { dataUsers: results });
+  const [rows, fl] = await connection.execute(
+    "SELECT SUM(soluongsp) AS TongSoLuong FROM detailbillproduct;"
+  );
+  const [rows1, fl1] = await connection.execute(
+    "SELECT SUM(p.giatien * dbp.soluongsp) AS TongGiaTien FROM detailbillproduct dbp JOIN product p ON dbp.id = p.id;"
+  );
+  const [rows2, fl2] = await connection.execute(
+    "SELECT p.tensp AS ten FROM detailbillproduct dbp JOIN product p ON dbp.id = p.id ORDER BY dbp.soluongsp DESC LIMIT 1;"
+  );
+  return res.render("user.ejs", {
+    dataUsers: results,
+    databill: rows,
+    datadetail: rows1,
+    
+  });
 };
 
 const createNewProduct = async (req, res) => {
@@ -208,9 +221,6 @@ const updateUser = async (req, res) => {
     return res.status(500).send(error.message || "Đã có lỗi xảy ra");
   }
 };
-
-
-
 
 const getProduct200 = async (req, res) => {
   const [results, fields] = await connection.execute(
