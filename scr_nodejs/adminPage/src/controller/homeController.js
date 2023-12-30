@@ -36,7 +36,7 @@ const getUserPage = async (req, res) => {
     dataUsers: results,
     databill: rows,
     datadetail: rows1,
-    
+    datanameproduct: rows2,
   });
 };
 

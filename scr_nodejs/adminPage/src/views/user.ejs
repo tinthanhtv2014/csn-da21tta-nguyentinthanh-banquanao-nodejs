@@ -17,7 +17,10 @@
       <% for(let i=0; i < databill.length; i++) { %>
       <h3>Tổng số lượng bán được: <%= databill[i].TongSoLuong %></h3>
       <% } %> <% for(let i=0; i < datadetail.length; i++) { %>
-      <h3>Tổng doanh thu hiện tại: <%= datadetail[i].TongGiaTien %></h3>
+      <h3>
+        Tổng doanh thu hiện tại: <%= datadetail[i].TongGiaTien.toLocaleString()
+        %>
+      </h3>
       <% } %> <% for(let i=0; i < datanameproduct.length; i++) { %>
       <h3>Sản phẩm bán chạy nhất: <%= datanameproduct[i].ten %></h3>
       <% } %>
@@ -48,8 +51,8 @@
             <td><%= dataUsers[i].tensp %></td>
             <td><%= dataUsers[i].kichco %></td>
             <td><%= dataUsers[i].soluongsp %></td>
-            <td><%= dataUsers[i].giatien %></td>
-            <td><%= dataUsers[i].total %></td>
+            <td><%= dataUsers[i].giatien.toLocaleString() %></td>
+            <td><%= dataUsers[i].total.toLocaleString() %></td>
             <td><%= dataUsers[i].diachiship%></td>
             <td><%= dataUsers[i].thoigiandat %></td>
           </tr>
