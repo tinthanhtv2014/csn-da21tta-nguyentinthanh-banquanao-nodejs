@@ -50,10 +50,12 @@ class FullItem extends React.Component {
   };
 
   handleSearchChange = (event) => {
+    event.preventDefault()
     this.setState({ searchTerm: event.target.value });
   };
 
   handlePriceFilterChange = (value) => {
+    
     this.setState({ priceFilter: value });
   };
 
