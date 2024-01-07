@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 28, 2023 lúc 10:22 AM
+-- Thời gian đã tạo: Th1 07, 2024 lúc 11:39 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.2.4
 
@@ -42,7 +42,12 @@ INSERT INTO `billproduct` (`mahd`, `idkh`, `diachiship`, `thoigiandat`) VALUES
 (1, 1, 'bụi lùm', NULL),
 (2, 2, 'trà vinh', NULL),
 (9713, 51040, 'Tra vinh', '2023-12-26 10:37:07'),
+(10161, 2367, 'trà vinh', '2024-01-07 10:34:31'),
+(21234, 30637, 'trà vinh', '2024-01-04 14:28:23'),
+(21451, 56138, 'trà vinh', '2024-01-01 09:03:09'),
 (22736, 32735, 'Tra vinh', '2023-12-26 10:35:50'),
+(36562, 30067, 'trà vinh', '2023-12-30 07:14:19'),
+(55510, 47237, 'trà vinh', '2023-12-30 07:44:00'),
 (58756, 9186, 'Tra vinh', '2023-12-26 10:39:06');
 
 -- --------------------------------------------------------
@@ -105,7 +110,12 @@ CREATE TABLE `detailbillproduct` (
 
 INSERT INTO `detailbillproduct` (`mahd`, `id`, `soluongsp`) VALUES
 (9713, 'KP006', 1),
+(10161, 'KP005', 2),
+(21234, 'KP008', 2),
+(21451, 'KP002', 2),
 (22736, 'KP006', 1),
+(36562, 'SP002', 2),
+(55510, 'SP002', 2),
 (58756, 'KP006', 1);
 
 -- --------------------------------------------------------
@@ -132,13 +142,13 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`id`, `tensp`, `soluong`, `loaisp`, `tenNSX`, `giatien`, `mota`, `chitietsanpham`, `kichco`) VALUES
 ('KP001', 'SIGNATURE HOODIE / WHITE COLOR', 10, 'áo vest', 'fendi', 270000, 'profile_pic-1701924529410.jpeg', '', 'S'),
-('KP002', 'SIGNATURE HOODIE / GREEN COLOR', 10, 'áo dài', 'louis', 280000, 'profile_pic-1701924545279.jpeg', 'không có', 'S'),
+('KP002', 'SIGNATURE HOODIE / GREEN COLOR', 8, 'áo dài', 'louis', 280000, 'profile_pic-1701924545279.jpeg', 'không có', 'XXL'),
 ('KP003', 'SIGNATURE HOODIE / BROWN COLOR', 0, 'áo dài', 'zara', 270000, 'profile_pic-1701924557287.jpeg', 'không có', 'XXL'),
 ('KP004', 'SIGNATURE HOODIE / BLACK COLOR', 10, 'áo thun', 'fendi', 270000, 'profile_pic-1701924567995.jpeg', 'không có', 'XL'),
-('KP005', 'Polo Meowment - Meow Collection / White', 10, 'áo thun', 'louis', 180000, 'profile_pic-1701924799917.jpg', 'không có', 'S'),
+('KP005', 'Polo Meowment - Meow Collection / White', 8, 'áo thun', 'louis', 180000, 'profile_pic-1701924799917.jpg', 'không có', 'XXL'),
 ('KP006', 'Polo Outerity Collection TES / Green', 7, 'áo thun', 'zara', 180000, 'profile_pic-1702091344051.jpg', 'không có', 'XL'),
 ('KP007', 'Polo Outerity Collection TES / Light Grey', 10, 'áo thun', 'fendi', 180000, 'profile_pic-1701925021504.jpg', 'không có', 'XXL'),
-('KP008', 'Polo Outerity Collection TES / Brown', 10, 'áo dài', 'louis', 180000, 'profile_pic-1701924878198.jpg', 'không có', 'S'),
+('KP008', 'Polo Outerity Collection TES / Brown', 8, 'áo dài', 'louis', 180000, 'profile_pic-1701924878198.jpg', 'không có', 'XXL'),
 ('QP001', 'BASIC SHORT / BLACK COLOR', 10, 'quần short', 'zara', 404000, 'profile_pic-1702179106543.jpg', 'không có', 'S'),
 ('QP002', 'BASIC SHORT / BROWN COLOR', 10, 'quần short', 'fendi', 304000, 'profile_pic-1702179334928.jpg', 'không có', 'XXL'),
 ('QP003', 'BASIC SHORT / Cream New', 10, 'quần short', 'louis', 204000, 'profile_pic-1702178410630.jpg', 'không có', 'XXL'),
@@ -148,7 +158,7 @@ INSERT INTO `product` (`id`, `tensp`, `soluong`, `loaisp`, `tenNSX`, `giatien`, 
 ('QP007', 'BASIC SHORT / WHITE COLOR', 10, 'quần short', 'zara', 204000, 'profile_pic-1702178551877.jpg', 'không có', 'S'),
 ('QP008', 'Short Sporty / Black', 10, 'quần short', 'fendi', 204000, 'profile_pic-1702208174534.jpg', 'không có', 'S'),
 ('SP001', 'Line Dino Tee / Navy - Cano', 10, 'áo thun', 'louis', 209000, 'profile_pic-1701922121542.jpg', 'không có', 'XXL'),
-('SP002', 'Polo  Collection TES / Black', 10, 'áo thun', 'zara', 209000, 'profile_pic-1702096495658.jpg', 'không có', 'XL'),
+('SP002', 'Polo  Collection TES / Black', 6, 'áo thun', 'zara', 209000, 'profile_pic-1702096495658.jpg', 'không có', 'XXL'),
 ('SP003', 'Line Dino Tee / Cano - Black', 10, 'áo dài', 'fendi', 209000, 'profile_pic-1702096240701.jpg', 'không có', 'XXL'),
 ('SP004', 'Line Dino Tee / Gray - Cano', 10, 'áo dài', 'louis', 209000, 'profile_pic-1701922278958.jpg', 'không có', 'S'),
 ('SP005', 'Baby Tee Line Meow / Black', 10, 'áo dài', 'zara', 131000, 'profile_pic-1702096748916.jpg', 'không có', 'S'),
@@ -205,9 +215,14 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`idkh`, `hotenkh`, `sdt`, `diachi`, `ngaysinh`) VALUES
 (1, 'Nguyễn Tín Thành', '0395890398', 'trà vinh', '2000-01-01'),
 (2, 'Quốc Bảo', '0123456789', 'ở đâu không biết', '2003-01-01'),
+(2367, 'tín thành', '0984564444', 'trà vinh', NULL),
 (9186, 'thành', '0395890398', 'Tra vinh', NULL),
+(30067, 'Bảo', '0984564444', 'trà vinh', NULL),
+(30637, 'Bảo', '0984564444', 'trà vinh', NULL),
 (32735, 'thành', '0395890398', 'Tra vinh', NULL),
-(51040, 'thành', '2313123231', 'Tra vinh', NULL);
+(47237, 'Bảo', '0984564444', 'trà vinh', NULL),
+(51040, 'thành', '2313123231', 'Tra vinh', NULL),
+(56138, 'Bảo', '0984564444', 'trà vinh', NULL);
 
 --
 -- Chỉ mục cho các bảng đã đổ
