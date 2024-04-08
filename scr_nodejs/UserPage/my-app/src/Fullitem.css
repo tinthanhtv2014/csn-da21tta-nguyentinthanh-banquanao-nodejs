@@ -135,3 +135,9 @@ ul.products li .product-info a.product-price {
 input[type="radio"] {
   margin-right: 10px; /* Khoảng cách giữa các nút radio */
 }
+
+.product-footer {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}

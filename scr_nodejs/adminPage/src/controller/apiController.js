@@ -4,22 +4,58 @@ const fs = require("fs");
 //hien thi data thong qua api
 const getAllProduct = async (req, res) => {
   try {
-    const [results, fields] = await connection.execute(
-      "SELECT * FROM `product`"
-    );
+    if (req.query.page && req.query.limit) {
+      let page = req.query.page;
+      let limit = req.query.limit;
+      console.log("check data", page, limit);
+      let offset = (page - 1) * limit;
 
-    // Thêm đường dẫn đầy đủ cho mỗi sản phẩm
-    const productsWithImageUrls = results.map((product) => {
-      return {
-        ...product,
-        imageUrl: `http://localhost:8081/api/v1/images/${product.mota}`,
+      const [results, fields] = await connection.execute(
+        "SELECT * FROM `product` LIMIT ? OFFSET ?",
+        [limit, offset]
+      );
+
+      // Thêm đường dẫn đầy đủ cho mỗi sản phẩm
+      const productsWithImageUrls = results.map((product) => {
+        return {
+          ...product,
+          imageUrl: `http://localhost:8081/api/v1/images/${product.mota}`,
+        };
+      });
+
+      const totalCountResult = await connection.execute(
+        "SELECT COUNT(*) AS total FROM `product`"
+      );
+      const totalCount = totalCountResult[0][0].total;
+
+      let totalPages = Math.ceil(totalCount / limit);
+      let data = {
+        totalRows: productsWithImageUrls,
+        totalPages: totalPages,
+        users: fields,
       };
-    });
+      console.log("check total", page, limit, data.totalPages);
+      return res.status(200).json({
+        message: "ok",
+        data: data,
+      });
+    } else {
+      const [results, fields] = await connection.execute(
+        "SELECT * FROM `product`"
+      );
 
-    return res.status(200).json({
-      message: "ok",
-      data: productsWithImageUrls,
-    });
+      // Thêm đường dẫn đầy đủ cho mỗi sản phẩm
+      const productsWithImageUrls = results.map((product) => {
+        return {
+          ...product,
+          imageUrl: `http://localhost:8081/api/v1/images/${product.mota}`,
+        };
+      });
+      return res.status(200).json({
+        message: "ok",
+        data: productsWithImageUrls,
+      });
+    }
   } catch (error) {
     console.error(error.message);
     return res.status(500).json({

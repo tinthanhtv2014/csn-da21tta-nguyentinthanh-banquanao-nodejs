@@ -1,144 +1,141 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import "./Fullitem.css";
+import ReactPaginate from "react-paginate";
+import axios from "axios";
 
-class FullItem extends React.Component {
-  constructor(props) {
-    super(props);
+const FullItem = (props) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [priceFilter, setPriceFilter] = useState("");
+  const [currentPage, setCurrentPage] = useState(3);
+  const [totalPages, setTotalPages] = useState(9);
+  const [currentLimit, setCurrentLimit] = useState(8);
 
-    this.state = {
-      data: null,
-      loading: true,
-      error: null,
-      searchTerm: "",
-      priceFilter: "", // Thêm state để lưu trữ giá trị của nút radio
-    };
-  }
+  useEffect(() => {
+    fetchData();
+  }, [currentPage]);
 
-  componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData = async () => {
+  const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:8081/api/v1/product", {
-        method: "GET",
-        mode: "cors",
-      });
-      if (!response.ok) {
-        throw new Error("Yêu cầu không thành công");
+      const response = await axios.get(
+        `http://localhost:8081/api/v1/product?page=${currentPage}&limit=${currentLimit}`
+      );
+
+      if (!response.data) {
+        throw new Error("Dữ liệu không tồn tại");
       }
 
-      const jsonResponse = await response.json();
+      const { totalRows, totalPages } = response.data.data;
 
-      this.setState({
-        data: jsonResponse.data,
-        loading: false,
-      });
-
-      console.log(jsonResponse);
+      setTotalPages(totalPages); // Cập nhật totalPages từ dữ liệu trả về
+      setData(totalRows);
     } catch (error) {
       console.error(error.message);
-      this.setState({
-        error: error.message,
-        loading: false,
-      });
+      setError(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
-  handleSearchChange = (event) => {
-    this.setState({ searchTerm: event.target.value });
+  const handlePageClick = async (event) => {
+    setCurrentPage(+event.selected + 1);
+    await fetchData(+event.selected + 1);
   };
 
-  handlePriceFilterChange = (value) => {
-    this.setState({ priceFilter: value });
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
   };
 
-  render() {
-    const { data, loading, error, searchTerm, priceFilter } = this.state;
+  const handlePriceFilterChange = (value) => {
+    setPriceFilter(value);
+  };
 
-    const filteredData =
-      data &&
-      data.length > 0 &&
-      data
-        .filter((item) =>
-          item.tensp.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-        .filter((item) =>
-          priceFilter === "200000"
-            ? item.giatien < 200000
-            : priceFilter === "300000"
-            ? item.giatien < 300000 && item.giatien >= 200000
-            : priceFilter === "500000"
-            ? item.giatien < 500000 && item.giatien >= 300000
-            : priceFilter === "700000"
-            ? item.giatien < 700000
-            : true
-        );
+  const filteredData =
+    data &&
+    data.length > 0 &&
+    data
+      .filter((item) =>
+        item.tensp.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      .filter((item) =>
+        priceFilter === "200000"
+          ? item.giatien < 200000
+          : priceFilter === "300000"
+          ? item.giatien < 300000 && item.giatien >= 200000
+          : priceFilter === "500000"
+          ? item.giatien < 500000 && item.giatien >= 300000
+          : priceFilter === "700000"
+          ? item.giatien < 700000
+          : true
+      );
 
-    return (
-      <div className="container-bottom">
-        <div className="tieude1">
-          <div>
-            <h1>Danh Sách Sản Phẩm</h1>
-          </div>
-
-          <div className="Searchfillter">
-            <div className="editinput">
-              <input
-                placeholder="tìm kiếm sản phẩm"
-                value={searchTerm}
-                onChange={this.handleSearchChange}
-              />
-            </div>
-            <div className="fillter">
-              <label>
-                <input
-                  type="radio"
-                  name="priceFilter"
-                  value="200000"
-                  checked={priceFilter === "200000"}
-                  onChange={() => this.handlePriceFilterChange("200000")}
-                />
-                Dưới 200k
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="priceFilter"
-                  value="300000"
-                  checked={priceFilter === "300000"}
-                  onChange={() => this.handlePriceFilterChange("300000")}
-                />
-                Dưới 300k
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="priceFilter"
-                  value="500000"
-                  checked={priceFilter === "500000"}
-                  onChange={() => this.handlePriceFilterChange("500000")}
-                />
-                Dưới 500k
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="priceFilter"
-                  value="700000"
-                  checked={priceFilter === "700000"}
-                  onChange={() => this.handlePriceFilterChange("700000")}
-                />
-                Tất cả
-              </label>
-            </div>
-          </div>
+  return (
+    <div className="container-bottom">
+      <div className="tieude1">
+        <div>
+          <h1>Danh Sách Sản Phẩm</h1>
         </div>
 
-        <ul className="products">
-          {filteredData &&
-            filteredData.map((item, index) => (
+        <div className="Searchfillter">
+          <div className="editinput">
+            <input
+              placeholder="tìm kiếm sản phẩm"
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+          </div>
+          <div className="fillter">
+            <label>
+              <input
+                type="radio"
+                name="priceFilter"
+                value="200000"
+                checked={priceFilter === "200000"}
+                onChange={() => handlePriceFilterChange("200000")}
+              />
+              Dưới 200k
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="priceFilter"
+                value="300000"
+                checked={priceFilter === "300000"}
+                onChange={() => handlePriceFilterChange("300000")}
+              />
+              Dưới 300k
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="priceFilter"
+                value="500000"
+                checked={priceFilter === "500000"}
+                onChange={() => handlePriceFilterChange("500000")}
+              />
+              Dưới 500k
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="priceFilter"
+                value="700000"
+                checked={priceFilter === "700000"}
+                onChange={() => handlePriceFilterChange("700000")}
+              />
+              Tất cả
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <ul className="products">
+        {filteredData && filteredData.length > 0 ? (
+          <>
+            {filteredData.map((item, index) => (
               <li key={index}>
                 <div className="product-top">
                   <a
@@ -162,10 +159,40 @@ class FullItem extends React.Component {
                 </div>
               </li>
             ))}
-        </ul>
-      </div>
-    );
-  }
-}
+          </>
+        ) : (
+          <tr>
+            <td>Không có sản phẩm nào phù hợp.</td>
+          </tr>
+        )}
+      </ul>
+
+      {totalPages > 0 && (
+        <div className="product-footer">
+          <ReactPaginate
+            nextLabel="next >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3}
+            marginPagesDisplayed={2}
+            pageCount={totalPages}
+            previousLabel="< previous"
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            previousClassName="page-item"
+            previousLinkClassName="page-link"
+            nextClassName="page-item"
+            nextLinkClassName="page-link"
+            breakLabel="..."
+            breakClassName="page-item"
+            breakLinkClassName="page-link"
+            containerClassName="pagination"
+            activeClassName="active"
+            renderOnZeroPageCount={null}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default withRouter(FullItem);
