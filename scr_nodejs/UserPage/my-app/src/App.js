@@ -15,6 +15,7 @@ import HomeSearchPage from "./HomeSearchPage";
 import HomeSearchPage2 from "./HomeSearchPage2";
 import HomeSearchPage3 from "./HomeSearchPage3";
 import FullItem from "./FullItem";
+import Login from "./Login";
 import HomePageFullitem from "./HomepageFullItem";
 function App() {
   return (
@@ -56,6 +57,12 @@ function App() {
           <Route path="/danhsachsanpham">
             <>
               <HomePageFullitem />
+            </>
+          </Route>
+
+          <Route path="/login">
+            <>
+              <Login />
             </>
           </Route>
         </Switch>
