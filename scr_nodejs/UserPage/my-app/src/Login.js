@@ -94,7 +94,9 @@ const Login = () => {
               <input type="password" required className="text-input" />
               <div className="labelline"> Password</div>
             </div>
-            <a href="">forget your password ?</a>
+            <a href="" className="tag">
+              forget your password ?
+            </a>
             <button className="btn-accept">Sign in</button>
           </form>
         </div>

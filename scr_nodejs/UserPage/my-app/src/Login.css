@@ -24,6 +24,8 @@ body {
   width: 1268px;
   max-width: 100%;
   min-height: 680px;
+  overflow: hidden;
+  padding: 30px;
 }
 
 .container1 p {
@@ -34,14 +36,14 @@ body {
 }
 
 .container1 span {
-  font-size: 12px;
+  font-size: 17px;
 }
 
 .container1 a {
-  color: #333;
+  /* color: #333; */
   font-size: 17px;
   text-decoration: none;
-  margin: 15px 0 10px;
+  margin: 45px 0 10px;
 }
 
 .container1 .btn-accept {
@@ -105,7 +107,7 @@ body {
   margin: 8px 0;
   padding: 13px 15px;
   font-size: 13px;
-  border-radius: 8px;
+
   width: 100%;
   outline: none;
 }
@@ -159,6 +161,7 @@ body {
 }
 
 .social-icons a {
+  color: black;
   margin: 40px 0;
   border-radius: 20%;
   display: inline-flex;
@@ -182,7 +185,7 @@ body {
 
 .toggle-container {
   position: absolute;
-  top: 0;
+  top: 0px;
   left: 50%;
   width: 50%;
   height: 100%;
@@ -269,6 +272,10 @@ body {
   /* z-index: 1111; */
   border: 1px solid black;
   height: 60px;
+  font-size: 20px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
 }
 
 .couple-text .labelline {
@@ -280,12 +287,14 @@ body {
 }
 
 .couple-text .text-input:focus {
-  color: black;
+  color: #512da8;
   border: 1px solid #512da8;
+  border-radius: 8px;
 }
 .couple-text .text-input:valid {
-  color: black;
+  color: #512da8;
   border: 1px solid #512da8;
+  border-radius: 8px;
 }
 
 .couple-text .text-input:focus + .labelline {
@@ -298,11 +307,25 @@ body {
   /* line-height: 30px; */
 }
 .couple-text .text-input:valid + .labelline {
-  color: black;
+  color: #512da8;
   height: 30px;
   transform: translate(4px, -28px);
   z-index: 1222;
   font-size: 15px;
   padding: 0 10px;
   /* line-height: 20px; */
+}
+
+.tag {
+  /* border-radius: 3px 0 0 3px; */
+  border: none;
+  color: grey;
+  display: inline-block;
+  height: 26px;
+  /* line-height: 26px; */
+  padding: 0 20px 0 25px;
+  position: relative;
+  margin: 0 10px 10px 0;
+  text-decoration: none;
+  -webkit-transition: color 0.2s;
 }
