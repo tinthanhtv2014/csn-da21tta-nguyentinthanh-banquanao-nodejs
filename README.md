@@ -1,136 +1,110 @@
-# csn-da21tta-nguyentinthanh-banquanao-nodejs
-đề tài: xây dựng website bán quần áo <br>
-giáo viên hướng dẫn: Võ Thành C<br>
-sinh viên thực hiện: Nguyễn Tín Thành - 110121104 - DA21TTA<br>
-email: tinthanhtv2014@gmail.com<br>
-dienthoai: 0395890398<br>
 
-### Nội dung đề tài:
+# Xây dựng hệ thống quản lý đăng ký giờ nhiệm vụ của giảng viên Khoa Kỹ thuật và Công nghệ
+
+**Giáo viên hướng dẫn:** Phạm Thị Trúc Mai  
+**Sinh viên thực hiện:** Nguyễn Tín Thành - 110121104 - DA21TTA  
+**Email:** tinthanhtv2014@gmail.com  
+**Số điện thoại:** 0395890398  
+
+### Mô tả đề tài:
 
 - **Mục tiêu:**
-  - Xây dựng website bán quần áo với các chức năng quản lý sản phẩm và thống kê cho quản trị viên.
-  - Cung cấp khả năng tra cứu thông tin sản phẩm cho người dùng.
+  - Xây dựng hệ thống quản lý đăng ký giờ nhiệm vụ của giảng viên, bao gồm việc quản lý thông tin về giờ làm việc, nghiên cứu khoa học và nhiệm vụ khác của giảng viên trong Khoa Kỹ thuật và Công nghệ.
+  - Cung cấp khả năng thống kê, báo cáo các hoạt động nghiên cứu khoa học của giảng viên.
 
 - **Chức năng cho quản trị viên:**
-  - Quản lý sản phẩm: Thêm, sửa, xóa và tìm kiếm sản phẩm.
-  - Thống kê: Hiển thị báo cáo thống kê về doanh số bán hàng.
+  - Quản lý thông tin giảng viên: Thêm, sửa, xóa và tìm kiếm giảng viên.
+  - Quản lý giờ nhiệm vụ: Đăng ký, cập nhật, xóa giờ nhiệm vụ của giảng viên.
+  - Thống kê: Hiển thị báo cáo thống kê về số giờ nghiên cứu khoa học, số giờ giảng dạy.
 
-- **Chức năng cho người dùng:**
-  - Tra cứu thông tin sản phẩm: Tìm kiếm, xem thông tin chi tiết sản phẩm.
-    
+- **Chức năng cho giảng viên:**
+  - Đăng ký giờ nhiệm vụ: Giảng viên có thể đăng ký giờ làm việc và các nhiệm vụ nghiên cứu khoa học.
+  - Xem thông tin nhiệm vụ của mình: Xem thông tin về giờ làm việc và các nhiệm vụ nghiên cứu đã đăng ký.
+
 ### Phương pháp thực hiện:
 
 1. **Tìm kiếm và Nghiên cứu:**
-   - Tìm hiểu thông tin liên quan đến website bán quần áo.
-   - Nghiên cứu tài liệu để xác định yêu cầu bài toán.
+   - Tìm hiểu thông tin liên quan đến việc quản lý giờ nhiệm vụ giảng viên.
+   - Nghiên cứu tài liệu để xác định yêu cầu và chức năng của hệ thống.
 
 2. **Phân tích và Thiết kế:**
-   - Phân tích yêu cầu bài toán.
-   - Thiết kế cơ sở dữ liệu và giao diện người dùng.
+   - Phân tích yêu cầu bài toán và thiết kế cơ sở dữ liệu.
+   - Thiết kế giao diện người dùng và hệ thống quản lý.
 
 3. **Lập trình và Triển khai:**
    - Lập trình website theo thiết kế đã xác định.
+   - Triển khai hệ thống trên môi trường thử nghiệm.
 
 4. **Kết quả đạt được:**
-   - Hoàn thành xây dựng website theo yêu cầu đề tài.
-   - Hoàn thiện quyển báo cáo đồ án.
-
+   - Hoàn thành xây dựng hệ thống quản lý giờ nhiệm vụ giảng viên.
+   - Hoàn thiện quyển báo cáo đồ án và triển khai hệ thống thực tế.
 
 ### Kế hoạch thực hiện:
 
-| Tuần | Thời gian | Nội dung công việc | Người thực hiện |
-|------|-----------|--------------------|-----------------|
-| 1    | 06/11-12/11/2023 | - Hoàn thành đề cương chi tiết <br> - Tìm hiểu nghiệp vụ <br> - Phân tích thiết kế thành phần dữ liệu, xử lý | Nguyễn Tín Thành |
-| 2    | 20/11-26/11/2023 | - Thiết kế cơ sở dữ liệu <br> - Thiết kế giao diện <br> - Lập trình <br> - Viết báo cáo đồ án | Nguyễn Tín Thành  |
-| 3    | 04/12-10/12/2023 | - Thiết kế giao diện <br> - Lập trình <br> - Viết báo cáo đồ án | Nguyễn Tín Thành  |
-| 4    | 18/12-24/12/2023 | - Thiết kế giao diện <br> - Lập trình <br> - Viết báo cáo đồ án | Nguyễn Tín Thành  |
-| Kết thúc | 25/12-31/12/2023 | - Hoàn chỉnh website <br> - Hoàn chỉnh quyển báo cáo <br> - Nộp quyển báo cáo, website | Nguyễn Tín Thành  |
+| Tuần | Thời gian         | Nội dung công việc                                               | Người thực hiện |
+|------|-------------------|------------------------------------------------------------------|-----------------|
+| 1    | 06/11-12/11/2023  | - Hoàn thành đề cương chi tiết <br> - Tìm hiểu nghiệp vụ <br> - Phân tích thiết kế cơ sở dữ liệu | Nguyễn Tín Thành |
+| 2    | 20/11-26/11/2023  | - Thiết kế cơ sở dữ liệu <br> - Thiết kế giao diện <br> - Lập trình hệ thống | Nguyễn Tín Thành |
+| 3    | 04/12-10/12/2023  | - Lập trình hệ thống <br> - Viết báo cáo đồ án <br> - Kiểm thử hệ thống | Nguyễn Tín Thành |
+| 4    | 18/12-24/12/2023  | - Hoàn thiện hệ thống <br> - Viết báo cáo đồ án <br> - Thực hiện kiểm thử | Nguyễn Tín Thành |
+| Kết thúc | 25/12-31/12/2023 | - Hoàn chỉnh hệ thống <br> - Nộp báo cáo, hệ thống lên giảng viên | Nguyễn Tín Thành |
 
+### Hướng dẫn cài đặt dự án:
 
-## Hướng dẫn cài đặt dự án
-Hướng dẫn cài đặt dự án bào gồm máy chủ node.js và React
-
-## Yêu Cầu
-
+**Yêu cầu:**
 - Xampp
 - Node.js
 - npm
 
-## Cài Đặt
+**Cài Đặt:**
 
 1. **Clone Repository:**
    ```bash
    git clone https://github.com/tinthanhtv2014/csn-da21tta-nguyentinthanh-banquanao-nodejs.git
-
+   ```
 
 2. **Cài Đặt Dependencies:**
 
-   - Chuột phải vào thư mục src_nodejs/AdminPage chọn Open in integrated Terminal
+   - Di chuyển vào thư mục `src_nodejs` và cài đặt dependencies:
    ```bash
    npm install
    ```
-   - Chuột phải vào thư mục src_nodejs/UserPage/my-app chọn Open in integrated Terminal
-    ```bash
-   npm install
-   ```
 
-4. **Cấu Hình Môi Trường:**
-   
-   - Tạo một tệp `.env` từ tệp `.env.example` và điền thông tin cần thiết (env có sẵn trong dự án).
+3. **Cấu Hình Môi Trường:**
 
-6. **Chạy Ứng Dụng:**
+   - Tạo tệp `.env` từ tệp `.env.example` và điền thông tin cần thiết (cấu hình môi trường trong dự án).
 
-   - Import file src/quanlysanpham.sql vào Xampp
-   - Mở visual studio code Open dự án
-   - Chuột phải vào thư mục src_nodejs/AdminPage chọn Open in integrated Terminal
+4. **Chạy Ứng Dụng:**
+
+   - Import file `src/quanlygio.sql` vào Xampp.
+   - Mở Visual Studio Code và mở dự án.
+   - Di chuyển đến thư mục `src_nodejs` và chạy ứng dụng:
    ```bash
    npm run start
    ```
 
-   - Hoặc sử dụng `nodemon` để tự động khởi động lại ứng dụng khi có thay đổi (đã được cài sẵn):
-
+   - Hoặc sử dụng `nodemon` để tự động khởi động lại ứng dụng khi có thay đổi:
    ```bash
    npm install -g nodemon
    nodemon
    ```
 
-## Đóng Góp
+### Đóng Góp:
 
 Nếu bạn muốn đóng góp vào dự án, vui lòng làm theo các bước sau:
-
 1. Fork dự án
-2. Tạo một nhánh (`git checkout -b feature/awesome-feature`)
+2. Tạo nhánh mới (`git checkout -b feature/awesome-feature`)
 3. Commit thay đổi của bạn (`git commit -am 'Add some awesome feature'`)
 4. Push đến nhánh của bạn (`git push origin feature/awesome-feature`)
-5. Tạo một Pull Request
+5. Tạo Pull Request
 
-## Vấn Đề và Đóng Góp
-
-Nếu bạn gặp vấn đề hoặc muốn đóng góp, vui lòng tạo một "issue" hoặc một "pull request".
-
-## Liên Hệ
-
-Nếu bạn có bất kỳ câu hỏi hoặc muốn liên hệ với tôi về dự án, bạn có thể sử dụng các thông tin sau:
+### Liên Hệ:
 
 - **Trường Đại học:** Đại học Trà Vinh
 - **Lớp:** DA21TTA
 - **Tên:** Nguyễn Tín Thành
-- **Email:** [Tinthanhtv2014@gmail.com](mailto:Tinthanhtv2014@Gmail.com)
+- **Email:** [tinthanhtv2014@gmail.com](mailto:tinthanhtv2014@gmail.com)
 
-Tôi rất mong nhận được phản hồi và sự hỗ trợ từ cộng đồng. Đừng ngần ngại liên hệ nếu bạn có bất kỳ ý kiến đóng góp hoặc câu hỏi nào liên quan đến dự án.
+--- 
 
-## Kế Hoạch Thực Hiện
-ngày 6/11 - ngày 11/11: tạo cơ sở dữ liệu cho dự án và đưa lên github <br>
-ngày 13/11: thêm chức năng add thêm data vào cơ sở dữ liệu <br>
-ngày 14/11: thêm chức năng xóa và edit dữ liệu <br>
-ngày 19/11: thêm ảnh vào cơ sở dữ liệu và đưa lên trang nodejs đồng thời thêm chức năng thêm ảnh, update ảnh cho dự án. Fix các lỗi liên quan đến file ảnh <br>
-ngày 20/11: tạo ra dự ấn frontend cho trang web <br>
-ngày 21/11: tạo thanh navbar cho trang web <br>
-ngày 22/11: tạo slide và tiến hành lấy api từ dự án nodejs lên dự án reactjs <br>
-ngày 23/11: thiết kế lại cơ sở dữ liệu và thêm chức năng chọn các option tạo thêm sản phẩm cho trang nodejs <br>
-ngày 29/11: up dữ liệu và các sản phẩm lên reactjs <br>
-ngày 1/12: tạo trang hiển thị thông chi tiết cho sản phẩm <br>
-ngày 2/12: tạo trang đặt hàng <br>
-ngày 3/12: tiến hành lấy dữ liệu từ reactjs về nodejs thông qua nút đặt hàng <br>
-ngày 6/12: fix 1 vài lỗi khi bấm nút đặt hàng mà không điền thông tin thì thông báo nhập lại <br>
-ngày 10/12: nâng cấp giao diện cho trang nodejs và tiến hành thêm các nút lọc dựa theo các tiêu chí
+Hy vọng bản sửa lại này sẽ phù hợp với yêu cầu của bạn!
